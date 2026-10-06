@@ -1,12 +1,12 @@
 """Package allowlisted static assets for PRIVATE publication review, never deploy.
 
-The source-derived model is deliberately excluded pending privacy/license audit.
-The resulting review archive is not a complete public ML release.
+Default: incomplete model-free review archive. --complete: audited static release
+candidate with the unchanged frozen model. Neither mode authorizes deployment.
 """
 import argparse,hashlib,json,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-ASSETS=('index.html','app.js','styles.css','core.js','examples.js','experimental.js','experimental-client.js','experimental-worker.js','review-demo.js','illustrative-suggestion.js','review-model-info.js','review-model-NOTICE.txt','example-NOTICE.txt')
+ASSETS=('index.html','app.js','styles.css','core.js','examples.js','experimental.js','experimental-client.js','experimental-worker.js','review-demo.js','illustrative-suggestion.js','review-model-info.js','review-model-NOTICE.txt','example-NOTICE.txt','THIRD-PARTY-NOTICES.txt')
 BLOCKER='PRIVATE PUBLICATION REVIEW ONLY. Model data module omitted: privacy/license clearance pending. Rules work; ML controls and handler are disabled before any worker/model request. Do not publish this archive as a complete ML app. No deployment authorized. Configure HTTPS and enforce response security headers; _headers syntax is host-specific and must be verified on the actual host. No raw dataset or research files are included.\n'
 def review_asset(name, data):
     """Explicit review-only UI; no worker/model request can start from controls."""
@@ -28,15 +28,23 @@ def review_asset(name, data):
         return text.encode()
     return data
 
-def package(output):
+def package(output, complete=False):
     inventory=[]
+    assets=ASSETS+('review-model-data.js',) if complete else ASSETS
+    model_sha='10bf769e803e38cd50aef8af86599b482e9e585fc8e59c95a711d517774ec164'
+    if complete:
+        module=(ROOT/'web/review-model-data.js').read_text()
+        payload=json.loads(module.split('export default ',1)[1].strip().removesuffix(';')).encode()
+        if len(payload)!=1866714 or hashlib.sha256(payload).hexdigest()!=model_sha:raise ValueError('Frozen model changed; release aborted')
     with zipfile.ZipFile(output,'x',compression=zipfile.ZIP_DEFLATED) as archive:
-        for name in ASSETS:
-            data=review_asset(name,(ROOT/'web'/name).read_bytes());archive.writestr(name,data)
+        for name in assets:
+            data=(ROOT/'web'/name).read_bytes()
+            if not complete:data=review_asset(name,data)
+            archive.writestr(name,data)
             inventory.append({'path':name,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
         archive.writestr('_headers',(ROOT/'deployment/_headers').read_bytes())
-        archive.writestr('PUBLICATION-BLOCKED.txt',BLOCKER)
-        archive.writestr('asset-manifest.json',json.dumps({'publication_approved':False,'model_included':False,'assets':inventory},indent=2))
-    return {'archive':str(output),'bytes':output.stat().st_size,'sha256':hashlib.sha256(output.read_bytes()).hexdigest(),'publication_approved':False,'model_included':False,'asset_count':len(inventory)}
+        archive.writestr('RELEASE-REVIEW.txt' if complete else 'PUBLICATION-BLOCKED.txt', 'Complete static candidate; not deployed and deployment is not authorized. Includes the unchanged source-derived model and third-party notices. Serve only after user approval over HTTPS with enforced response CSP/frame/no-referrer headers; verify no analytics and cold loading on the chosen host. Residual provenance/rights limitations are in THIRD-PARTY-NOTICES.txt.\n' if complete else BLOCKER)
+        archive.writestr('asset-manifest.json',json.dumps({'publication_approved':False,'model_included':complete,'model_payload_sha256':model_sha if complete else None,'assets':inventory},indent=2))
+    return {'archive':str(output),'bytes':output.stat().st_size,'sha256':hashlib.sha256(output.read_bytes()).hexdigest(),'publication_approved':False,'model_included':complete,'asset_count':len(inventory)}
 if __name__=='__main__':
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('output',type=Path);args=parser.parse_args();print(json.dumps(package(args.output)))
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('output',type=Path);parser.add_argument('--complete',action='store_true',help='Include the audited unchanged model; never deploy');args=parser.parse_args();print(json.dumps(package(args.output,args.complete)))

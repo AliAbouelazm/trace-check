@@ -1,6 +1,6 @@
-# Private publication review, not deployment approval
+# Static release candidate, not deployment approval
 
-The private app remains functional with the unchanged model. Public publication is blocked by source-derived vocabulary privacy and upstream licensing questions. Do not publish the unchanged model, claim it is sanitized, or treat dataset availability as proof that embedded values are harmless.
+The unchanged frozen model is retained for a complete static release candidate after source-context review. The flagged credential/name/payment-ID families are benchmark fixture material, and the remaining long numeric candidates are simulated identifiers or conversion-number fragments. This resolves the specific candidate audit; it does not make the vocabulary anonymous or establish universal upstream rights clearance. No deployment or visibility change is authorized. See the bundled THIRD-PARTY-NOTICES.txt for license texts, provenance and residual limitations.
 
 ## Illustrations and honest outputs
 
@@ -10,9 +10,9 @@ The second handwritten example successfully reads a café menu. The non-ASCII fe
 
 ## Current vocabulary audit
 
-Exact `password <word>` and `token <word>` vocabulary filters matched two and one candidates respectively. All three trace to immutable TRAIN BFCL content: 84 occurrences in seven task groups, 50 in user messages and 34 in assistant messages; 73 content fields and 11 tool-argument fields. Literal values are excluded from this report. A subsequent read-only check pinned official gorilla commit `6ea57973c7a6097fd7c5915698c54c17c5b1b6c8`. All seven source user-message sequences exactly match official `multi_turn_base_151`, `175`, `177`, `184`, `189`, `190`, and `195` fixtures. All three candidates occur in their initial_config password/access_token fields. The posting API loads scenario credentials into memory and compares them locally; the travel API loads scenario tokens and simulates bookings with in-memory balances and generated transaction IDs. This is concrete simulated-fixture provenance for these three candidates, not a blanket clearance for the entire vocabulary. Card/phone/name-ID patterns remain within the independent publication auditor's broader review; this narrow check is not an exhaustive privacy audit.
+Exact `password <word>` and `token <word>` vocabulary filters matched two and one candidates respectively. All three trace to immutable TRAIN BFCL content: 84 occurrences in seven task groups, 50 in user messages and 34 in assistant messages; 73 content fields and 11 tool-argument fields. Literal values are excluded from this report. A subsequent read-only check pinned official gorilla commit `6ea57973c7a6097fd7c5915698c54c17c5b1b6c8`. All seven source user-message sequences exactly match official `multi_turn_base_151`, `175`, `177`, `184`, `189`, `190`, and `195` fixtures. All three candidates occur in their initial_config password/access_token fields. The posting API loads scenario credentials into memory and compares them locally; the travel API loads scenario tokens and simulates bookings with in-memory balances and generated transaction IDs. This is concrete simulated-fixture provenance for these three candidates, not a blanket clearance for the entire vocabulary. The independent auditor additionally matched all 42 flagged name/user IDs and 36 credit/gift/certificate IDs to official tau2 airline/retail fixtures, the phone prefix to its telecom database, and 121 of 126 long numeric terms to BFCL/tau2 fixtures. The bounded remaining-index check is recorded below. These are candidate-family findings, not an exhaustive anonymization claim.
 
-Remediation options for parent review, with no implementation yet:
+Historical fallback options, not needed or authorized by the resolved candidate findings:
 
 1. Keep the unchanged model private and release only the rules app. This preserves private predictions and removes the public vocabulary disclosure surface.
 2. Obtain evidence and rights clearance for each flagged family. Public benchmark origin alone is insufficient.
@@ -27,7 +27,9 @@ Firefox and WebKit binaries are absent. Their official browser-download host was
 
 ## Review bundle
 
-Run `python3 scripts/package_public_review.py /tmp/tracecheck-publication-review.zip`. It includes an explicit allowlist of static app assets, handwritten examples, notices, manifest and proposed response headers. No repository history, dataset, research logs, model coefficients/vocabulary, or environment files are included. The model module is intentionally omitted pending audit, so this is a private review bundle and not a complete deployable ML release. A prominent incomplete-review banner is added only to packaged HTML; bundled ML controls and the change handler are disabled before any worker/model request. Rules remain usable. The private app is unchanged. Parent must resolve the blocker before preparing a complete release.
+Run `python3 scripts/package_public_review.py /tmp/tracecheck-static-candidate.zip --complete` for the complete candidate. The builder checks the unchanged model payload byte count and SHA-256, then packages only the explicit static-asset allowlist, handwritten examples, notices, manifest and proposed response headers. No repository history, raw dataset, research logs or environment files are included. The model vocabulary/coefficients are included intentionally as the app's learned artifact, with source-derived-term warnings and no new license grant for Trace Check.
+
+Without --complete, the earlier private review mode still omits the model, adds an INCOMPLETE PRIVATE REVIEW BUNDLE banner and disables ML controls/handler before any worker request. It must not be mistaken for the complete candidate. Neither mode deploys or changes visibility.
 
 Serve over HTTPS with actual response CSP including frame-ancestors, X-Frame-Options, nosniff, no-referrer and appropriate cache policy. The included _headers format is host-specific; server.py headers do not automatically transfer to static hosting. Verify actual response headers and cold loading on the chosen host before publication. No hosting account, deploy operation or visibility change is authorized by preparing this archive.
 
@@ -38,4 +40,17 @@ Official provenance sources for the narrow credential check:
 - [Posting API scenario loading and local authentication, lines 29-65](https://github.com/ShishirPatil/gorilla/blob/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/berkeley-function-call-leaderboard/bfcl_eval/eval_checker/multi_turn_eval/func_source_code/posting_api.py#L29).
 - [Travel API scenario state, lines 41-78](https://github.com/ShishirPatil/gorilla/blob/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/berkeley-function-call-leaderboard/bfcl_eval/eval_checker/multi_turn_eval/func_source_code/travel_booking.py#L41) and [simulated booking, lines 465-586](https://github.com/ShishirPatil/gorilla/blob/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/berkeley-function-call-leaderboard/bfcl_eval/eval_checker/multi_turn_eval/func_source_code/travel_booking.py#L465).
 
-No candidate literals were sent to external search or copied into this evidence note. The independent auditor owns remaining identifier-family and licensing conclusions. Public notices and a complete model-containing bundle must await those conclusions.
+No candidate literals were sent to external search or copied into this evidence note. The independent auditor supplied the broader identifier-family and upstream-notice review before the complete model-containing candidate was prepared. Deployment remains a separate user decision.
+
+
+## Final seven-index TRAIN context check (no literal values)
+
+| Vocabulary index | TRAIN source and representative location | Classification |
+|---|---|---|
+| 1058, 1060 | gaia_dev query 6, sample 0, search-result messages 19/23/25/37/39/43/47; 7 field occurrences each | Fractional-digit tokens from decimal unit-conversion values in retrieved content, not credential/identity fields. No raw GAIA content is bundled. |
+| 1094 | bfcl query 40, sample 0, register_credit_card result message 9 and book_flight arguments message 12; 12 occurrences | Simulated card_id; official travel_booking.py lines 183-219 generates an in-memory random ID. |
+| 1183 | bfcl query 48, samples 1/3, purchase_insurance result message 13; 10 occurrences | Simulated insurance_id; official travel_booking.py lines 857-892 generates an in-memory random ID. |
+| 1316 | bfcl query 21, sample 0, liter_to_gallon call message 3, result message 4; 7 occurrences | Fractional digits of conversion output; arithmetic matches liter-to-US-gallon conversion within 1e-5 relative tolerance. |
+| 4220, 4222 | bfcl query 40, register_credit_card arguments (sample 0 message 8); 5 occurrences each | Card-number/verification bigrams; value tokens match official multi_turn_base_172 fixture. |
+
+All checks used immutable TRAIN routing and the unchanged artifact. No TEST messages, fit, threshold search, external literal-value search or silent vocabulary edits were used. The public paper's Appendix F describes LLM-generated trajectories; simulator/fixture matching supplies the stronger specific evidence for the flagged structured families.

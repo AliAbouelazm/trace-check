@@ -9,8 +9,9 @@ Data source: https://github.com/RUCBM/AgentProcessBench
 Snapshot: 0a42606b178a8c69d40c5765dc05c342f921e578
 Dataset card: https://huggingface.co/datasets/LulaCola/AgentProcessBench
 Publisher license declaration: MIT. The source GitHub snapshot has no separate
-LICENSE file. This notice does not assert independent clearance of upstream
-material. No public deployment or public redistribution is authorized here.
+LICENSE file. See THIRD-PARTY-NOTICES.txt for upstream licenses, fixture provenance and
+residual rights limitations. The candidate static bundle has not been deployed;
+deployment requires separate user authorization.
 
 The JSON contains learned coefficients, IDF weights and source-derived unigram/
 bigram vocabulary. It contains no full raw trace fields. Vocabulary can retain

@@ -24,4 +24,4 @@ Review notes contain the redacted run, positional results, coverage, truncation,
 
 The bundled vocabulary is source-derived and not anonymous. The source dataset card declares MIT; the source GitHub snapshot has no standalone LICENSE, and upstream clearance was not independently established. The [retained model notice](../web/review-model-NOTICE.txt) records that limitation. This work is in the existing private repository; no deployment, visibility change, or public redistribution was performed.
 
-New handwritten positive/benign examples and the blocked public-release review are described in [publication review](publication-review.md).
+New handwritten positive/benign examples and the static release-candidate review are described in [publication review](publication-review.md).
