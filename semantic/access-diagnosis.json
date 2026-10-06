@@ -1,0 +1,26 @@
+{
+  "classification": "HTTP proxy CONNECT refusal before upstream TLS",
+  "environment_request": {
+    "method": "GET",
+    "url": "https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2?blobs=true",
+    "attempt_count": 1,
+    "weight_download_requests": 0
+  },
+  "proxy": {
+    "http_proxy": "http://proxy:8080",
+    "https_proxy": "http://proxy:8080",
+    "credentials_present": false,
+    "huggingface_in_no_proxy": false
+  },
+  "observed_error": "urllib.error.URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+  "connect_target": "huggingface.co:443",
+  "response_headers": null,
+  "response_body": null,
+  "response_capture_limit": "The original Python process exited. Its HTTPConnection retained proxy headers only in memory; no headers were printed or persisted, and the failure path closed the connection without reading the body.",
+  "supported_conclusion": "The HTTPS tunnel was refused by the configured proxy path before a Hugging Face HTTPS API response could be received.",
+  "not_established": "The exact proxy policy, saved allowlist rule, upstream-proxy reason or whether an allowlist expansion would suffice cannot be established from the retained error.",
+  "changes_made": [],
+  "network_retries": 0,
+  "alternate_download_routes": 0,
+  "remaining_blocker": "Parent must obtain the environment policy/status or explicit authorization for any necessary access change. No bypass was attempted."
+}
