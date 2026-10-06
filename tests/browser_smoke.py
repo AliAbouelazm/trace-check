@@ -1,7 +1,6 @@
 """Starts the local app server, or uses TRACE_CHECK_URL when supplied."""
 import json
 import os
-import shutil
 import atexit
 import socket
 import subprocess
@@ -10,6 +9,7 @@ import time
 import urllib.request
 from pathlib import Path
 from playwright.sync_api import sync_playwright, expect
+from browser_support import launch_chromium, keyboard_picker, PICKER_EVENTS
 
 url = os.environ.get('TRACE_CHECK_URL')
 if not url:
@@ -26,8 +26,11 @@ if not url:
         except OSError: time.sleep(.1)
     else: raise RuntimeError('Local server did not start')
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True, executable_path=os.environ.get("CHROMIUM_PATH") or shutil.which("chromium"))
+    browser = launch_chromium(p)
     page = browser.new_page(viewport={'width': 1280, 'height': 1000})
+    console_messages = []
+    page.add_init_script(PICKER_EVENTS)
+    page.on('console', lambda message: console_messages.append({'type':message.type,'text':message.text}))
     errors = []
     requests = []
     page.on('pageerror', lambda error: errors.append(str(error)))
@@ -47,9 +50,8 @@ with sync_playwright() as p:
     page.locator('#choose').focus()
     expect(page.locator('#choose')).to_be_focused()
     assert page.locator('#choose').evaluate("element => getComputedStyle(element).outlineStyle !== 'none'")
-    with page.expect_file_chooser() as chooser:
-        page.keyboard.press('Enter')
-    chooser.value.set_files({'name':'sample.json','mimeType':'application/json','buffer':sample_bytes})
+    chooser = keyboard_picker(page, 'choose', console_messages)
+    chooser.set_files({'name':'sample.json','mimeType':'application/json','buffer':sample_bytes})
     expect(page.locator('#review')).to_be_visible()
     expect(page.locator('#run-title')).to_be_focused()
     expect(page.locator('#load-status')).to_contain_text('Loaded 9 steps')
@@ -163,6 +165,9 @@ with sync_playwright() as p:
     # malformed upload in a fresh context, and wait for actual document focus.
     page.close()
     page = browser.new_page(viewport={'width': 1280, 'height': 1000})
+    page.add_init_script(PICKER_EVENTS)
+    console_messages.clear()
+    page.on('console', lambda message: console_messages.append({'type':message.type,'text':message.text}))
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.on('request', lambda request: requests.append((request.method, request.url)))
     page.goto(url)
@@ -174,10 +179,9 @@ with sync_playwright() as p:
     # Tab from the error to retry, then open the picker with Enter.
     page.keyboard.press('Tab')
     expect(page.locator('#retry')).to_be_focused()
-    with page.expect_file_chooser() as chooser:
-        page.keyboard.press('Enter')
+    chooser = keyboard_picker(page, 'retry', console_messages)
     parallel=(Path(__file__).resolve().parent/'fixtures/parallel-tools.json').read_bytes()
-    chooser.value.set_files({'name':'parallel.json','mimeType':'application/json','buffer':parallel})
+    chooser.set_files({'name':'parallel.json','mimeType':'application/json','buffer':parallel})
     expect(page.locator('#run-title')).to_have_text('parallel-local-review')
     expect(page.locator('#run-title')).to_be_focused()
     expect(page.locator('#review-note')).to_contain_text('does not establish')

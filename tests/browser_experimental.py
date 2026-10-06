@@ -3,13 +3,13 @@ import json
 import math
 import os
 from pathlib import Path
-import shutil
 import socket
 import subprocess
 import sys
 import threading
 import time
 import urllib.request
+from browser_support import launch_chromium
 from playwright.sync_api import sync_playwright
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'experimental'))
 from contract import artifact, encode
@@ -54,7 +54,7 @@ try:
         return {'envelope_version':1,'run':{'schema_version':1,'run_id':'synthetic-load','task':'Synthetic preflight','status':'completed','steps':steps},'messages':[{'role':'assistant','step_ids':[str(i)]} for i in range(count)]}
     loads=[('representative',data['envelopes'][0]),('max-groups',envelope(2000,terms[:800])),('max-fields',envelope(20,'a.'*49999+'@'))]
     with sync_playwright() as p:
-        browser=p.chromium.launch(headless=True,executable_path=os.environ.get('CHROMIUM_PATH') or shutil.which('chromium'))
+        browser=launch_chromium(p)
         page=browser.new_page();errors=[];requests=[]
         page.on('pageerror',lambda error:errors.append(str(error)))
         page.on('request',lambda request:requests.append((request.method,request.url)))
