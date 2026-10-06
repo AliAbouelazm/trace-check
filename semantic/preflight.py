@@ -16,6 +16,7 @@ import sys
 import tempfile
 from bounded import run_bounded
 from provenance import verify_lock
+from publication import publish_preflight
 from unittest.mock import patch
 from contract import WEIGHTS,REVISION,parts_with_audit,allocate,mean_normalize,tool_call_token_audit
 
@@ -132,14 +133,13 @@ if __name__=='__main__':
     if args.output.exists():parser.error('Output must be new')
     if args._supervised_worker:
         result=run(args.model_dir)
+        with args.output.open('x') as output:json.dump(result,output,indent=2,allow_nan=False)
     else:
         with tempfile.TemporaryDirectory(prefix='tracecheck-synthetic-') as temporary:
             result_path=Path(temporary)/'result.json'
             supervised=run_bounded([sys.executable,str(Path(__file__).resolve()),'--model-dir',str(args.model_dir.resolve()),'--output',str(result_path),'--_supervised-worker'])
-            if supervised['stop_reason'] or supervised['exit_code'] or not result_path.is_file():
-                print(json.dumps({'status':'preflight-failed','supervision':supervised}),file=sys.stderr)
+            try:
+                publish_preflight(result_path,args.output,supervised)
+            except (ValueError,OSError) as error:
+                print(json.dumps({'status':'preflight-failed','reason':str(error),'supervision':supervised}),file=sys.stderr)
                 raise SystemExit(1)
-            result=json.loads(result_path.read_text())
-            result['supervision']=supervised
-            result['limits']={'wall_seconds':120,'sampled_process_group_rss_mib':2048}
-    with args.output.open('x') as output:json.dump(result,output,indent=2,allow_nan=False)

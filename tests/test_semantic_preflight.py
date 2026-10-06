@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parents[1]
 def load(name):
     spec=importlib.util.spec_from_file_location('semantic_'+name,ROOT/'semantic'/f'{name}.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
-bounded=load('bounded');provenance=load('provenance');contract=load('contract')
+publication=load('publication');bounded=load('bounded');provenance=load('provenance');contract=load('contract')
 
 class SemanticPreflightTests(unittest.TestCase):
     def test_limits_kill_timeout_memory_and_refuse_increases(self):
@@ -69,3 +69,24 @@ class SemanticPreflightTests(unittest.TestCase):
         self.assertEqual(result[1]['tokens_retained'],0)
         self.assertTrue(result[1]['removed_entirely'])
         self.assertTrue(result[2]['removed_entirely'])
+
+    def test_final_publication_rejects_successful_exit_over_budget(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            stage=Path(temporary)/'stage.json';output=Path(temporary)/'published.json'
+            # Invalid staged JSON proves resource rejection happens before reading it.
+            stage.write_text('not JSON')
+            base={'exit_code':0,'stop_reason':None,'elapsed_seconds':120,'sampled_peak_group_rss_kib':2048*1024}
+            cases=[{'elapsed_seconds':120.000001},{'sampled_peak_group_rss_kib':2048*1024+1},
+                   {'elapsed_seconds':-1},{'elapsed_seconds':float('nan')},{'elapsed_seconds':float('inf')},
+                   {'sampled_peak_group_rss_kib':-1},{'sampled_peak_group_rss_kib':float('nan')},
+                   {'sampled_peak_group_rss_kib':float('inf')},{'elapsed_seconds':None},
+                   {'sampled_peak_group_rss_kib':True},{'exit_code':1},{'stop_reason':'wall-time'}]
+            for change in cases:
+                with self.subTest(change=change):
+                    with self.assertRaisesRegex(ValueError,'Final preflight resource'):
+                        publication.publish_preflight(stage,output,{**base,**change})
+                    self.assertFalse(output.exists())
+            stage.write_text(json.dumps({'status':'synthetic-preflight-only','benchmark_rows_encoded':0,'head_fits':0}))
+            publication.publish_preflight(stage,output,base)
+            self.assertEqual(json.loads(output.read_text())['supervision'],base)
+            with self.assertRaises(FileExistsError):publication.publish_preflight(stage,output,base)
