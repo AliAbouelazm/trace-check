@@ -20,3 +20,15 @@ test('frozen reconstructed artifact matches recorded bytes, hash, cutoff and Pyt
     else actual.scores.forEach((value,i)=>assert.ok(Math.abs(value-item.expected.scores[i])<=1e-6));
   }
 });
+
+test('handwritten positive survives redaction; benign Unicode abstains',async()=>{
+  const {illustrationEnvelope}=await import('../web/illustrative-suggestion.js');
+  const {unicodeEnvelope}=await import('../web/review-demo.js');
+  const {parseEnvelope,feature}=await import('../web/experimental.js');
+  const {redactRun}=await import('../web/core.js');
+  const model=parseArtifact(data);
+  const before=score(model,feature(parseEnvelope(JSON.stringify(illustrationEnvelope)),3));
+  const after=score(model,feature(parseEnvelope(JSON.stringify({...illustrationEnvelope,run:redactRun(illustrationEnvelope.run).run})),3));
+  assert.deepEqual(before,after);assert.equal(after.suggestion,true);assert.ok(Math.abs(after.scores[0]-.7298843715186238)<1e-12);
+  assert.equal(score(model,feature(parseEnvelope(JSON.stringify(unicodeEnvelope)),1)).abstention,'unsupported-unicode');
+});

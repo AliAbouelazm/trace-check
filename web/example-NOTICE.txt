@@ -1,0 +1,9 @@
+All gallery traces in this branch are handwritten illustrations, not raw dataset examples.
+The suggestion illustration is inspired by a generic file-command pattern inspected
+in AgentProcessBench development validation. It was deliberately selected for a
+positive output. One initial version using folder "demo" scored 0.6299316024;
+using "WebDevProjects" in the command context crossed 0.70. This sensitivity is
+explicit in the app and is not a reliability or generalization claim.
+No GAIA, HotpotQA, TEST, or raw development trace is packaged in the gallery.
+The fixed model itself remains unchanged, source-derived and not anonymous. Its separate model and third-party notices
+retain provenance, audited fixture classifications and residual rights limits.

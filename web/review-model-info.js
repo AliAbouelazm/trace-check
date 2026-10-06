@@ -3,7 +3,7 @@ export const REVIEW_MODEL = Object.freeze({
   "sha256": "10bf769e803e38cd50aef8af86599b482e9e585fc8e59c95a711d517774ec164",
   "bytes": 1866714,
   "cutoff": 0.7,
-  "source": {"repository":"https://github.com/RUCBM/AgentProcessBench","revision":"0a42606b178a8c69d40c5765dc05c342f921e578","license_declaration":"MIT; upstream clearance not independently established","notice":"review-model-NOTICE.txt"},
+  "source": {"repository":"https://github.com/RUCBM/AgentProcessBench","revision":"0a42606b178a8c69d40c5765dc05c342f921e578","license_declaration":"Publisher MIT declaration; see THIRD-PARTY-NOTICES.txt for upstream provenance and residual rights limitations","notice":"review-model-NOTICE.txt"},
   "kind": "reconstructed-manual-review",
   "feature_contract": "original-messages-v1",
   "automatic_promotion_eligible": false,

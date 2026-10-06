@@ -153,6 +153,46 @@ try:
         page.wait_for_function("() => !document.querySelector('#ml-export').disabled")
         assert '2 unsupported' in page.locator('#ml-status').inner_text()
         assert 'unsupported-unicode' in page.locator('#ml-results').inner_text()
+        # Real illustrative positive and explicit benign support boundary.
+        page.locator('#ml-development').click();page.locator('#ml-enable').check()
+        page.wait_for_function("() => !document.querySelector('#ml-export').disabled")
+        assert page.locator('.ml-card.suggested').count()==1
+        assert '0.7299' in page.locator('.ml-card.suggested').inner_text()
+        assert 'index.html' in page.locator('.ml-card.suggested').inner_text()
+        page.locator('.ml-card.suggested summary').click()
+        window=page.locator('.ml-card.suggested details pre').inner_text()
+        assert 'cd' in window and 'echo' in window and 'index.html' in window
+        assert 'styles.css' not in window and 'No such file' not in window
+        assert 'does not show that the model recognized' in page.locator('#example-evidence').inner_text()
+        assert 'NOT an unseen benchmark' in page.locator('#example-evidence').inner_text()
+        page.set_viewport_size({'width':390,'height':844})
+        assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+        page.locator('#ml-unicode').click();page.locator('#ml-enable').check()
+        page.wait_for_function("() => !document.querySelector('#ml-export').disabled")
+        assert '1 unsupported' in page.locator('#ml-status').inner_text()
+        page.set_viewport_size({'width':1280,'height':900})
+        # Cold uncached local asset: transfer takes >2 seconds but remains within
+        # the independent 15-second loading budget. No timeout increase for CPU.
+        session=page.context.new_cdp_session(page)
+        session.send('Network.enable');session.send('Network.setCacheDisabled',{'cacheDisabled':True})
+        session.send('Network.emulateNetworkConditions',{'offline':False,'latency':20,'downloadThroughput':500000,'uploadThroughput':500000})
+        page.locator('#ml-development').click();page.locator('#ml-enable').check()
+        page.wait_for_function("() => !document.querySelector('#ml-export').disabled")
+        assert page.locator('.ml-card.suggested').count()==1
+        with page.expect_download() as cold:page.locator('#ml-export').click()
+        cold_notes=json.loads(Path(cold.value.path()).read_text())
+        assert cold_notes['elapsed_ms']>2000 and cold_notes['inference_ms']<2000
+        metrics['cold_bundled_total_ms']=cold_notes['elapsed_ms'];metrics['cold_bundled_inference_ms']=cold_notes['inference_ms']
+        # Cancel, clear and replacement during transfer cannot publish stale results.
+        page.locator('#ml-development').click();page.locator('#ml-enable').check();page.locator('#ml-cancel').click()
+        assert 'cancelled' in page.locator('#ml-status').inner_text() and page.locator('#ml-export').is_disabled()
+        page.locator('#ml-development').click();page.locator('#ml-enable').check();page.locator('#clear').click()
+        assert page.locator('#review').is_hidden()
+        page.locator('#ml-development').click();page.locator('#ml-enable').check();page.locator('#ml-unicode').click()
+        assert not page.locator('#ml-enable').is_checked() and page.locator('#ml-export').is_disabled()
+        session.send('Network.emulateNetworkConditions',{'offline':False,'latency':0,'downloadThroughput':-1,'uploadThroughput':-1});session.detach()
+        limit=page.evaluate("""async () => {const {reviewBundled}=await import('./experimental-client.js');const {demoEnvelope}=await import('./review-demo.js');try {await reviewBundled(JSON.stringify(demoEnvelope),{loadTimeoutMs:1});return 'FAILED';}catch(e){return e.message;}}""")
+        assert 'load/verification time limit' in limit
         # Integrity failure is surfaced; neither rules nor the run disappear.
         page.locator('#clear').click()
         page.route('**/review-model-data.js',lambda route:route.fulfill(status=200,content_type='text/javascript',body='export default "{}";'))
