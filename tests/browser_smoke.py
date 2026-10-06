@@ -36,11 +36,23 @@ with sync_playwright() as p:
     assert response.headers['cache-control'] == 'no-store'
     assert "connect-src 'none'" in response.headers['content-security-policy']
     assert "frame-ancestors 'none'" in response.headers['content-security-policy']
+    page.keyboard.press('Tab')
+    expect(page.get_by_role('link', name='Skip to main content')).to_be_focused()
+    page.keyboard.press('Enter')
+    expect(page.locator('#main')).to_be_focused()
+    page.locator('#sample').focus()
     with page.expect_download() as event:
-        page.get_by_role('button', name='Download sample', exact=True).click()
+        page.keyboard.press('Enter')
     sample_bytes = Path(event.value.path()).read_bytes()
-    page.locator('#file').set_input_files({'name':'sample.json','mimeType':'application/json','buffer':sample_bytes})
+    page.locator('#choose').focus()
+    expect(page.locator('#choose')).to_be_focused()
+    assert page.locator('#choose').evaluate("element => getComputedStyle(element).outlineStyle !== 'none'")
+    with page.expect_file_chooser() as chooser:
+        page.keyboard.press('Enter')
+    chooser.value.set_files({'name':'sample.json','mimeType':'application/json','buffer':sample_bytes})
     expect(page.locator('#review')).to_be_visible()
+    expect(page.locator('#run-title')).to_be_focused()
+    expect(page.locator('#load-status')).to_contain_text('Loaded 9 steps')
     page.get_by_role('button', name='Explore and recover', exact=True).click()
     assert page.locator('.step').count() == 9
     assert page.locator('.flag').count() == 1
@@ -49,7 +61,12 @@ with sync_playwright() as p:
     page.locator('#flagged').uncheck()
     page.locator('#search').fill('Node.js')
     assert page.locator('.step').count() == 1
-    page.locator('#search').fill('')
+    page.locator('#search').fill('no-step-can-match-this')
+    expect(page.locator('.empty')).to_contain_text('Clear filters')
+    page.locator('#reset-filters').focus()
+    page.keyboard.press('Enter')
+    expect(page.locator('#search')).to_be_focused()
+    assert page.locator('.step').count() == 9
     page.locator('#kind').select_option('tool_call')
     assert page.locator('.step').count() == 3
     page.get_by_role('button', name='Repeated calls and missing evidence', exact=True).click()
@@ -67,6 +84,9 @@ with sync_playwright() as p:
     assert report['redaction_count'] == 2
     assert 'supersecret' not in json.dumps(report)
     assert '_flags' not in report['run']['steps'][0]
+    schema=json.loads((Path(__file__).resolve().parents[1]/'docs/report-schema.json').read_text())
+    assert set(report)==set(schema['required'])
+    assert report['report_version']==schema['properties']['report_version']['const']
     run['steps'] = [
         {'id':'one@example.com','kind':'tool_call','call_id':'key@example.com','content':'lookup'},
         {'id':'two@example.com','kind':'tool_result','call_id':'key@example.com','content':'failed password=never-export-me'}]
@@ -131,10 +151,32 @@ with sync_playwright() as p:
     page.get_by_role('button', name='Clear run', exact=True).click()
     assert page.locator('#review').is_hidden()
     assert page.locator('#timeline').inner_text() == ''
+    expect(page.locator('#choose')).to_be_focused()
+    expect(page.locator('#load-status')).to_have_text('Run cleared from this tab.')
     for buffer, message in [(b'{bad', 'not valid JSON'), (json.dumps({**run,'label':True}).encode(),'unknown field'), (json.dumps({**run,'schema_version':2}).encode(),'schema_version'), (json.dumps({**run,'steps':[run['steps'][0],run['steps'][0]]}).encode(),'duplicate'), (b' ' * (2*1024*1024+1), 'too large')]:
         page.locator('#file').set_input_files({'name':'bad.json','mimeType':'application/json','buffer':buffer})
         expect(page.locator('#error')).to_contain_text(message)
+        expect(page.locator('#error')).to_be_focused()
         assert page.locator('#review').is_hidden()
+    # Error recovery and a multi-call run use only keyboard activation of the picker.
+    page.keyboard.press('Tab')
+    expect(page.locator('#retry')).to_be_focused()
+    with page.expect_file_chooser() as chooser:
+        page.keyboard.press('Enter')
+    parallel=(Path(__file__).resolve().parent/'fixtures/parallel-tools.json').read_bytes()
+    chooser.value.set_files({'name':'parallel.json','mimeType':'application/json','buffer':parallel})
+    expect(page.locator('#run-title')).to_have_text('parallel-local-review')
+    expect(page.locator('#run-title')).to_be_focused()
+    expect(page.locator('#review-note')).to_contain_text('does not establish')
+    assert page.locator('.step').count()==7 and page.locator('.flag').count()==0
+    page.locator('#kind').select_option('tool_call')
+    assert page.locator('.step').count()==2
+    with page.expect_download() as event:
+        page.locator('#export').click()
+    exported=Path(event.value.path()).read_bytes()
+    assert len(json.loads(exported)['run']['steps'])==7
+    page.locator('#file').set_input_files({'name':'report.json','mimeType':'application/json','buffer':exported})
+    expect(page.locator('#error')).to_contain_text('save its run object')
     page.get_by_role('button', name='Explore and recover', exact=True).click()
     page.set_viewport_size({'width':390,'height':844})
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "run_id": "parallel-local-review",
+  "task": "Inspect project configuration and documentation, then summarize their declared runtime.",
+  "status": "completed",
+  "steps": [
+    {"id":"m0","kind":"task","content":"Check the declared runtime in both files."},
+    {"id":"m1","kind":"assistant","content":"Read the two independent files in parallel."},
+    {"id":"m1-call0","kind":"tool_call","tool":"read_file","call_id":"config","content":"{\"path\":\"package.json\"}"},
+    {"id":"m1-call1","kind":"tool_call","tool":"read_file","call_id":"docs","content":"{\"path\":\"README.md\"}"},
+    {"id":"m2","kind":"tool_result","tool":"read_file","call_id":"docs","status":"ok","content":"Use Node.js 22 or later."},
+    {"id":"m3","kind":"tool_result","tool":"read_file","call_id":"config","status":"ok","content":"{\"engines\":{\"node\":\">=22\"}}"},
+    {"id":"m4","kind":"assistant","content":"Both files declare Node.js 22 or later."}
+  ]
+}
