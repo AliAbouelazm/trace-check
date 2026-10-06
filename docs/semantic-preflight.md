@@ -1,72 +1,46 @@
-# One semantic detector proposal: preflight blocked
+# Semantic preflight v2: measured and followed by one reviewed run
 
-No benchmark encoding or head fit has occurred. The environment's HTTPS proxy returned **403 Forbidden** for Hugging Face access. Transfer attempts stopped; no credentials, alternate download route, model mirror or proxy bypass was used. Official documentation remained readable through the web research tool. The [status record](../semantic/preflight-status.json) keeps unavailable measurements null.
+The revised synthetic-only encoder check passed. The parent then approved one exact-commit supervised run, which completed within its resource limits but failed every frozen validation quality gate. **No candidate model was exported or activated.** See the [actual one-fit results](semantic-fit-results.md). The executable protocol below is preserved as the pre-run review record; it is not authorization to run again. The app continues to use its rules.
 
-## Verified source metadata
+- [Executable protocol and review command](semantic-fit-protocol.md)
+- [Frozen machine-readable protocol](../semantic/fit-protocol.json)
+- [Driver](../semantic/fit.py), [v2 features](../semantic/features.py), [shared CPU runtime](../semantic/runtime.py)
+- [Final v2 measurements](../semantic/results/synthetic-v2-2026-10-06.json)
+- [V1 measurements](../semantic/results/synthetic-2026-10-06.json) and [archived v1 analysis](semantic-preflight-v1.md)
 
-The official [model card](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) declares Apache-2.0, about 22.7 million parameters, 384 output dimensions and a 256-wordpiece sentence limit. Freeze revision [1110a243fdf4706b3f48f1d95db1a4f5529b4d41](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/commit/1110a243fdf4706b3f48f1d95db1a4f5529b4d41). This is the publisher's license declaration, not an independent clearance of all pretraining sources.
+## V2 action representation
 
-Official file metadata and pointer records identify safetensors as 90868376 bytes and FP32 ONNX as 90405214 bytes, with SHA-256 values in [source.json](../semantic/source.json). Both hashes also appear on the revision-specific [safetensors](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/blob/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/model.safetensors) and [ONNX](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/blob/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx/model.onnx) pages. Local bytes have not been acquired or verified. Reference plus deployment weights alone total 181273590 bytes; do not download the entire repository or its pickle variant.
+The v1 action appended tool calls after prose, allowing long prose to erase every call. V2 reserves 94 tokens for assistant text and four separate 40-token call slots. Each slot allows the complete tool name up to eight tokens, the argument head/tail up to 31 tokens, and a separator. Calls remain in original order. Unused budgets are not reassigned. Actions with more than four calls, names exceeding either 128 characters or eight tokens, or empty/unknown-only names abstain. Nonempty unknown-only retained arguments also abstain. Every supported call retains its complete tokenized name and argument representation. This is not a claim that the representation preserves every argument detail.
 
-The publisher's [efficiency documentation](https://sbert.net/docs/sentence_transformer/usage/efficiency.html) explains that standalone ONNX needs pooling and normalization outside the Transformer graph. The proposed runtime explicitly uses attention-masked mean pooling and L2 normalization, then CPUExecutionProvider only. It does not rely on an ONNX token output already being a sentence embedding.
+With no tool calls, text may use 254 tokens. Context remains first 64 task tokens plus last 190 prefix tokens. Each stream receives CLS/SEP and stays within 256 tokens. The two normalized 384-vectors are concatenated as `[context, action]`, never averaged or normalized again. The full deterministic character and token rules, unknown handling and denominators are in the executable protocol.
 
-## Frozen representation and head proposal
+## Final synthetic measurements
 
-`semantic/contract.py` fixes this representation before seeing new dataset results:
+Fixed official revision `1110a243fdf4706b3f48f1d95db1a4f5529b4d41`, one CPU thread, Python 3.12.14. Source files and seven direct runtime package versions remain exactly pinned. This run uses the same `Encoder.encode` implementation as the proposed fit driver, compared against safetensors/PyTorch masked mean pooling and L2 normalization.
 
-- Use only the allowed task, current nonfinal assistant message with its ordered tool names/arguments, and previous two ORIGINAL message slots. Preserve system slots when counting the window but exclude their text. Exclude future messages, final assistant targets, labels, references and final answers. Strip answer-tag contents. Explicit original-message mappings remain required for app imports.
-- Serialize current message/calls in source order. Cap each content/argument to 4000 code points, task to 4000, joined action to its first 12000 and previous-message context to its last 12000 before tokenization. These truncations must be counted in future coverage reporting.
-- Context stream: first 64 task WordPieces followed by the last 190 prefix WordPieces, with CLS/SEP. Action stream: first 254 current-action WordPieces, with CLS/SEP. Each stream is at most 256 tokens. Underfilled task space is not reassigned to prefix. Unicode is passed to the official tokenizer; there is no ASCII gate or substituted tokenizer.
-- Encode context and action independently with the single frozen FP32 encoder, normalize each 384-vector, and concatenate in the fixed order `[context, action]` to 768 dimensions. Do not average the streams, fine-tune the encoder or normalize the concatenation again.
-- After preflight and protocol approval, fit exactly one supervised logistic head on TRAIN: C=1, lbfgs, maximum 500 iterations, default class weights, seed 42, classes [-1,0,1]. No scaler fit, model sweep, prompts search, embeddings similarity threshold or encoder tuning. A pretrained embedding alone is not a trained error detector.
+| Measurement | V2 result |
+| --- | ---: |
+| Supervised elapsed | 8.9705 seconds |
+| Load | 3.3039 seconds |
+| Sampled process-group peak RSS | 819,888 KiB (800.67 MiB) |
+| Batch eight, 31 tokens, slowest of three | 0.058565 seconds; 136.60 streams/s |
+| Batch eight, 256 tokens, slowest of three | 0.573968 seconds; 13.938 streams/s |
+| Normalized embedding max absolute error | 1.6019e-7 |
+| Minimum cosine agreement | 0.9999998808 |
+| Handcrafted head score max absolute error | 4.5743e-9 |
+| Exact tokenizer comparisons | 56 fields |
+| ONNX plus nine config/tokenizer files | 91,104,751 bytes |
 
-The existing whole-task memberships/source hashes remain immutable. TEST is excluded before feature construction or encoding. Compare never-flag, rules, and the one head with the same six predeclared score thresholds and unchanged standalone/combined FP gates. Preserve unsupported targets in denominators and report actual coverage, Unicode unknown-token counts, truncation, labels, subsets and paired task counts. No adjustment after results. The earlier TF-IDF 0.70 result added 21 TP and 3 FP, failed the agreed combined gate, and is not evidence that all models are useless.
+Ten supported synthetic cases produced 20 encoded streams. The four-call long-input case retained 94 text tokens, all five tokens of each distinct name, and 31 argument tokens per call. Each 447-token capped argument retained its first 16 and last 15 tokens; explicit sentinels verified both ends survived. Three additional cases (five calls, overlong name, emoji-only argument) abstained and were not encoded. Japanese and emoji unknown-token counts remain visible in the report; no multilingual quality claim follows from tokenizer parity.
 
-## Executable synthetic preflight scaffold
+The unchanged 120-second / 2-GiB preflight supervisor and final publication gate passed. RSS remains a 10-ms sampled threshold. The original v1 run and its code hashes remain archived at commit `861d65baf9ba60869dffd71b7772115c71b4c31a`. An intermediate local v2 smoke run preceded the parent's clarification to retain argument tails; it is not the frozen result or a basis for model selection. The linked final run is the head/tail contract check. No benchmark results informed either change.
 
-`semantic/preflight.py` accepts only an explicit local model directory and output path. There is no dataset argument, downloader, fitting API, server or app import. It verifies both weight sizes/hashes, checks required tokenizer/config files, disables network use during model loading, uses safetensors and `trust_remote_code=False`, and forces CPU/one-thread execution.
+## Proposed fit caps
 
-It is prepared to compare official fast-tokenizer IDs with the local tokenizer JSON, compare FP32 PyTorch/reference mean-pooling against standalone ONNX pooling/normalization on synthetic English punctuation, accents, decomposed Unicode, Arabic, Japanese, emoji and long inputs, and record unknown tokens, shape/norm checks, numerical agreement, load latency, three warmed fixed-batch CPU timings, dependency versions and peak RSS. Required embedding agreement is max absolute error <=1e-4 and cosine >=0.99999. Handcrafted 768-dimensional coefficients also check local/reference softmax agreement to 1e-6 without fitting. Subsequent learned-head score/decision parity would still be required separately.
+Keep the proposed 2,210-second end-to-end deadline, 2-GiB sampled process-group RSS and 128-MiB candidate-model cap. Using the slower v1 measurement, 1,554 batches at 0.671418409 seconds project to 1,043.38 seconds. Twice that cost plus 120 seconds, rounded up to ten seconds, is 2,210 seconds. V2's projected encoding time is about 891.95 seconds. Neither preprocessing nor a full classifier fit has been measured; these are fail-closed ceilings, not completion guarantees. No rescue tuning or budget increase follows exhaustion.
 
-Nine synthetic standard-library tests have run. The actual encoder harness has **not** run, its third-party dependencies are not installed here, and it is not claimed to be validated. Full small-file provenance/digests and dependency pins must be recorded with the approved local bundle before measuring. Do not enable this optional heavy preflight in ordinary CI.
+## Validation and access
 
-Safe now:
+Both official weights remain hash-verified in `/tmp/tracecheck-minilm-pinned`, outside Git. Approved model download hosts and sanitized transfer evidence are retained in [access-approved-download.json](../semantic/access-approved-download.json). No additional model downloads, network changes, credentials, paid services, GPU, deployment or log uploads were needed for v2. The pinned upstream model card, provenance notice and standard Apache-2.0 license text are retained under `semantic/notices/`.
 
-```sh
-python3 -m unittest discover -s tests -p 'test_semantic_contract.py'
-```
-
-After approved local files and verified CPU dependency pins are available, the intended synthetic-only invocation is:
-
-```sh
-python3 semantic/preflight.py --model-dir /tmp/tracecheck-minilm-pinned \
-  --output /tmp/tracecheck-minilm-synthetic-preflight.json
-```
-
-This command is a scaffold pending the missing resources and verified runtime lock, not authorization to encode benchmark records.
-
-## Resource and product gate
-
-The old 60-second/512-MiB/2-MiB TF-IDF caps are not asserted to fit this encoder. A deployment bundle will already require roughly 91 MB for ONNX plus tokenizer/configs, excluding the CPU runtime. A tentative artifact ceiling of 128 MiB is metadata-based, not yet an approved or measured final cap. Reference weights and PyTorch are preflight-only and should not be part of a future deployable bundle.
-
-No honest throughput-based time limit or measured memory cap can be finalized while transfer is blocked. **Preflight-only** ceiling: 120 seconds and 2 GiB process-group RSS, enforced on the normal command by the synthetic-preflight process-group supervisor. After synthetic measurements, derive one conservative TRAIN/validation encoding deadline from worst fixed-batch throughput for 12428 streams plus startup/head fitting, and set memory/artifact limits with measured headroom. Present the concrete values for review before the one fit. Do not treat the provisional preflight ceiling as a fit budget or loosen an approved fit budget after results.
-
-Prefer a local CPU Python/ONNX backend if browser packaging is too costly. This would change the current tab-only privacy boundary: explicit opt-in logs would cross loopback into a local process. Before any UI connection, review strict loopback binding, origin/CSRF protection, request-size limits, cancellation, memory-only processing, disabled request logging, no retention and no outbound network. The current app server has no upload endpoint and CSP blocks fetch; neither has been changed here. Without an approved interface, use an offline CLI preflight only.
-
-Next required input is an approved local copy of the pinned official model files (plus recorded tokenizer/config provenance) or authorized environment access to obtain them. After synthetic measurement and plan review, one supervised TRAIN/validation head fit may be considered. If it later fails, retain the app and evidence; do not launch an automatic model-search loop or activate a failed artifact.
-
-## Read-only access diagnosis
-
-The only execution-environment Hugging Face request was a GET to `https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2?blobs=true`. No weight-download request was made. Both uppercase/lowercase HTTP(S) proxy variables point to `http://proxy:8080`, without embedded credentials; Hugging Face has no NO_PROXY entry. The retained error is `Tunnel connection failed: 403 Forbidden` from Python's HTTP CONNECT handling for `huggingface.co:443`.
-
-The original process did not preserve headers or read the error body. One subsequently authorized read-only CONNECT status probe through the same proxy returned `403 Forbidden`, `server: envoy`, `content-type: text/plain`, `content-length: 16`, `connection: close`, `date: Tue, 06 Oct 2026 21:00:19 GMT`, and body `Domain forbidden`. It sent no TLS handshake or origin GET and was closed after capturing the refusal. Full redacted evidence is in [access-diagnosis.json](../semantic/access-diagnosis.json).
-
-This establishes an environment proxy domain-access restriction, not a Hugging Face application failure. The precise saved allowlist rule remains unknown. No origin GET retry, weight request, network-setting change, credential creation or alternative download route occurred. Parent review and specific authorization are required before changing access.
-
-## Offline gates now implemented
-
-The normal preflight command starts a separate process group under a 120-second wall-time and 2-GiB aggregate RSS supervisor. RSS is sampled every 10 ms, so this is a sampled kill threshold, not a kernel-enforced instantaneous memory ceiling. Success, failure, timeout and interruption clean up the process group. Only a successful worker result can become the requested report. Publication independently rejects final supervisor elapsed time above 120 seconds or sampled peak RSS above 2 GiB, including successful exits between polls; invalid or missing resource values also fail closed. Synthetic tests exercise exact accepted boundaries and rejected overruns without running an encoder. Ordinary tests exercise harmless success, time/memory stops, ceiling-increase rejection and a failed normal CLI invocation; they do not import or execute an encoder.
-
-`semantic/runtime-lock.json` deliberately remains unverified with null small-file digests and dependency versions. `semantic/provenance.py` rejects that state before encoder imports. It requires exact official revision URLs, SHA-256 and sizes for every listed tokenizer/config file, and exact installed dependency versions. Missing pins cannot silently fall back to installed packages or network access. Completing and verifying these pins remains blocked; no versions or hashes have been invented.
-
-The synthetic harness now records per-field character counts after answer-tag removal, aggregate task/prefix/action character loss, per-stream token loss, and every action tool-call span's character retention plus token retention/removal. Appended calls that disappear entirely are explicitly counted. The rules and never-flag detector remain primary quality baselines. Archived TF-IDF used a different input and coverage contract; any later comparison must disclose that difference and cannot isolate a causal benefit from the semantic encoder.
+Validation passed: 42 Python tests, 20 JavaScript tests, both browser suites with explicit system Chromium 151.0.7922.173 and Playwright 1.62.0, and `pip check`. The bundled Playwright browser remains unavailable; parent CI must check its pinned browser. Standard tests exercise full call retention, abstention, TEST exclusion, source hashes, split-specific cache keys, TRAIN-only one-fit selection with a stub estimator, unchanged FP gates, zero-target task denominators, redacted positional evidence, resource stops and final publication checks. Separate synthetic cache and JSON-head arithmetic checks use an encoder stub and no classifier fit. Browser behavior is unchanged; the existing browser suites remain part of validation. This synthetic validation record predates the separately approved one-fit run. Any further execution requires new parent review.

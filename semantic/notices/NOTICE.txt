@@ -1,0 +1,17 @@
+Model: sentence-transformers/all-MiniLM-L6-v2
+Publisher: sentence-transformers
+Revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+Source: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/tree/1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+Publisher license declaration: Apache-2.0
+License URL: https://www.apache.org/licenses/LICENSE-2.0
+
+The adjacent model card is an unmodified copy from that exact revision.
+Its SHA-256 is dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0.
+The revision provides no separate LICENSE or NOTICE file. This provenance notice
+is authored by TraceCheck, not presented as an upstream NOTICE or license text.
+No model weights are distributed in this repository. Retain this provenance,
+the upstream model card, and the Apache-2.0 license text in any later model
+redistribution. Preflight does not authorize packaging or redistribution.
+
+The adjacent LICENSE-2.0.txt is the standard Apache License 2.0 text copied
+from /usr/share/common-licenses/Apache-2.0, not an upstream model-specific file.

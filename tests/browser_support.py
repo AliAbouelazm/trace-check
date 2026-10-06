@@ -30,6 +30,16 @@ PICKER_EVENTS = """(() => {
 })();"""
 
 
+def arm_file_chooser(page):
+    # Playwright 1.62 sends first-listener updateSubscription without awaiting
+    # Page.setInterceptFileChooserDialog. Input can overtake its acknowledgment.
+    # Arm through the pinned driver protocol BEFORE adding the waiter, so the
+    # subsequent fire-and-forget enable is idempotent. This changes only test
+    # interception, not page activation, app handlers or native key events.
+    page._sync(page._impl_obj._channel.send(
+        'updateSubscription', None, {'event':'fileChooser','enabled':True}))
+
+
 def keyboard_picker(page, button_id, console_messages):
     session = page.context.new_cdp_session(page)
     def snapshot():
@@ -47,6 +57,7 @@ def keyboard_picker(page, button_id, console_messages):
     before = snapshot()
     try:
         assert before['active'] == button_id and before['focused'] and not before['disabled'], before
+        arm_file_chooser(page)
         with page.expect_file_chooser() as chooser:
             page.keyboard.press('Enter')
         return chooser.value

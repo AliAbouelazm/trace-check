@@ -1,4 +1,4 @@
-// Experimental prerequisites only. Not imported by the rules-only application.
+// Strict grouping and frozen scorer for optional manual review. No training.
 import {MAX_FILE_BYTES, validateRun} from './core.js';
 export const MODEL_BYTES = 2 * 1024 * 1024;
 export const MAX_FEATURES = 20000;

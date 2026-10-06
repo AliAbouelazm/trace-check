@@ -1,15 +1,22 @@
-// No call site in app.js: ML remains off and canonical v1 review is unchanged.
-export function reviewExperimental(envelopeJSON, artifactJSON, {signal, timeoutMs = 2000} = {}) {
+// Bounded worker calls. User data stays in this tab and its disposable worker.
+function request(payload, {signal, timeoutMs = 2000, onProgress} = {}) {
   return new Promise((resolve,reject) => {
-    if (![envelopeJSON,artifactJSON].every(text => typeof text === 'string' && text.length <= 2*1024*1024) || !Number.isInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 2000) { reject(new Error('Experimental request exceeds limits.')); return; }
+    const texts=payload.bundled ? [payload.envelopeJSON] : [payload.envelopeJSON,payload.artifactJSON];
+    if (!texts.every(text => typeof text === 'string' && text.length <= 2*1024*1024) || !Number.isInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 2000) { reject(new Error('Experimental request exceeds limits.')); return; }
     if (signal?.aborted) { reject(new Error('Experimental review cancelled.')); return; }
     const worker = new Worker(new URL('./experimental-worker.js', import.meta.url), {type:'module'});
-    const finish = (error,value) => { clearTimeout(timer); signal?.removeEventListener('abort',abort); worker.terminate(); error ? reject(error) : resolve(value); };
+    let settled=false;
+    const finish = (error,value) => { if(settled)return;settled=true;clearTimeout(timer); signal?.removeEventListener('abort',abort); worker.terminate(); error ? reject(error) : resolve(value); };
     const abort = () => finish(new Error('Experimental review cancelled.'));
     const timer = setTimeout(() => finish(new Error('Experimental CPU time limit exceeded.')), timeoutMs);
     signal?.addEventListener('abort',abort,{once:true});
-    worker.onmessage = ({data}) => finish(data.error ? new Error(data.error) : null,data);
-    worker.onerror = () => finish(new Error('Experimental worker failed.'));
-    worker.postMessage({envelopeJSON,artifactJSON});
+    worker.onmessage = ({data}) => {
+      if(data.type==='progress'){onProgress?.(data);return;}
+      finish(data.error ? new Error(data.error) : null,data);
+    };
+    worker.onerror = () => finish(new Error('Experimental worker failed. Rules remain available.'));
+    worker.postMessage(payload);
   });
 }
+export function reviewExperimental(envelopeJSON, artifactJSON, options) {return request({envelopeJSON,artifactJSON},options);}
+export function reviewBundled(envelopeJSON,options) {return request({envelopeJSON,bundled:true},options);}

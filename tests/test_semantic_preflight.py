@@ -24,12 +24,12 @@ class SemanticPreflightTests(unittest.TestCase):
         self.assertEqual(result['stop_reason'],'wall-time')
         result=bounded.run_bounded([sys.executable,'-c','import time; x=bytearray(8000000); time.sleep(5)'],rss_mib=1)
         self.assertEqual(result['stop_reason'],'rss')
-    def test_unverified_lock_blocks_normal_cli_before_encoder_import(self):
+    def test_missing_files_blocks_normal_cli_before_encoder_import(self):
         with tempfile.TemporaryDirectory() as directory:
             output=Path(directory)/'result.json'
             result=subprocess.run([sys.executable,str(ROOT/'semantic/preflight.py'),'--model-dir',directory,'--output',str(output)],capture_output=True,text=True,timeout=5)
             self.assertNotEqual(result.returncode,0);self.assertFalse(output.exists())
-            self.assertIn('Verified source/runtime pins required',result.stderr)
+            self.assertIn('Tokenizer/config digest mismatch',result.stderr)
             self.assertIn('preflight-failed',result.stderr)
     def test_all_small_files_exact_hash_versions_and_symlinks_checked(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -40,6 +40,10 @@ class SemanticPreflightTests(unittest.TestCase):
             lock={'verified':True,'revision':contract.REVISION,'files':files,'packages':dict.fromkeys(provenance.REQUIRED_PACKAGES,'1.0')}
             lock_path=directory/'lock.json';lock_path.write_text(json.dumps(lock))
             self.assertEqual(len(provenance.verify_lock(directory,contract.REVISION,lock_path,lambda _: '1.0')),9)
+            lock['verified']=False;lock_path.write_text(json.dumps(lock))
+            with self.assertRaisesRegex(ValueError,'Verified source/runtime pins required'):
+                provenance.verify_lock(directory,contract.REVISION,lock_path,lambda _: '1.0')
+            lock['verified']=True;lock_path.write_text(json.dumps(lock))
             with self.assertRaisesRegex(ValueError,'dependency'):provenance.verify_lock(directory,contract.REVISION,lock_path,lambda _: '2.0')
             (directory/'tokenizer.json').write_bytes(b'[]')
             with self.assertRaisesRegex(ValueError,'digest'):provenance.verify_lock(directory,contract.REVISION,lock_path,lambda _: '1.0')

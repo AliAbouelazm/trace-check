@@ -1,6 +1,6 @@
 # One supervised calibration run: no model promotion
 
-The reviewed command ran once at code head `c51598b319cdefcad893860f1c1ccd5e82a4bbc9`, after parent-confirmed exact-head CI success. All six predeclared thresholds failed at least one promotion gate. No model artifact was exported, no settings were changed, and no fit was repeated. Keep the practical rules-only application as the product.
+The reviewed command ran once at code head `c51598b319cdefcad893860f1c1ccd5e82a4bbc9`, after parent-confirmed exact-head CI success. All six predeclared thresholds failed at least one promotion gate. No model artifact was exported, no settings were changed, and no fit was repeated. This records the original automatic-promotion decision. A later separately authorized [manual-review reconstruction](manual-review.md) preserves that failed gate while providing opt-in suggestions.
 
 The [complete immutable result](../experimental/results/calibration-2026-10-06.json) preserves source/split/code hashes, both support stages, label/subset/task-group counts, every threshold, paired task confusion counts, and the supervisor outcome. Original research files remain unchanged.
 

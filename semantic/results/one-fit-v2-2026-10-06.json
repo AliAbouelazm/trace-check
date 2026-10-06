@@ -1,0 +1,7134 @@
+{
+  "artifact_ready": false,
+  "benchmark_rows_encoded": 6081,
+  "cache": {
+    "bytes": 15897600,
+    "encoded_streams": 10384,
+    "entries": 5175,
+    "hits": 889,
+    "key_contract": "revision + feature version/code + source hashes + split hash/assignment + prepared input hash + token IDs hash",
+    "persistent": false
+  },
+  "coverage": {
+    "train": {
+      "all": {
+        "steps": 4824,
+        "supported_steps": 4725,
+        "task_groups": 113,
+        "task_groups_with_targets": 113,
+        "truncated_steps": 4566,
+        "unknown_tokens_before": 6695,
+        "unsupported_reasons": {
+          "empty-or-unknown-only-action": 2,
+          "more-than-four-current-calls": 2,
+          "tool-name-exceeds-128-characters": 2,
+          "tool-name-exceeds-eight-tokens": 93
+        },
+        "unsupported_steps": 99
+      },
+      "by_label": {
+        "-1": {
+          "steps": 1534,
+          "supported_steps": 1525,
+          "task_groups": 113,
+          "task_groups_with_targets": 94,
+          "truncated_steps": 1461,
+          "unknown_tokens_before": 715,
+          "unsupported_reasons": {
+            "empty-or-unknown-only-action": 2,
+            "tool-name-exceeds-128-characters": 2,
+            "tool-name-exceeds-eight-tokens": 5
+          },
+          "unsupported_steps": 9
+        },
+        "0": {
+          "steps": 308,
+          "supported_steps": 308,
+          "task_groups": 113,
+          "task_groups_with_targets": 71,
+          "truncated_steps": 302,
+          "unknown_tokens_before": 1858,
+          "unsupported_reasons": {},
+          "unsupported_steps": 0
+        },
+        "1": {
+          "steps": 2982,
+          "supported_steps": 2892,
+          "task_groups": 113,
+          "task_groups_with_targets": 112,
+          "truncated_steps": 2803,
+          "unknown_tokens_before": 4122,
+          "unsupported_reasons": {
+            "more-than-four-current-calls": 2,
+            "tool-name-exceeds-eight-tokens": 88
+          },
+          "unsupported_steps": 90
+        }
+      },
+      "by_subset": {
+        "bfcl": {
+          "steps": 1475,
+          "supported_steps": 1429,
+          "task_groups": 32,
+          "task_groups_with_targets": 32,
+          "truncated_steps": 1412,
+          "unknown_tokens_before": 91,
+          "unsupported_reasons": {
+            "more-than-four-current-calls": 1,
+            "tool-name-exceeds-eight-tokens": 45
+          },
+          "unsupported_steps": 46
+        },
+        "gaia_dev": {
+          "steps": 797,
+          "supported_steps": 792,
+          "task_groups": 28,
+          "task_groups_with_targets": 28,
+          "truncated_steps": 757,
+          "unknown_tokens_before": 596,
+          "unsupported_reasons": {
+            "empty-or-unknown-only-action": 2,
+            "tool-name-exceeds-128-characters": 2,
+            "tool-name-exceeds-eight-tokens": 1
+          },
+          "unsupported_steps": 5
+        },
+        "hotpotqa": {
+          "steps": 358,
+          "supported_steps": 358,
+          "task_groups": 33,
+          "task_groups_with_targets": 33,
+          "truncated_steps": 293,
+          "unknown_tokens_before": 5419,
+          "unsupported_reasons": {},
+          "unsupported_steps": 0
+        },
+        "tau2": {
+          "steps": 2194,
+          "supported_steps": 2146,
+          "task_groups": 20,
+          "task_groups_with_targets": 20,
+          "truncated_steps": 2104,
+          "unknown_tokens_before": 589,
+          "unsupported_reasons": {
+            "more-than-four-current-calls": 1,
+            "tool-name-exceeds-eight-tokens": 47
+          },
+          "unsupported_steps": 48
+        }
+      }
+    },
+    "validation": {
+      "all": {
+        "steps": 1390,
+        "supported_steps": 1356,
+        "task_groups": 38,
+        "task_groups_with_targets": 38,
+        "truncated_steps": 1165,
+        "unknown_tokens_before": 2694,
+        "unsupported_reasons": {
+          "tool-name-exceeds-128-characters": 1,
+          "tool-name-exceeds-eight-tokens": 33
+        },
+        "unsupported_steps": 34
+      },
+      "by_label": {
+        "-1": {
+          "steps": 384,
+          "supported_steps": 378,
+          "task_groups": 38,
+          "task_groups_with_targets": 30,
+          "truncated_steps": 287,
+          "unknown_tokens_before": 1341,
+          "unsupported_reasons": {
+            "tool-name-exceeds-eight-tokens": 6
+          },
+          "unsupported_steps": 6
+        },
+        "0": {
+          "steps": 66,
+          "supported_steps": 66,
+          "task_groups": 38,
+          "task_groups_with_targets": 23,
+          "truncated_steps": 57,
+          "unknown_tokens_before": 102,
+          "unsupported_reasons": {},
+          "unsupported_steps": 0
+        },
+        "1": {
+          "steps": 940,
+          "supported_steps": 912,
+          "task_groups": 38,
+          "task_groups_with_targets": 38,
+          "truncated_steps": 821,
+          "unknown_tokens_before": 1251,
+          "unsupported_reasons": {
+            "tool-name-exceeds-128-characters": 1,
+            "tool-name-exceeds-eight-tokens": 27
+          },
+          "unsupported_steps": 28
+        }
+      },
+      "by_subset": {
+        "bfcl": {
+          "steps": 472,
+          "supported_steps": 462,
+          "task_groups": 9,
+          "task_groups_with_targets": 9,
+          "truncated_steps": 375,
+          "unknown_tokens_before": 16,
+          "unsupported_reasons": {
+            "tool-name-exceeds-eight-tokens": 10
+          },
+          "unsupported_steps": 10
+        },
+        "gaia_dev": {
+          "steps": 251,
+          "supported_steps": 248,
+          "task_groups": 9,
+          "task_groups_with_targets": 9,
+          "truncated_steps": 227,
+          "unknown_tokens_before": 1370,
+          "unsupported_reasons": {
+            "tool-name-exceeds-128-characters": 1,
+            "tool-name-exceeds-eight-tokens": 2
+          },
+          "unsupported_steps": 3
+        },
+        "hotpotqa": {
+          "steps": 80,
+          "supported_steps": 80,
+          "task_groups": 10,
+          "task_groups_with_targets": 10,
+          "truncated_steps": 62,
+          "unknown_tokens_before": 1255,
+          "unsupported_reasons": {},
+          "unsupported_steps": 0
+        },
+        "tau2": {
+          "steps": 587,
+          "supported_steps": 566,
+          "task_groups": 10,
+          "task_groups_with_targets": 10,
+          "truncated_steps": 501,
+          "unknown_tokens_before": 53,
+          "unsupported_reasons": {
+            "tool-name-exceeds-eight-tokens": 21
+          },
+          "unsupported_steps": 21
+        }
+      }
+    }
+  },
+  "encoding_seconds": 629.5792508129998,
+  "feature_version": "semantic-v2-text94-tools4x40-args16head15tail-context64x190",
+  "fit_seconds": 1.1070650779997777,
+  "gate": {
+    "candidates": [
+      {
+        "combined": {
+          "f1": 0.5358490566037736,
+          "flags": 411,
+          "fn": 171,
+          "fp": 198,
+          "neutral_fp": 17,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 16,
+              "fp": 11,
+              "tn": 28,
+              "tp": 3
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 6,
+              "tn": 51,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 10,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 2,
+              "fp": 12,
+              "tn": 38,
+              "tp": 1
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 4,
+              "fp": 2,
+              "tn": 43,
+              "tp": 4
+            },
+            "bfcl:43": {
+              "fn": 5,
+              "fp": 15,
+              "tn": 27,
+              "tp": 2
+            },
+            "bfcl:6": {
+              "fn": 1,
+              "fp": 49,
+              "tn": 11,
+              "tp": 11
+            },
+            "bfcl:7": {
+              "fn": 2,
+              "fp": 5,
+              "tn": 25,
+              "tp": 3
+            },
+            "gaia_dev:17": {
+              "fn": 21,
+              "fp": 1,
+              "tn": 8,
+              "tp": 2
+            },
+            "gaia_dev:21": {
+              "fn": 13,
+              "fp": 3,
+              "tn": 3,
+              "tp": 13
+            },
+            "gaia_dev:23": {
+              "fn": 11,
+              "fp": 3,
+              "tn": 14,
+              "tp": 21
+            },
+            "gaia_dev:24": {
+              "fn": 0,
+              "fp": 1,
+              "tn": 6,
+              "tp": 3
+            },
+            "gaia_dev:39": {
+              "fn": 7,
+              "fp": 6,
+              "tn": 10,
+              "tp": 26
+            },
+            "gaia_dev:46": {
+              "fn": 0,
+              "fp": 7,
+              "tn": 3,
+              "tp": 5
+            },
+            "gaia_dev:49": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 15,
+              "tp": 6
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 5,
+              "tn": 11,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 1,
+              "fp": 4,
+              "tn": 18,
+              "tp": 2
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 5,
+              "tn": 10,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 1
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 5,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 1,
+              "tn": 3,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 1,
+              "fp": 9,
+              "tn": 4,
+              "tp": 1
+            },
+            "tau2:14": {
+              "fn": 3,
+              "fp": 3,
+              "tn": 40,
+              "tp": 1
+            },
+            "tau2:16": {
+              "fn": 20,
+              "fp": 5,
+              "tn": 34,
+              "tp": 3
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 8,
+              "fp": 1,
+              "tn": 42,
+              "tp": 1
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 4,
+              "fp": 4,
+              "tn": 13,
+              "tp": 3
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 17,
+              "fp": 23,
+              "tn": 30,
+              "tp": 69
+            },
+            "tau2:37": {
+              "fn": 5,
+              "fp": 5,
+              "tn": 25,
+              "tp": 18
+            },
+            "tau2:9": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 45,
+              "tp": 14
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.18181818181818182,
+              "precision": 0.21428571428571427,
+              "recall": 0.15789473684210525
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.125,
+              "precision": 0.07692307692307693,
+              "recall": 0.3333333333333333
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.5714285714285714,
+              "precision": 0.6666666666666666,
+              "recall": 0.5
+            },
+            "bfcl:43": {
+              "f1": 0.16666666666666666,
+              "precision": 0.11764705882352941,
+              "recall": 0.2857142857142857
+            },
+            "bfcl:6": {
+              "f1": 0.3055555555555556,
+              "precision": 0.18333333333333332,
+              "recall": 0.9166666666666666
+            },
+            "bfcl:7": {
+              "f1": 0.46153846153846156,
+              "precision": 0.375,
+              "recall": 0.6
+            },
+            "gaia_dev:17": {
+              "f1": 0.15384615384615385,
+              "precision": 0.6666666666666666,
+              "recall": 0.08695652173913043
+            },
+            "gaia_dev:21": {
+              "f1": 0.6190476190476191,
+              "precision": 0.8125,
+              "recall": 0.5
+            },
+            "gaia_dev:23": {
+              "f1": 0.75,
+              "precision": 0.875,
+              "recall": 0.65625
+            },
+            "gaia_dev:24": {
+              "f1": 0.8571428571428571,
+              "precision": 0.75,
+              "recall": 1.0
+            },
+            "gaia_dev:39": {
+              "f1": 0.8,
+              "precision": 0.8125,
+              "recall": 0.7878787878787878
+            },
+            "gaia_dev:46": {
+              "f1": 0.5882352941176471,
+              "precision": 0.4166666666666667,
+              "recall": 1.0
+            },
+            "gaia_dev:49": {
+              "f1": 0.8571428571428571,
+              "precision": 0.8571428571428571,
+              "recall": 0.8571428571428571
+            },
+            "gaia_dev:5": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.4444444444444444,
+              "precision": 0.3333333333333333,
+              "recall": 0.6666666666666666
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.16666666666666666,
+              "precision": 0.1,
+              "recall": 0.5
+            },
+            "tau2:14": {
+              "f1": 0.25,
+              "precision": 0.25,
+              "recall": 0.25
+            },
+            "tau2:16": {
+              "f1": 0.1935483870967742,
+              "precision": 0.375,
+              "recall": 0.13043478260869565
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.18181818181818182,
+              "precision": 0.5,
+              "recall": 0.1111111111111111
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.42857142857142855,
+              "precision": 0.42857142857142855,
+              "recall": 0.42857142857142855
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.7752808988764045,
+              "precision": 0.75,
+              "recall": 0.8023255813953488
+            },
+            "tau2:37": {
+              "f1": 0.782608695652174,
+              "precision": 0.782608695652174,
+              "recall": 0.782608695652174
+            },
+            "tau2:9": {
+              "f1": 0.9032258064516129,
+              "precision": 1.0,
+              "recall": 0.8235294117647058
+            }
+          },
+          "positive_fp": 181,
+          "precision": 0.5182481751824818,
+          "recall": 0.5546875,
+          "subset_fp": {
+            "bfcl": 110,
+            "gaia_dev": 31,
+            "hotpotqa": 16,
+            "tau2": 41
+          },
+          "task_groups": 38,
+          "tn": 808,
+          "tp": 213
+        },
+        "eligible": false,
+        "model": {
+          "f1": 0.5184135977337111,
+          "flags": 322,
+          "fn": 201,
+          "fp": 139,
+          "neutral_fp": 14,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 19,
+              "fp": 1,
+              "tn": 38,
+              "tp": 0
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 67,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 2,
+              "fp": 0,
+              "tn": 50,
+              "tp": 1
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 45,
+              "tp": 1
+            },
+            "bfcl:43": {
+              "fn": 6,
+              "fp": 14,
+              "tn": 28,
+              "tp": 1
+            },
+            "bfcl:6": {
+              "fn": 1,
+              "fp": 49,
+              "tn": 11,
+              "tp": 11
+            },
+            "bfcl:7": {
+              "fn": 2,
+              "fp": 4,
+              "tn": 26,
+              "tp": 3
+            },
+            "gaia_dev:17": {
+              "fn": 23,
+              "fp": 0,
+              "tn": 9,
+              "tp": 0
+            },
+            "gaia_dev:21": {
+              "fn": 14,
+              "fp": 3,
+              "tn": 3,
+              "tp": 12
+            },
+            "gaia_dev:23": {
+              "fn": 17,
+              "fp": 0,
+              "tn": 17,
+              "tp": 15
+            },
+            "gaia_dev:24": {
+              "fn": 2,
+              "fp": 1,
+              "tn": 6,
+              "tp": 1
+            },
+            "gaia_dev:39": {
+              "fn": 9,
+              "fp": 4,
+              "tn": 12,
+              "tp": 24
+            },
+            "gaia_dev:46": {
+              "fn": 1,
+              "fp": 5,
+              "tn": 5,
+              "tp": 4
+            },
+            "gaia_dev:49": {
+              "fn": 5,
+              "fp": 0,
+              "tn": 16,
+              "tp": 2
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 4,
+              "tn": 12,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 2,
+              "fp": 3,
+              "tn": 19,
+              "tp": 1
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 2,
+              "tn": 13,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 5,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 1,
+              "fp": 9,
+              "tn": 4,
+              "tp": 1
+            },
+            "tau2:14": {
+              "fn": 3,
+              "fp": 3,
+              "tn": 40,
+              "tp": 1
+            },
+            "tau2:16": {
+              "fn": 21,
+              "fp": 5,
+              "tn": 34,
+              "tp": 2
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 9,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 4,
+              "fp": 4,
+              "tn": 13,
+              "tp": 3
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 17,
+              "fp": 23,
+              "tn": 30,
+              "tp": 69
+            },
+            "tau2:37": {
+              "fn": 6,
+              "fp": 4,
+              "tn": 26,
+              "tp": 17
+            },
+            "tau2:9": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 45,
+              "tp": 14
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.5,
+              "precision": 1.0,
+              "recall": 0.3333333333333333
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.2222222222222222,
+              "precision": 1.0,
+              "recall": 0.125
+            },
+            "bfcl:43": {
+              "f1": 0.09090909090909091,
+              "precision": 0.06666666666666667,
+              "recall": 0.14285714285714285
+            },
+            "bfcl:6": {
+              "f1": 0.3055555555555556,
+              "precision": 0.18333333333333332,
+              "recall": 0.9166666666666666
+            },
+            "bfcl:7": {
+              "f1": 0.5,
+              "precision": 0.42857142857142855,
+              "recall": 0.6
+            },
+            "gaia_dev:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:21": {
+              "f1": 0.5853658536585366,
+              "precision": 0.8,
+              "recall": 0.46153846153846156
+            },
+            "gaia_dev:23": {
+              "f1": 0.6382978723404256,
+              "precision": 1.0,
+              "recall": 0.46875
+            },
+            "gaia_dev:24": {
+              "f1": 0.4,
+              "precision": 0.5,
+              "recall": 0.3333333333333333
+            },
+            "gaia_dev:39": {
+              "f1": 0.7868852459016393,
+              "precision": 0.8571428571428571,
+              "recall": 0.7272727272727273
+            },
+            "gaia_dev:46": {
+              "f1": 0.5714285714285714,
+              "precision": 0.4444444444444444,
+              "recall": 0.8
+            },
+            "gaia_dev:49": {
+              "f1": 0.4444444444444444,
+              "precision": 1.0,
+              "recall": 0.2857142857142857
+            },
+            "gaia_dev:5": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.2857142857142857,
+              "precision": 0.25,
+              "recall": 0.3333333333333333
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.16666666666666666,
+              "precision": 0.1,
+              "recall": 0.5
+            },
+            "tau2:14": {
+              "f1": 0.25,
+              "precision": 0.25,
+              "recall": 0.25
+            },
+            "tau2:16": {
+              "f1": 0.13333333333333333,
+              "precision": 0.2857142857142857,
+              "recall": 0.08695652173913043
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.42857142857142855,
+              "precision": 0.42857142857142855,
+              "recall": 0.42857142857142855
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.7752808988764045,
+              "precision": 0.75,
+              "recall": 0.8023255813953488
+            },
+            "tau2:37": {
+              "f1": 0.7727272727272727,
+              "precision": 0.8095238095238095,
+              "recall": 0.7391304347826086
+            },
+            "tau2:9": {
+              "f1": 0.9032258064516129,
+              "precision": 1.0,
+              "recall": 0.8235294117647058
+            }
+          },
+          "positive_fp": 125,
+          "precision": 0.5683229813664596,
+          "recall": 0.4765625,
+          "subset_fp": {
+            "bfcl": 68,
+            "gaia_dev": 20,
+            "hotpotqa": 12,
+            "tau2": 39
+          },
+          "task_groups": 38,
+          "tn": 867,
+          "tp": 183
+        },
+        "threshold": 0.5
+      },
+      {
+        "combined": {
+          "f1": 0.4438040345821326,
+          "flags": 310,
+          "fn": 230,
+          "fp": 156,
+          "neutral_fp": 12,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 16,
+              "fp": 11,
+              "tn": 28,
+              "tp": 3
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 6,
+              "tn": 51,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 10,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 3,
+              "fp": 12,
+              "tn": 38,
+              "tp": 0
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 4,
+              "fp": 2,
+              "tn": 43,
+              "tp": 4
+            },
+            "bfcl:43": {
+              "fn": 5,
+              "fp": 5,
+              "tn": 37,
+              "tp": 2
+            },
+            "bfcl:6": {
+              "fn": 1,
+              "fp": 40,
+              "tn": 20,
+              "tp": 11
+            },
+            "bfcl:7": {
+              "fn": 5,
+              "fp": 4,
+              "tn": 26,
+              "tp": 0
+            },
+            "gaia_dev:17": {
+              "fn": 21,
+              "fp": 1,
+              "tn": 8,
+              "tp": 2
+            },
+            "gaia_dev:21": {
+              "fn": 15,
+              "fp": 1,
+              "tn": 5,
+              "tp": 11
+            },
+            "gaia_dev:23": {
+              "fn": 25,
+              "fp": 3,
+              "tn": 14,
+              "tp": 7
+            },
+            "gaia_dev:24": {
+              "fn": 0,
+              "fp": 1,
+              "tn": 6,
+              "tp": 3
+            },
+            "gaia_dev:39": {
+              "fn": 9,
+              "fp": 4,
+              "tn": 12,
+              "tp": 24
+            },
+            "gaia_dev:46": {
+              "fn": 0,
+              "fp": 6,
+              "tn": 4,
+              "tp": 5
+            },
+            "gaia_dev:49": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 15,
+              "tp": 6
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 4,
+              "tn": 12,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 1,
+              "fp": 2,
+              "tn": 20,
+              "tp": 2
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 4,
+              "tn": 11,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 1
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 5,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 1,
+              "tn": 3,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 2,
+              "fp": 7,
+              "tn": 6,
+              "tp": 0
+            },
+            "tau2:14": {
+              "fn": 4,
+              "fp": 1,
+              "tn": 42,
+              "tp": 0
+            },
+            "tau2:16": {
+              "fn": 20,
+              "fp": 5,
+              "tn": 34,
+              "tp": 3
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 8,
+              "fp": 1,
+              "tn": 42,
+              "tp": 1
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 5,
+              "fp": 2,
+              "tn": 15,
+              "tp": 2
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 47,
+              "fp": 17,
+              "tn": 36,
+              "tp": 39
+            },
+            "tau2:37": {
+              "fn": 6,
+              "fp": 4,
+              "tn": 26,
+              "tp": 17
+            },
+            "tau2:9": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 45,
+              "tp": 11
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.18181818181818182,
+              "precision": 0.21428571428571427,
+              "recall": 0.15789473684210525
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.5714285714285714,
+              "precision": 0.6666666666666666,
+              "recall": 0.5
+            },
+            "bfcl:43": {
+              "f1": 0.2857142857142857,
+              "precision": 0.2857142857142857,
+              "recall": 0.2857142857142857
+            },
+            "bfcl:6": {
+              "f1": 0.3492063492063492,
+              "precision": 0.21568627450980393,
+              "recall": 0.9166666666666666
+            },
+            "bfcl:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "gaia_dev:17": {
+              "f1": 0.15384615384615385,
+              "precision": 0.6666666666666666,
+              "recall": 0.08695652173913043
+            },
+            "gaia_dev:21": {
+              "f1": 0.5789473684210527,
+              "precision": 0.9166666666666666,
+              "recall": 0.4230769230769231
+            },
+            "gaia_dev:23": {
+              "f1": 0.3333333333333333,
+              "precision": 0.7,
+              "recall": 0.21875
+            },
+            "gaia_dev:24": {
+              "f1": 0.8571428571428571,
+              "precision": 0.75,
+              "recall": 1.0
+            },
+            "gaia_dev:39": {
+              "f1": 0.7868852459016393,
+              "precision": 0.8571428571428571,
+              "recall": 0.7272727272727273
+            },
+            "gaia_dev:46": {
+              "f1": 0.625,
+              "precision": 0.45454545454545453,
+              "recall": 1.0
+            },
+            "gaia_dev:49": {
+              "f1": 0.8571428571428571,
+              "precision": 0.8571428571428571,
+              "recall": 0.8571428571428571
+            },
+            "gaia_dev:5": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.5714285714285714,
+              "precision": 0.5,
+              "recall": 0.6666666666666666
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "tau2:14": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "tau2:16": {
+              "f1": 0.1935483870967742,
+              "precision": 0.375,
+              "recall": 0.13043478260869565
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.18181818181818182,
+              "precision": 0.5,
+              "recall": 0.1111111111111111
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.36363636363636365,
+              "precision": 0.5,
+              "recall": 0.2857142857142857
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.5492957746478874,
+              "precision": 0.6964285714285714,
+              "recall": 0.45348837209302323
+            },
+            "tau2:37": {
+              "f1": 0.7727272727272727,
+              "precision": 0.8095238095238095,
+              "recall": 0.7391304347826086
+            },
+            "tau2:9": {
+              "f1": 0.7857142857142857,
+              "precision": 1.0,
+              "recall": 0.6470588235294118
+            }
+          },
+          "positive_fp": 144,
+          "precision": 0.4967741935483871,
+          "recall": 0.4010416666666667,
+          "subset_fp": {
+            "bfcl": 90,
+            "gaia_dev": 23,
+            "hotpotqa": 13,
+            "tau2": 30
+          },
+          "task_groups": 38,
+          "tn": 850,
+          "tp": 154
+        },
+        "eligible": false,
+        "model": {
+          "f1": 0.3865546218487395,
+          "flags": 211,
+          "fn": 269,
+          "fp": 96,
+          "neutral_fp": 9,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 19,
+              "fp": 1,
+              "tn": 38,
+              "tp": 0
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 67,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 50,
+              "tp": 0
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 45,
+              "tp": 1
+            },
+            "bfcl:43": {
+              "fn": 6,
+              "fp": 4,
+              "tn": 38,
+              "tp": 1
+            },
+            "bfcl:6": {
+              "fn": 1,
+              "fp": 40,
+              "tn": 20,
+              "tp": 11
+            },
+            "bfcl:7": {
+              "fn": 5,
+              "fp": 3,
+              "tn": 27,
+              "tp": 0
+            },
+            "gaia_dev:17": {
+              "fn": 23,
+              "fp": 0,
+              "tn": 9,
+              "tp": 0
+            },
+            "gaia_dev:21": {
+              "fn": 19,
+              "fp": 1,
+              "tn": 5,
+              "tp": 7
+            },
+            "gaia_dev:23": {
+              "fn": 32,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "gaia_dev:24": {
+              "fn": 3,
+              "fp": 1,
+              "tn": 6,
+              "tp": 0
+            },
+            "gaia_dev:39": {
+              "fn": 12,
+              "fp": 2,
+              "tn": 14,
+              "tp": 21
+            },
+            "gaia_dev:46": {
+              "fn": 1,
+              "fp": 3,
+              "tn": 7,
+              "tp": 4
+            },
+            "gaia_dev:49": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 16,
+              "tp": 1
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 3,
+              "tn": 13,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 2,
+              "fp": 1,
+              "tn": 21,
+              "tp": 1
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 14,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 5,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 2,
+              "fp": 7,
+              "tn": 6,
+              "tp": 0
+            },
+            "tau2:14": {
+              "fn": 4,
+              "fp": 1,
+              "tn": 42,
+              "tp": 0
+            },
+            "tau2:16": {
+              "fn": 21,
+              "fp": 5,
+              "tn": 34,
+              "tp": 2
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 9,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 5,
+              "fp": 2,
+              "tn": 15,
+              "tp": 2
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 49,
+              "fp": 17,
+              "tn": 36,
+              "tp": 37
+            },
+            "tau2:37": {
+              "fn": 7,
+              "fp": 3,
+              "tn": 27,
+              "tp": 16
+            },
+            "tau2:9": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 45,
+              "tp": 11
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.2222222222222222,
+              "precision": 1.0,
+              "recall": 0.125
+            },
+            "bfcl:43": {
+              "f1": 0.16666666666666666,
+              "precision": 0.2,
+              "recall": 0.14285714285714285
+            },
+            "bfcl:6": {
+              "f1": 0.3492063492063492,
+              "precision": 0.21568627450980393,
+              "recall": 0.9166666666666666
+            },
+            "bfcl:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "gaia_dev:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:21": {
+              "f1": 0.4117647058823529,
+              "precision": 0.875,
+              "recall": 0.2692307692307692
+            },
+            "gaia_dev:23": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:24": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "gaia_dev:39": {
+              "f1": 0.75,
+              "precision": 0.9130434782608695,
+              "recall": 0.6363636363636364
+            },
+            "gaia_dev:46": {
+              "f1": 0.6666666666666666,
+              "precision": 0.5714285714285714,
+              "recall": 0.8
+            },
+            "gaia_dev:49": {
+              "f1": 0.25,
+              "precision": 1.0,
+              "recall": 0.14285714285714285
+            },
+            "gaia_dev:5": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.4,
+              "precision": 0.5,
+              "recall": 0.3333333333333333
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "tau2:14": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "tau2:16": {
+              "f1": 0.13333333333333333,
+              "precision": 0.2857142857142857,
+              "recall": 0.08695652173913043
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.36363636363636365,
+              "precision": 0.5,
+              "recall": 0.2857142857142857
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.5285714285714286,
+              "precision": 0.6851851851851852,
+              "recall": 0.43023255813953487
+            },
+            "tau2:37": {
+              "f1": 0.7619047619047619,
+              "precision": 0.8421052631578947,
+              "recall": 0.6956521739130435
+            },
+            "tau2:9": {
+              "f1": 0.7857142857142857,
+              "precision": 1.0,
+              "recall": 0.6470588235294118
+            }
+          },
+          "positive_fp": 87,
+          "precision": 0.5450236966824644,
+          "recall": 0.2994791666666667,
+          "subset_fp": {
+            "bfcl": 48,
+            "gaia_dev": 11,
+            "hotpotqa": 9,
+            "tau2": 28
+          },
+          "task_groups": 38,
+          "tn": 910,
+          "tp": 115
+        },
+        "threshold": 0.6
+      },
+      {
+        "combined": {
+          "f1": 0.34967320261437906,
+          "flags": 228,
+          "fn": 277,
+          "fp": 121,
+          "neutral_fp": 8,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 16,
+              "fp": 10,
+              "tn": 29,
+              "tp": 3
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 6,
+              "tn": 51,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 10,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 3,
+              "fp": 12,
+              "tn": 38,
+              "tp": 0
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 5,
+              "fp": 2,
+              "tn": 43,
+              "tp": 3
+            },
+            "bfcl:43": {
+              "fn": 6,
+              "fp": 2,
+              "tn": 40,
+              "tp": 1
+            },
+            "bfcl:6": {
+              "fn": 6,
+              "fp": 27,
+              "tn": 33,
+              "tp": 6
+            },
+            "bfcl:7": {
+              "fn": 5,
+              "fp": 2,
+              "tn": 28,
+              "tp": 0
+            },
+            "gaia_dev:17": {
+              "fn": 21,
+              "fp": 1,
+              "tn": 8,
+              "tp": 2
+            },
+            "gaia_dev:21": {
+              "fn": 18,
+              "fp": 1,
+              "tn": 5,
+              "tp": 8
+            },
+            "gaia_dev:23": {
+              "fn": 25,
+              "fp": 3,
+              "tn": 14,
+              "tp": 7
+            },
+            "gaia_dev:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 3
+            },
+            "gaia_dev:39": {
+              "fn": 26,
+              "fp": 2,
+              "tn": 14,
+              "tp": 7
+            },
+            "gaia_dev:46": {
+              "fn": 0,
+              "fp": 5,
+              "tn": 5,
+              "tp": 5
+            },
+            "gaia_dev:49": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 15,
+              "tp": 6
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 3,
+              "tn": 13,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 2,
+              "fp": 1,
+              "tn": 21,
+              "tp": 1
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 4,
+              "tn": 11,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 1
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 1,
+              "tn": 3,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 2,
+              "fp": 6,
+              "tn": 7,
+              "tp": 0
+            },
+            "tau2:14": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:16": {
+              "fn": 20,
+              "fp": 4,
+              "tn": 35,
+              "tp": 3
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 8,
+              "fp": 1,
+              "tn": 42,
+              "tp": 1
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 6,
+              "fp": 1,
+              "tn": 16,
+              "tp": 1
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 55,
+              "fp": 14,
+              "tn": 39,
+              "tp": 31
+            },
+            "tau2:37": {
+              "fn": 9,
+              "fp": 2,
+              "tn": 28,
+              "tp": 14
+            },
+            "tau2:9": {
+              "fn": 13,
+              "fp": 0,
+              "tn": 45,
+              "tp": 4
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.1875,
+              "precision": 0.23076923076923078,
+              "recall": 0.15789473684210525
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.46153846153846156,
+              "precision": 0.6,
+              "recall": 0.375
+            },
+            "bfcl:43": {
+              "f1": 0.2,
+              "precision": 0.3333333333333333,
+              "recall": 0.14285714285714285
+            },
+            "bfcl:6": {
+              "f1": 0.26666666666666666,
+              "precision": 0.18181818181818182,
+              "recall": 0.5
+            },
+            "bfcl:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "gaia_dev:17": {
+              "f1": 0.15384615384615385,
+              "precision": 0.6666666666666666,
+              "recall": 0.08695652173913043
+            },
+            "gaia_dev:21": {
+              "f1": 0.45714285714285713,
+              "precision": 0.8888888888888888,
+              "recall": 0.3076923076923077
+            },
+            "gaia_dev:23": {
+              "f1": 0.3333333333333333,
+              "precision": 0.7,
+              "recall": 0.21875
+            },
+            "gaia_dev:24": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "gaia_dev:39": {
+              "f1": 0.3333333333333333,
+              "precision": 0.7777777777777778,
+              "recall": 0.21212121212121213
+            },
+            "gaia_dev:46": {
+              "f1": 0.6666666666666666,
+              "precision": 0.5,
+              "recall": 1.0
+            },
+            "gaia_dev:49": {
+              "f1": 0.8571428571428571,
+              "precision": 0.8571428571428571,
+              "recall": 0.8571428571428571
+            },
+            "gaia_dev:5": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.4,
+              "precision": 0.5,
+              "recall": 0.3333333333333333
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "tau2:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:16": {
+              "f1": 0.2,
+              "precision": 0.42857142857142855,
+              "recall": 0.13043478260869565
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.18181818181818182,
+              "precision": 0.5,
+              "recall": 0.1111111111111111
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.2222222222222222,
+              "precision": 0.5,
+              "recall": 0.14285714285714285
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.4732824427480916,
+              "precision": 0.6888888888888889,
+              "recall": 0.36046511627906974
+            },
+            "tau2:37": {
+              "f1": 0.717948717948718,
+              "precision": 0.875,
+              "recall": 0.6086956521739131
+            },
+            "tau2:9": {
+              "f1": 0.38095238095238093,
+              "precision": 1.0,
+              "recall": 0.23529411764705882
+            }
+          },
+          "positive_fp": 113,
+          "precision": 0.4692982456140351,
+          "recall": 0.2786458333333333,
+          "subset_fp": {
+            "bfcl": 71,
+            "gaia_dev": 17,
+            "hotpotqa": 11,
+            "tau2": 22
+          },
+          "task_groups": 38,
+          "tn": 885,
+          "tp": 107
+        },
+        "eligible": false,
+        "model": {
+          "f1": 0.2450592885375494,
+          "flags": 122,
+          "fn": 322,
+          "fp": 60,
+          "neutral_fp": 5,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 19,
+              "fp": 0,
+              "tn": 39,
+              "tp": 0
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 67,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 50,
+              "tp": 0
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 8,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "bfcl:43": {
+              "fn": 7,
+              "fp": 1,
+              "tn": 41,
+              "tp": 0
+            },
+            "bfcl:6": {
+              "fn": 7,
+              "fp": 27,
+              "tn": 33,
+              "tp": 5
+            },
+            "bfcl:7": {
+              "fn": 5,
+              "fp": 1,
+              "tn": 29,
+              "tp": 0
+            },
+            "gaia_dev:17": {
+              "fn": 23,
+              "fp": 0,
+              "tn": 9,
+              "tp": 0
+            },
+            "gaia_dev:21": {
+              "fn": 22,
+              "fp": 0,
+              "tn": 6,
+              "tp": 4
+            },
+            "gaia_dev:23": {
+              "fn": 32,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "gaia_dev:24": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "gaia_dev:39": {
+              "fn": 29,
+              "fp": 0,
+              "tn": 16,
+              "tp": 4
+            },
+            "gaia_dev:46": {
+              "fn": 1,
+              "fp": 2,
+              "tn": 8,
+              "tp": 4
+            },
+            "gaia_dev:49": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 16,
+              "tp": 1
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 2,
+              "tn": 14,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 22,
+              "tp": 0
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 14,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 2,
+              "fp": 6,
+              "tn": 7,
+              "tp": 0
+            },
+            "tau2:14": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:16": {
+              "fn": 21,
+              "fp": 4,
+              "tn": 35,
+              "tp": 2
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 9,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 6,
+              "fp": 1,
+              "tn": 16,
+              "tp": 1
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 60,
+              "fp": 14,
+              "tn": 39,
+              "tp": 26
+            },
+            "tau2:37": {
+              "fn": 12,
+              "fp": 1,
+              "tn": 29,
+              "tp": 11
+            },
+            "tau2:9": {
+              "fn": 13,
+              "fp": 0,
+              "tn": 45,
+              "tp": 4
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:43": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:6": {
+              "f1": 0.22727272727272727,
+              "precision": 0.15625,
+              "recall": 0.4166666666666667
+            },
+            "bfcl:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "gaia_dev:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:21": {
+              "f1": 0.26666666666666666,
+              "precision": 1.0,
+              "recall": 0.15384615384615385
+            },
+            "gaia_dev:23": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:24": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:39": {
+              "f1": 0.21621621621621623,
+              "precision": 1.0,
+              "recall": 0.12121212121212122
+            },
+            "gaia_dev:46": {
+              "f1": 0.7272727272727273,
+              "precision": 0.6666666666666666,
+              "recall": 0.8
+            },
+            "gaia_dev:49": {
+              "f1": 0.25,
+              "precision": 1.0,
+              "recall": 0.14285714285714285
+            },
+            "gaia_dev:5": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "tau2:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:16": {
+              "f1": 0.13793103448275862,
+              "precision": 0.3333333333333333,
+              "recall": 0.08695652173913043
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.2222222222222222,
+              "precision": 0.5,
+              "recall": 0.14285714285714285
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.4126984126984127,
+              "precision": 0.65,
+              "recall": 0.3023255813953488
+            },
+            "tau2:37": {
+              "f1": 0.6285714285714286,
+              "precision": 0.9166666666666666,
+              "recall": 0.4782608695652174
+            },
+            "tau2:9": {
+              "f1": 0.38095238095238093,
+              "precision": 1.0,
+              "recall": 0.23529411764705882
+            }
+          },
+          "positive_fp": 55,
+          "precision": 0.5081967213114754,
+          "recall": 0.16145833333333334,
+          "subset_fp": {
+            "bfcl": 29,
+            "gaia_dev": 4,
+            "hotpotqa": 7,
+            "tau2": 20
+          },
+          "task_groups": 38,
+          "tn": 946,
+          "tp": 62
+        },
+        "threshold": 0.7
+      },
+      {
+        "combined": {
+          "f1": 0.31150442477876106,
+          "flags": 181,
+          "fn": 296,
+          "fp": 93,
+          "neutral_fp": 6,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 16,
+              "fp": 10,
+              "tn": 29,
+              "tp": 3
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 6,
+              "tn": 51,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 10,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 3,
+              "fp": 12,
+              "tn": 38,
+              "tp": 0
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 5,
+              "fp": 2,
+              "tn": 43,
+              "tp": 3
+            },
+            "bfcl:43": {
+              "fn": 6,
+              "fp": 1,
+              "tn": 41,
+              "tp": 1
+            },
+            "bfcl:6": {
+              "fn": 7,
+              "fp": 20,
+              "tn": 40,
+              "tp": 5
+            },
+            "bfcl:7": {
+              "fn": 5,
+              "fp": 1,
+              "tn": 29,
+              "tp": 0
+            },
+            "gaia_dev:17": {
+              "fn": 21,
+              "fp": 1,
+              "tn": 8,
+              "tp": 2
+            },
+            "gaia_dev:21": {
+              "fn": 19,
+              "fp": 1,
+              "tn": 5,
+              "tp": 7
+            },
+            "gaia_dev:23": {
+              "fn": 25,
+              "fp": 3,
+              "tn": 14,
+              "tp": 7
+            },
+            "gaia_dev:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 3
+            },
+            "gaia_dev:39": {
+              "fn": 28,
+              "fp": 2,
+              "tn": 14,
+              "tp": 5
+            },
+            "gaia_dev:46": {
+              "fn": 0,
+              "fp": 3,
+              "tn": 7,
+              "tp": 5
+            },
+            "gaia_dev:49": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 15,
+              "tp": 6
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 1,
+              "tn": 15,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 2,
+              "fp": 1,
+              "tn": 21,
+              "tp": 1
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 4,
+              "tn": 11,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 1
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 1,
+              "tn": 3,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 2,
+              "fp": 5,
+              "tn": 8,
+              "tp": 0
+            },
+            "tau2:14": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:16": {
+              "fn": 20,
+              "fp": 1,
+              "tn": 38,
+              "tp": 3
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 8,
+              "fp": 1,
+              "tn": 42,
+              "tp": 1
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 65,
+              "fp": 5,
+              "tn": 48,
+              "tp": 21
+            },
+            "tau2:37": {
+              "fn": 10,
+              "fp": 1,
+              "tn": 29,
+              "tp": 13
+            },
+            "tau2:9": {
+              "fn": 16,
+              "fp": 0,
+              "tn": 45,
+              "tp": 1
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.1875,
+              "precision": 0.23076923076923078,
+              "recall": 0.15789473684210525
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.46153846153846156,
+              "precision": 0.6,
+              "recall": 0.375
+            },
+            "bfcl:43": {
+              "f1": 0.2222222222222222,
+              "precision": 0.5,
+              "recall": 0.14285714285714285
+            },
+            "bfcl:6": {
+              "f1": 0.2702702702702703,
+              "precision": 0.2,
+              "recall": 0.4166666666666667
+            },
+            "bfcl:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "gaia_dev:17": {
+              "f1": 0.15384615384615385,
+              "precision": 0.6666666666666666,
+              "recall": 0.08695652173913043
+            },
+            "gaia_dev:21": {
+              "f1": 0.4117647058823529,
+              "precision": 0.875,
+              "recall": 0.2692307692307692
+            },
+            "gaia_dev:23": {
+              "f1": 0.3333333333333333,
+              "precision": 0.7,
+              "recall": 0.21875
+            },
+            "gaia_dev:24": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "gaia_dev:39": {
+              "f1": 0.25,
+              "precision": 0.7142857142857143,
+              "recall": 0.15151515151515152
+            },
+            "gaia_dev:46": {
+              "f1": 0.7692307692307693,
+              "precision": 0.625,
+              "recall": 1.0
+            },
+            "gaia_dev:49": {
+              "f1": 0.8571428571428571,
+              "precision": 0.8571428571428571,
+              "recall": 0.8571428571428571
+            },
+            "gaia_dev:5": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.4,
+              "precision": 0.5,
+              "recall": 0.3333333333333333
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "tau2:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:16": {
+              "f1": 0.2222222222222222,
+              "precision": 0.75,
+              "recall": 0.13043478260869565
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.18181818181818182,
+              "precision": 0.5,
+              "recall": 0.1111111111111111
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.375,
+              "precision": 0.8076923076923077,
+              "recall": 0.2441860465116279
+            },
+            "tau2:37": {
+              "f1": 0.7027027027027027,
+              "precision": 0.9285714285714286,
+              "recall": 0.5652173913043478
+            },
+            "tau2:9": {
+              "f1": 0.1111111111111111,
+              "precision": 1.0,
+              "recall": 0.058823529411764705
+            }
+          },
+          "positive_fp": 87,
+          "precision": 0.4861878453038674,
+          "recall": 0.22916666666666666,
+          "subset_fp": {
+            "bfcl": 62,
+            "gaia_dev": 13,
+            "hotpotqa": 10,
+            "tau2": 8
+          },
+          "task_groups": 38,
+          "tn": 913,
+          "tp": 88
+        },
+        "eligible": false,
+        "model": {
+          "f1": 0.1511111111111111,
+          "flags": 66,
+          "fn": 350,
+          "fp": 32,
+          "neutral_fp": 3,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 19,
+              "fp": 0,
+              "tn": 39,
+              "tp": 0
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 67,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 50,
+              "tp": 0
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 8,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "bfcl:43": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 42,
+              "tp": 0
+            },
+            "bfcl:6": {
+              "fn": 11,
+              "fp": 20,
+              "tn": 40,
+              "tp": 1
+            },
+            "bfcl:7": {
+              "fn": 5,
+              "fp": 0,
+              "tn": 30,
+              "tp": 0
+            },
+            "gaia_dev:17": {
+              "fn": 23,
+              "fp": 0,
+              "tn": 9,
+              "tp": 0
+            },
+            "gaia_dev:21": {
+              "fn": 23,
+              "fp": 0,
+              "tn": 6,
+              "tp": 3
+            },
+            "gaia_dev:23": {
+              "fn": 32,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "gaia_dev:24": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "gaia_dev:39": {
+              "fn": 33,
+              "fp": 0,
+              "tn": 16,
+              "tp": 0
+            },
+            "gaia_dev:46": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 10,
+              "tp": 1
+            },
+            "gaia_dev:49": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 16,
+              "tp": 0
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 16,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 22,
+              "tp": 0
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 14,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 2,
+              "fp": 5,
+              "tn": 8,
+              "tp": 0
+            },
+            "tau2:14": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:16": {
+              "fn": 21,
+              "fp": 1,
+              "tn": 38,
+              "tp": 2
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 9,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 70,
+              "fp": 5,
+              "tn": 48,
+              "tp": 16
+            },
+            "tau2:37": {
+              "fn": 13,
+              "fp": 0,
+              "tn": 30,
+              "tp": 10
+            },
+            "tau2:9": {
+              "fn": 16,
+              "fp": 0,
+              "tn": 45,
+              "tp": 1
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:43": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:6": {
+              "f1": 0.06060606060606061,
+              "precision": 0.047619047619047616,
+              "recall": 0.08333333333333333
+            },
+            "bfcl:7": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:21": {
+              "f1": 0.20689655172413793,
+              "precision": 1.0,
+              "recall": 0.11538461538461539
+            },
+            "gaia_dev:23": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:24": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:39": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:46": {
+              "f1": 0.3333333333333333,
+              "precision": 1.0,
+              "recall": 0.2
+            },
+            "gaia_dev:49": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:5": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "tau2:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:16": {
+              "f1": 0.15384615384615385,
+              "precision": 0.6666666666666666,
+              "recall": 0.08695652173913043
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.29906542056074764,
+              "precision": 0.7619047619047619,
+              "recall": 0.18604651162790697
+            },
+            "tau2:37": {
+              "f1": 0.6060606060606061,
+              "precision": 1.0,
+              "recall": 0.43478260869565216
+            },
+            "tau2:9": {
+              "f1": 0.1111111111111111,
+              "precision": 1.0,
+              "recall": 0.058823529411764705
+            }
+          },
+          "positive_fp": 29,
+          "precision": 0.5151515151515151,
+          "recall": 0.08854166666666667,
+          "subset_fp": {
+            "bfcl": 20,
+            "gaia_dev": 0,
+            "hotpotqa": 6,
+            "tau2": 6
+          },
+          "task_groups": 38,
+          "tn": 974,
+          "tp": 34
+        },
+        "threshold": 0.8
+      },
+      {
+        "combined": {
+          "f1": 0.2962962962962963,
+          "flags": 156,
+          "fn": 304,
+          "fp": 76,
+          "neutral_fp": 6,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 16,
+              "fp": 10,
+              "tn": 29,
+              "tp": 3
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 6,
+              "tn": 51,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 10,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 3,
+              "fp": 12,
+              "tn": 38,
+              "tp": 0
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 5,
+              "fp": 2,
+              "tn": 43,
+              "tp": 3
+            },
+            "bfcl:43": {
+              "fn": 6,
+              "fp": 1,
+              "tn": 41,
+              "tp": 1
+            },
+            "bfcl:6": {
+              "fn": 8,
+              "fp": 10,
+              "tn": 50,
+              "tp": 4
+            },
+            "bfcl:7": {
+              "fn": 5,
+              "fp": 1,
+              "tn": 29,
+              "tp": 0
+            },
+            "gaia_dev:17": {
+              "fn": 21,
+              "fp": 1,
+              "tn": 8,
+              "tp": 2
+            },
+            "gaia_dev:21": {
+              "fn": 20,
+              "fp": 1,
+              "tn": 5,
+              "tp": 6
+            },
+            "gaia_dev:23": {
+              "fn": 25,
+              "fp": 3,
+              "tn": 14,
+              "tp": 7
+            },
+            "gaia_dev:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 3
+            },
+            "gaia_dev:39": {
+              "fn": 28,
+              "fp": 2,
+              "tn": 14,
+              "tp": 5
+            },
+            "gaia_dev:46": {
+              "fn": 0,
+              "fp": 3,
+              "tn": 7,
+              "tp": 5
+            },
+            "gaia_dev:49": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 15,
+              "tp": 6
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 1,
+              "tn": 15,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 2,
+              "fp": 1,
+              "tn": 21,
+              "tp": 1
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 3,
+              "tn": 12,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 1
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 1,
+              "tn": 3,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 2,
+              "fp": 2,
+              "tn": 11,
+              "tp": 0
+            },
+            "tau2:14": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:16": {
+              "fn": 21,
+              "fp": 0,
+              "tn": 39,
+              "tp": 2
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 8,
+              "fp": 1,
+              "tn": 42,
+              "tp": 1
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 69,
+              "fp": 3,
+              "tn": 50,
+              "tp": 17
+            },
+            "tau2:37": {
+              "fn": 10,
+              "fp": 1,
+              "tn": 29,
+              "tp": 13
+            },
+            "tau2:9": {
+              "fn": 17,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.1875,
+              "precision": 0.23076923076923078,
+              "recall": 0.15789473684210525
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.46153846153846156,
+              "precision": 0.6,
+              "recall": 0.375
+            },
+            "bfcl:43": {
+              "f1": 0.2222222222222222,
+              "precision": 0.5,
+              "recall": 0.14285714285714285
+            },
+            "bfcl:6": {
+              "f1": 0.3076923076923077,
+              "precision": 0.2857142857142857,
+              "recall": 0.3333333333333333
+            },
+            "bfcl:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "gaia_dev:17": {
+              "f1": 0.15384615384615385,
+              "precision": 0.6666666666666666,
+              "recall": 0.08695652173913043
+            },
+            "gaia_dev:21": {
+              "f1": 0.36363636363636365,
+              "precision": 0.8571428571428571,
+              "recall": 0.23076923076923078
+            },
+            "gaia_dev:23": {
+              "f1": 0.3333333333333333,
+              "precision": 0.7,
+              "recall": 0.21875
+            },
+            "gaia_dev:24": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "gaia_dev:39": {
+              "f1": 0.25,
+              "precision": 0.7142857142857143,
+              "recall": 0.15151515151515152
+            },
+            "gaia_dev:46": {
+              "f1": 0.7692307692307693,
+              "precision": 0.625,
+              "recall": 1.0
+            },
+            "gaia_dev:49": {
+              "f1": 0.8571428571428571,
+              "precision": 0.8571428571428571,
+              "recall": 0.8571428571428571
+            },
+            "gaia_dev:5": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.4,
+              "precision": 0.5,
+              "recall": 0.3333333333333333
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "tau2:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:16": {
+              "f1": 0.16,
+              "precision": 1.0,
+              "recall": 0.08695652173913043
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.18181818181818182,
+              "precision": 0.5,
+              "recall": 0.1111111111111111
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.32075471698113206,
+              "precision": 0.85,
+              "recall": 0.19767441860465115
+            },
+            "tau2:37": {
+              "f1": 0.7027027027027027,
+              "precision": 0.9285714285714286,
+              "recall": 0.5652173913043478
+            },
+            "tau2:9": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            }
+          },
+          "positive_fp": 70,
+          "precision": 0.5128205128205128,
+          "recall": 0.20833333333333334,
+          "subset_fp": {
+            "bfcl": 52,
+            "gaia_dev": 13,
+            "hotpotqa": 6,
+            "tau2": 5
+          },
+          "task_groups": 38,
+          "tn": 930,
+          "tp": 80
+        },
+        "eligible": false,
+        "model": {
+          "f1": 0.08173076923076923,
+          "flags": 32,
+          "fn": 367,
+          "fp": 15,
+          "neutral_fp": 3,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 19,
+              "fp": 0,
+              "tn": 39,
+              "tp": 0
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 67,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 50,
+              "tp": 0
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 8,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "bfcl:43": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 42,
+              "tp": 0
+            },
+            "bfcl:6": {
+              "fn": 12,
+              "fp": 10,
+              "tn": 50,
+              "tp": 0
+            },
+            "bfcl:7": {
+              "fn": 5,
+              "fp": 0,
+              "tn": 30,
+              "tp": 0
+            },
+            "gaia_dev:17": {
+              "fn": 23,
+              "fp": 0,
+              "tn": 9,
+              "tp": 0
+            },
+            "gaia_dev:21": {
+              "fn": 26,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "gaia_dev:23": {
+              "fn": 32,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "gaia_dev:24": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "gaia_dev:39": {
+              "fn": 33,
+              "fp": 0,
+              "tn": 16,
+              "tp": 0
+            },
+            "gaia_dev:46": {
+              "fn": 5,
+              "fp": 0,
+              "tn": 10,
+              "tp": 0
+            },
+            "gaia_dev:49": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 16,
+              "tp": 0
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 16,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 22,
+              "tp": 0
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 15,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 2,
+              "fp": 2,
+              "tn": 11,
+              "tp": 0
+            },
+            "tau2:14": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:16": {
+              "fn": 22,
+              "fp": 0,
+              "tn": 39,
+              "tp": 1
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 9,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 76,
+              "fp": 3,
+              "tn": 50,
+              "tp": 10
+            },
+            "tau2:37": {
+              "fn": 17,
+              "fp": 0,
+              "tn": 30,
+              "tp": 6
+            },
+            "tau2:9": {
+              "fn": 17,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:43": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:6": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:7": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:23": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:24": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:39": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:46": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:49": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:5": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "tau2:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:16": {
+              "f1": 0.08333333333333333,
+              "precision": 1.0,
+              "recall": 0.043478260869565216
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.20202020202020202,
+              "precision": 0.7692307692307693,
+              "recall": 0.11627906976744186
+            },
+            "tau2:37": {
+              "f1": 0.41379310344827586,
+              "precision": 1.0,
+              "recall": 0.2608695652173913
+            },
+            "tau2:9": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            }
+          },
+          "positive_fp": 12,
+          "precision": 0.53125,
+          "recall": 0.044270833333333336,
+          "subset_fp": {
+            "bfcl": 10,
+            "gaia_dev": 0,
+            "hotpotqa": 2,
+            "tau2": 3
+          },
+          "task_groups": 38,
+          "tn": 991,
+          "tp": 17
+        },
+        "threshold": 0.9
+      },
+      {
+        "combined": {
+          "f1": 0.29063097514340347,
+          "flags": 139,
+          "fn": 308,
+          "fp": 63,
+          "neutral_fp": 3,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 16,
+              "fp": 10,
+              "tn": 29,
+              "tp": 3
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 6,
+              "tn": 51,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 10,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 3,
+              "fp": 12,
+              "tn": 38,
+              "tp": 0
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 5,
+              "fp": 2,
+              "tn": 43,
+              "tp": 3
+            },
+            "bfcl:43": {
+              "fn": 6,
+              "fp": 1,
+              "tn": 41,
+              "tp": 1
+            },
+            "bfcl:6": {
+              "fn": 8,
+              "fp": 2,
+              "tn": 58,
+              "tp": 4
+            },
+            "bfcl:7": {
+              "fn": 5,
+              "fp": 1,
+              "tn": 29,
+              "tp": 0
+            },
+            "gaia_dev:17": {
+              "fn": 21,
+              "fp": 1,
+              "tn": 8,
+              "tp": 2
+            },
+            "gaia_dev:21": {
+              "fn": 20,
+              "fp": 1,
+              "tn": 5,
+              "tp": 6
+            },
+            "gaia_dev:23": {
+              "fn": 25,
+              "fp": 3,
+              "tn": 14,
+              "tp": 7
+            },
+            "gaia_dev:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 3
+            },
+            "gaia_dev:39": {
+              "fn": 28,
+              "fp": 2,
+              "tn": 14,
+              "tp": 5
+            },
+            "gaia_dev:46": {
+              "fn": 0,
+              "fp": 3,
+              "tn": 7,
+              "tp": 5
+            },
+            "gaia_dev:49": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 15,
+              "tp": 6
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 1,
+              "tn": 15,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 2,
+              "fp": 1,
+              "tn": 21,
+              "tp": 1
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 3,
+              "tn": 12,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 1
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 1,
+              "tn": 3,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 2,
+              "fp": 0,
+              "tn": 13,
+              "tp": 0
+            },
+            "tau2:14": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:16": {
+              "fn": 22,
+              "fp": 0,
+              "tn": 39,
+              "tp": 1
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 8,
+              "fp": 1,
+              "tn": 42,
+              "tp": 1
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 71,
+              "fp": 0,
+              "tn": 53,
+              "tp": 15
+            },
+            "tau2:37": {
+              "fn": 11,
+              "fp": 1,
+              "tn": 29,
+              "tp": 12
+            },
+            "tau2:9": {
+              "fn": 17,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.1875,
+              "precision": 0.23076923076923078,
+              "recall": 0.15789473684210525
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.46153846153846156,
+              "precision": 0.6,
+              "recall": 0.375
+            },
+            "bfcl:43": {
+              "f1": 0.2222222222222222,
+              "precision": 0.5,
+              "recall": 0.14285714285714285
+            },
+            "bfcl:6": {
+              "f1": 0.4444444444444444,
+              "precision": 0.6666666666666666,
+              "recall": 0.3333333333333333
+            },
+            "bfcl:7": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "gaia_dev:17": {
+              "f1": 0.15384615384615385,
+              "precision": 0.6666666666666666,
+              "recall": 0.08695652173913043
+            },
+            "gaia_dev:21": {
+              "f1": 0.36363636363636365,
+              "precision": 0.8571428571428571,
+              "recall": 0.23076923076923078
+            },
+            "gaia_dev:23": {
+              "f1": 0.3333333333333333,
+              "precision": 0.7,
+              "recall": 0.21875
+            },
+            "gaia_dev:24": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "gaia_dev:39": {
+              "f1": 0.25,
+              "precision": 0.7142857142857143,
+              "recall": 0.15151515151515152
+            },
+            "gaia_dev:46": {
+              "f1": 0.7692307692307693,
+              "precision": 0.625,
+              "recall": 1.0
+            },
+            "gaia_dev:49": {
+              "f1": 0.8571428571428571,
+              "precision": 0.8571428571428571,
+              "recall": 0.8571428571428571
+            },
+            "gaia_dev:5": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.4,
+              "precision": 0.5,
+              "recall": 0.3333333333333333
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:16": {
+              "f1": 0.08333333333333333,
+              "precision": 1.0,
+              "recall": 0.043478260869565216
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.18181818181818182,
+              "precision": 0.5,
+              "recall": 0.1111111111111111
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.297029702970297,
+              "precision": 1.0,
+              "recall": 0.1744186046511628
+            },
+            "tau2:37": {
+              "f1": 0.6666666666666666,
+              "precision": 0.9230769230769231,
+              "recall": 0.5217391304347826
+            },
+            "tau2:9": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            }
+          },
+          "positive_fp": 60,
+          "precision": 0.5467625899280576,
+          "recall": 0.19791666666666666,
+          "subset_fp": {
+            "bfcl": 44,
+            "gaia_dev": 13,
+            "hotpotqa": 4,
+            "tau2": 2
+          },
+          "task_groups": 38,
+          "tn": 943,
+          "tp": 76
+        },
+        "eligible": false,
+        "model": {
+          "f1": 0.020512820512820513,
+          "flags": 6,
+          "fn": 380,
+          "fp": 2,
+          "neutral_fp": 0,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "fn": 19,
+              "fp": 0,
+              "tn": 39,
+              "tp": 0
+            },
+            "bfcl:15": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 57,
+              "tp": 0
+            },
+            "bfcl:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 67,
+              "tp": 0
+            },
+            "bfcl:26": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 50,
+              "tp": 0
+            },
+            "bfcl:34": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "bfcl:4": {
+              "fn": 8,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "bfcl:43": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 42,
+              "tp": 0
+            },
+            "bfcl:6": {
+              "fn": 12,
+              "fp": 2,
+              "tn": 58,
+              "tp": 0
+            },
+            "bfcl:7": {
+              "fn": 5,
+              "fp": 0,
+              "tn": 30,
+              "tp": 0
+            },
+            "gaia_dev:17": {
+              "fn": 23,
+              "fp": 0,
+              "tn": 9,
+              "tp": 0
+            },
+            "gaia_dev:21": {
+              "fn": 26,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "gaia_dev:23": {
+              "fn": 32,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "gaia_dev:24": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "gaia_dev:39": {
+              "fn": 33,
+              "fp": 0,
+              "tn": 16,
+              "tp": 0
+            },
+            "gaia_dev:46": {
+              "fn": 5,
+              "fp": 0,
+              "tn": 10,
+              "tp": 0
+            },
+            "gaia_dev:49": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 16,
+              "tp": 0
+            },
+            "gaia_dev:5": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 16,
+              "tp": 0
+            },
+            "gaia_dev:9": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 22,
+              "tp": 0
+            },
+            "hotpotqa:0": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 15,
+              "tp": 0
+            },
+            "hotpotqa:12": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:13": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:2": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:21": {
+              "fn": 3,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:25": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:30": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 7,
+              "tp": 0
+            },
+            "hotpotqa:32": {
+              "fn": 1,
+              "fp": 0,
+              "tn": 6,
+              "tp": 0
+            },
+            "hotpotqa:4": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 4,
+              "tp": 0
+            },
+            "hotpotqa:7": {
+              "fn": 2,
+              "fp": 0,
+              "tn": 13,
+              "tp": 0
+            },
+            "tau2:14": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:16": {
+              "fn": 23,
+              "fp": 0,
+              "tn": 39,
+              "tp": 0
+            },
+            "tau2:17": {
+              "fn": 4,
+              "fp": 0,
+              "tn": 44,
+              "tp": 0
+            },
+            "tau2:21": {
+              "fn": 9,
+              "fp": 0,
+              "tn": 43,
+              "tp": 0
+            },
+            "tau2:24": {
+              "fn": 0,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            },
+            "tau2:3": {
+              "fn": 7,
+              "fp": 0,
+              "tn": 17,
+              "tp": 0
+            },
+            "tau2:30": {
+              "fn": 6,
+              "fp": 0,
+              "tn": 49,
+              "tp": 0
+            },
+            "tau2:35": {
+              "fn": 84,
+              "fp": 0,
+              "tn": 53,
+              "tp": 2
+            },
+            "tau2:37": {
+              "fn": 21,
+              "fp": 0,
+              "tn": 30,
+              "tp": 2
+            },
+            "tau2:9": {
+              "fn": 17,
+              "fp": 0,
+              "tn": 45,
+              "tp": 0
+            }
+          },
+          "per_task_metrics": {
+            "bfcl:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:15": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:26": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:34": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "bfcl:4": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:43": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "bfcl:6": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "bfcl:7": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:23": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:24": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:39": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:46": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:49": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "gaia_dev:5": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "gaia_dev:9": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:0": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:12": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:13": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:2": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:25": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:30": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:32": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "hotpotqa:4": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "hotpotqa:7": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:14": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:16": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:17": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:21": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:24": {
+              "f1": 0,
+              "precision": 0,
+              "recall": 0
+            },
+            "tau2:3": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:30": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            },
+            "tau2:35": {
+              "f1": 0.045454545454545456,
+              "precision": 1.0,
+              "recall": 0.023255813953488372
+            },
+            "tau2:37": {
+              "f1": 0.16,
+              "precision": 1.0,
+              "recall": 0.08695652173913043
+            },
+            "tau2:9": {
+              "f1": 0.0,
+              "precision": 0,
+              "recall": 0.0
+            }
+          },
+          "positive_fp": 2,
+          "precision": 0.6666666666666666,
+          "recall": 0.010416666666666666,
+          "subset_fp": {
+            "bfcl": 2,
+            "gaia_dev": 0,
+            "hotpotqa": 0,
+            "tau2": 0
+          },
+          "task_groups": 38,
+          "tn": 1004,
+          "tp": 4
+        },
+        "threshold": 0.95
+      }
+    ],
+    "interpretation": "Development validation only; examined test split is not a fresh assessment.",
+    "never_flag": {
+      "f1": 0.0,
+      "flags": 0,
+      "fn": 384,
+      "fp": 0,
+      "neutral_fp": 0,
+      "per_task_confusion": {
+        "bfcl:14": {
+          "fn": 19,
+          "fp": 0,
+          "tn": 39,
+          "tp": 0
+        },
+        "bfcl:15": {
+          "fn": 7,
+          "fp": 0,
+          "tn": 57,
+          "tp": 0
+        },
+        "bfcl:17": {
+          "fn": 4,
+          "fp": 0,
+          "tn": 67,
+          "tp": 0
+        },
+        "bfcl:26": {
+          "fn": 3,
+          "fp": 0,
+          "tn": 50,
+          "tp": 0
+        },
+        "bfcl:34": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 17,
+          "tp": 0
+        },
+        "bfcl:4": {
+          "fn": 8,
+          "fp": 0,
+          "tn": 45,
+          "tp": 0
+        },
+        "bfcl:43": {
+          "fn": 7,
+          "fp": 0,
+          "tn": 42,
+          "tp": 0
+        },
+        "bfcl:6": {
+          "fn": 12,
+          "fp": 0,
+          "tn": 60,
+          "tp": 0
+        },
+        "bfcl:7": {
+          "fn": 5,
+          "fp": 0,
+          "tn": 30,
+          "tp": 0
+        },
+        "gaia_dev:17": {
+          "fn": 23,
+          "fp": 0,
+          "tn": 9,
+          "tp": 0
+        },
+        "gaia_dev:21": {
+          "fn": 26,
+          "fp": 0,
+          "tn": 6,
+          "tp": 0
+        },
+        "gaia_dev:23": {
+          "fn": 32,
+          "fp": 0,
+          "tn": 17,
+          "tp": 0
+        },
+        "gaia_dev:24": {
+          "fn": 3,
+          "fp": 0,
+          "tn": 7,
+          "tp": 0
+        },
+        "gaia_dev:39": {
+          "fn": 33,
+          "fp": 0,
+          "tn": 16,
+          "tp": 0
+        },
+        "gaia_dev:46": {
+          "fn": 5,
+          "fp": 0,
+          "tn": 10,
+          "tp": 0
+        },
+        "gaia_dev:49": {
+          "fn": 7,
+          "fp": 0,
+          "tn": 16,
+          "tp": 0
+        },
+        "gaia_dev:5": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 16,
+          "tp": 0
+        },
+        "gaia_dev:9": {
+          "fn": 3,
+          "fp": 0,
+          "tn": 22,
+          "tp": 0
+        },
+        "hotpotqa:0": {
+          "fn": 1,
+          "fp": 0,
+          "tn": 15,
+          "tp": 0
+        },
+        "hotpotqa:12": {
+          "fn": 1,
+          "fp": 0,
+          "tn": 4,
+          "tp": 0
+        },
+        "hotpotqa:13": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 7,
+          "tp": 0
+        },
+        "hotpotqa:2": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 4,
+          "tp": 0
+        },
+        "hotpotqa:21": {
+          "fn": 3,
+          "fp": 0,
+          "tn": 6,
+          "tp": 0
+        },
+        "hotpotqa:25": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 6,
+          "tp": 0
+        },
+        "hotpotqa:30": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 7,
+          "tp": 0
+        },
+        "hotpotqa:32": {
+          "fn": 1,
+          "fp": 0,
+          "tn": 6,
+          "tp": 0
+        },
+        "hotpotqa:4": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 4,
+          "tp": 0
+        },
+        "hotpotqa:7": {
+          "fn": 2,
+          "fp": 0,
+          "tn": 13,
+          "tp": 0
+        },
+        "tau2:14": {
+          "fn": 4,
+          "fp": 0,
+          "tn": 43,
+          "tp": 0
+        },
+        "tau2:16": {
+          "fn": 23,
+          "fp": 0,
+          "tn": 39,
+          "tp": 0
+        },
+        "tau2:17": {
+          "fn": 4,
+          "fp": 0,
+          "tn": 44,
+          "tp": 0
+        },
+        "tau2:21": {
+          "fn": 9,
+          "fp": 0,
+          "tn": 43,
+          "tp": 0
+        },
+        "tau2:24": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 45,
+          "tp": 0
+        },
+        "tau2:3": {
+          "fn": 7,
+          "fp": 0,
+          "tn": 17,
+          "tp": 0
+        },
+        "tau2:30": {
+          "fn": 6,
+          "fp": 0,
+          "tn": 49,
+          "tp": 0
+        },
+        "tau2:35": {
+          "fn": 86,
+          "fp": 0,
+          "tn": 53,
+          "tp": 0
+        },
+        "tau2:37": {
+          "fn": 23,
+          "fp": 0,
+          "tn": 30,
+          "tp": 0
+        },
+        "tau2:9": {
+          "fn": 17,
+          "fp": 0,
+          "tn": 45,
+          "tp": 0
+        }
+      },
+      "per_task_metrics": {
+        "bfcl:14": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "bfcl:15": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "bfcl:17": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "bfcl:26": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "bfcl:34": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "bfcl:4": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "bfcl:43": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "bfcl:6": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "bfcl:7": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "gaia_dev:17": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "gaia_dev:21": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "gaia_dev:23": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "gaia_dev:24": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "gaia_dev:39": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "gaia_dev:46": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "gaia_dev:49": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "gaia_dev:5": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "gaia_dev:9": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "hotpotqa:0": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "hotpotqa:12": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "hotpotqa:13": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "hotpotqa:2": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "hotpotqa:21": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "hotpotqa:25": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "hotpotqa:30": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "hotpotqa:32": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "hotpotqa:4": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "hotpotqa:7": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:14": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:16": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:17": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:21": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:24": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "tau2:3": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:30": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:35": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:37": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:9": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        }
+      },
+      "positive_fp": 0,
+      "precision": 0,
+      "recall": 0.0,
+      "subset_fp": {
+        "bfcl": 0,
+        "gaia_dev": 0,
+        "hotpotqa": 0,
+        "tau2": 0
+      },
+      "task_groups": 38,
+      "tn": 1006,
+      "tp": 0
+    },
+    "rules": {
+      "f1": 0.29174664107485604,
+      "flags": 137,
+      "fn": 308,
+      "fp": 61,
+      "neutral_fp": 3,
+      "per_task_confusion": {
+        "bfcl:14": {
+          "fn": 16,
+          "fp": 10,
+          "tn": 29,
+          "tp": 3
+        },
+        "bfcl:15": {
+          "fn": 7,
+          "fp": 6,
+          "tn": 51,
+          "tp": 0
+        },
+        "bfcl:17": {
+          "fn": 4,
+          "fp": 10,
+          "tn": 57,
+          "tp": 0
+        },
+        "bfcl:26": {
+          "fn": 3,
+          "fp": 12,
+          "tn": 38,
+          "tp": 0
+        },
+        "bfcl:34": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 17,
+          "tp": 0
+        },
+        "bfcl:4": {
+          "fn": 5,
+          "fp": 2,
+          "tn": 43,
+          "tp": 3
+        },
+        "bfcl:43": {
+          "fn": 6,
+          "fp": 1,
+          "tn": 41,
+          "tp": 1
+        },
+        "bfcl:6": {
+          "fn": 8,
+          "fp": 0,
+          "tn": 60,
+          "tp": 4
+        },
+        "bfcl:7": {
+          "fn": 5,
+          "fp": 1,
+          "tn": 29,
+          "tp": 0
+        },
+        "gaia_dev:17": {
+          "fn": 21,
+          "fp": 1,
+          "tn": 8,
+          "tp": 2
+        },
+        "gaia_dev:21": {
+          "fn": 20,
+          "fp": 1,
+          "tn": 5,
+          "tp": 6
+        },
+        "gaia_dev:23": {
+          "fn": 25,
+          "fp": 3,
+          "tn": 14,
+          "tp": 7
+        },
+        "gaia_dev:24": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 7,
+          "tp": 3
+        },
+        "gaia_dev:39": {
+          "fn": 28,
+          "fp": 2,
+          "tn": 14,
+          "tp": 5
+        },
+        "gaia_dev:46": {
+          "fn": 0,
+          "fp": 3,
+          "tn": 7,
+          "tp": 5
+        },
+        "gaia_dev:49": {
+          "fn": 1,
+          "fp": 1,
+          "tn": 15,
+          "tp": 6
+        },
+        "gaia_dev:5": {
+          "fn": 0,
+          "fp": 1,
+          "tn": 15,
+          "tp": 0
+        },
+        "gaia_dev:9": {
+          "fn": 2,
+          "fp": 1,
+          "tn": 21,
+          "tp": 1
+        },
+        "hotpotqa:0": {
+          "fn": 1,
+          "fp": 3,
+          "tn": 12,
+          "tp": 0
+        },
+        "hotpotqa:12": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 4,
+          "tp": 1
+        },
+        "hotpotqa:13": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 7,
+          "tp": 0
+        },
+        "hotpotqa:2": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 4,
+          "tp": 0
+        },
+        "hotpotqa:21": {
+          "fn": 3,
+          "fp": 0,
+          "tn": 6,
+          "tp": 0
+        },
+        "hotpotqa:25": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 6,
+          "tp": 0
+        },
+        "hotpotqa:30": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 7,
+          "tp": 0
+        },
+        "hotpotqa:32": {
+          "fn": 1,
+          "fp": 0,
+          "tn": 6,
+          "tp": 0
+        },
+        "hotpotqa:4": {
+          "fn": 0,
+          "fp": 1,
+          "tn": 3,
+          "tp": 0
+        },
+        "hotpotqa:7": {
+          "fn": 2,
+          "fp": 0,
+          "tn": 13,
+          "tp": 0
+        },
+        "tau2:14": {
+          "fn": 4,
+          "fp": 0,
+          "tn": 43,
+          "tp": 0
+        },
+        "tau2:16": {
+          "fn": 22,
+          "fp": 0,
+          "tn": 39,
+          "tp": 1
+        },
+        "tau2:17": {
+          "fn": 4,
+          "fp": 0,
+          "tn": 44,
+          "tp": 0
+        },
+        "tau2:21": {
+          "fn": 8,
+          "fp": 1,
+          "tn": 42,
+          "tp": 1
+        },
+        "tau2:24": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 45,
+          "tp": 0
+        },
+        "tau2:3": {
+          "fn": 7,
+          "fp": 0,
+          "tn": 17,
+          "tp": 0
+        },
+        "tau2:30": {
+          "fn": 6,
+          "fp": 0,
+          "tn": 49,
+          "tp": 0
+        },
+        "tau2:35": {
+          "fn": 71,
+          "fp": 0,
+          "tn": 53,
+          "tp": 15
+        },
+        "tau2:37": {
+          "fn": 11,
+          "fp": 1,
+          "tn": 29,
+          "tp": 12
+        },
+        "tau2:9": {
+          "fn": 17,
+          "fp": 0,
+          "tn": 45,
+          "tp": 0
+        }
+      },
+      "per_task_metrics": {
+        "bfcl:14": {
+          "f1": 0.1875,
+          "precision": 0.23076923076923078,
+          "recall": 0.15789473684210525
+        },
+        "bfcl:15": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "bfcl:17": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "bfcl:26": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "bfcl:34": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "bfcl:4": {
+          "f1": 0.46153846153846156,
+          "precision": 0.6,
+          "recall": 0.375
+        },
+        "bfcl:43": {
+          "f1": 0.2222222222222222,
+          "precision": 0.5,
+          "recall": 0.14285714285714285
+        },
+        "bfcl:6": {
+          "f1": 0.5,
+          "precision": 1.0,
+          "recall": 0.3333333333333333
+        },
+        "bfcl:7": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "gaia_dev:17": {
+          "f1": 0.15384615384615385,
+          "precision": 0.6666666666666666,
+          "recall": 0.08695652173913043
+        },
+        "gaia_dev:21": {
+          "f1": 0.36363636363636365,
+          "precision": 0.8571428571428571,
+          "recall": 0.23076923076923078
+        },
+        "gaia_dev:23": {
+          "f1": 0.3333333333333333,
+          "precision": 0.7,
+          "recall": 0.21875
+        },
+        "gaia_dev:24": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "gaia_dev:39": {
+          "f1": 0.25,
+          "precision": 0.7142857142857143,
+          "recall": 0.15151515151515152
+        },
+        "gaia_dev:46": {
+          "f1": 0.7692307692307693,
+          "precision": 0.625,
+          "recall": 1.0
+        },
+        "gaia_dev:49": {
+          "f1": 0.8571428571428571,
+          "precision": 0.8571428571428571,
+          "recall": 0.8571428571428571
+        },
+        "gaia_dev:5": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0
+        },
+        "gaia_dev:9": {
+          "f1": 0.4,
+          "precision": 0.5,
+          "recall": 0.3333333333333333
+        },
+        "hotpotqa:0": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "hotpotqa:12": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "hotpotqa:13": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "hotpotqa:2": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "hotpotqa:21": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "hotpotqa:25": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "hotpotqa:30": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "hotpotqa:32": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "hotpotqa:4": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0
+        },
+        "hotpotqa:7": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:14": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:16": {
+          "f1": 0.08333333333333333,
+          "precision": 1.0,
+          "recall": 0.043478260869565216
+        },
+        "tau2:17": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:21": {
+          "f1": 0.18181818181818182,
+          "precision": 0.5,
+          "recall": 0.1111111111111111
+        },
+        "tau2:24": {
+          "f1": 0,
+          "precision": 0,
+          "recall": 0
+        },
+        "tau2:3": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:30": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        },
+        "tau2:35": {
+          "f1": 0.297029702970297,
+          "precision": 1.0,
+          "recall": 0.1744186046511628
+        },
+        "tau2:37": {
+          "f1": 0.6666666666666666,
+          "precision": 0.9230769230769231,
+          "recall": 0.5217391304347826
+        },
+        "tau2:9": {
+          "f1": 0.0,
+          "precision": 0,
+          "recall": 0.0
+        }
+      },
+      "positive_fp": 58,
+      "precision": 0.5547445255474452,
+      "recall": 0.19791666666666666,
+      "subset_fp": {
+        "bfcl": 42,
+        "gaia_dev": 13,
+        "hotpotqa": 4,
+        "tau2": 2
+      },
+      "task_groups": 38,
+      "tn": 945,
+      "tp": 76
+    },
+    "selected_threshold": null,
+    "uncertainty": "Paired independent-task confusion counts retained for all policies. Confidence intervals and statistical significance are unassessed; validation selection remains development-only."
+  },
+  "head_fits": 1,
+  "protocol_sha256": "ec179fd1965ff4f3af73dc7bef55e788945e18519fee40add31e7363384b9c84",
+  "provenance": {
+    "groups_by_split": {
+      "test": [
+        "bfcl:11",
+        "bfcl:13",
+        "bfcl:16",
+        "bfcl:30",
+        "bfcl:31",
+        "bfcl:38",
+        "bfcl:46",
+        "bfcl:8",
+        "bfcl:9",
+        "gaia_dev:0",
+        "gaia_dev:10",
+        "gaia_dev:13",
+        "gaia_dev:19",
+        "gaia_dev:2",
+        "gaia_dev:25",
+        "gaia_dev:28",
+        "gaia_dev:3",
+        "gaia_dev:31",
+        "gaia_dev:34",
+        "gaia_dev:35",
+        "gaia_dev:36",
+        "gaia_dev:38",
+        "hotpotqa:15",
+        "hotpotqa:28",
+        "hotpotqa:33",
+        "hotpotqa:42",
+        "hotpotqa:46",
+        "hotpotqa:48",
+        "hotpotqa:8",
+        "tau2:1",
+        "tau2:13",
+        "tau2:19",
+        "tau2:23",
+        "tau2:27",
+        "tau2:29",
+        "tau2:5",
+        "tau2:7",
+        "tau2:8"
+      ],
+      "train": [
+        "bfcl:0",
+        "bfcl:1",
+        "bfcl:10",
+        "bfcl:12",
+        "bfcl:18",
+        "bfcl:19",
+        "bfcl:2",
+        "bfcl:20",
+        "bfcl:21",
+        "bfcl:22",
+        "bfcl:23",
+        "bfcl:24",
+        "bfcl:25",
+        "bfcl:27",
+        "bfcl:28",
+        "bfcl:29",
+        "bfcl:3",
+        "bfcl:32",
+        "bfcl:33",
+        "bfcl:35",
+        "bfcl:36",
+        "bfcl:37",
+        "bfcl:39",
+        "bfcl:40",
+        "bfcl:41",
+        "bfcl:42",
+        "bfcl:44",
+        "bfcl:45",
+        "bfcl:47",
+        "bfcl:48",
+        "bfcl:49",
+        "bfcl:5",
+        "gaia_dev:1",
+        "gaia_dev:11",
+        "gaia_dev:12",
+        "gaia_dev:14",
+        "gaia_dev:15",
+        "gaia_dev:16",
+        "gaia_dev:18",
+        "gaia_dev:20",
+        "gaia_dev:22",
+        "gaia_dev:26",
+        "gaia_dev:27",
+        "gaia_dev:29",
+        "gaia_dev:30",
+        "gaia_dev:32",
+        "gaia_dev:33",
+        "gaia_dev:37",
+        "gaia_dev:4",
+        "gaia_dev:40",
+        "gaia_dev:41",
+        "gaia_dev:42",
+        "gaia_dev:43",
+        "gaia_dev:44",
+        "gaia_dev:45",
+        "gaia_dev:47",
+        "gaia_dev:48",
+        "gaia_dev:6",
+        "gaia_dev:7",
+        "gaia_dev:8",
+        "hotpotqa:1",
+        "hotpotqa:10",
+        "hotpotqa:11",
+        "hotpotqa:14",
+        "hotpotqa:16",
+        "hotpotqa:17",
+        "hotpotqa:18",
+        "hotpotqa:19",
+        "hotpotqa:20",
+        "hotpotqa:22",
+        "hotpotqa:23",
+        "hotpotqa:24",
+        "hotpotqa:26",
+        "hotpotqa:27",
+        "hotpotqa:29",
+        "hotpotqa:3",
+        "hotpotqa:31",
+        "hotpotqa:34",
+        "hotpotqa:35",
+        "hotpotqa:36",
+        "hotpotqa:37",
+        "hotpotqa:38",
+        "hotpotqa:39",
+        "hotpotqa:40",
+        "hotpotqa:41",
+        "hotpotqa:43",
+        "hotpotqa:44",
+        "hotpotqa:45",
+        "hotpotqa:47",
+        "hotpotqa:49",
+        "hotpotqa:5",
+        "hotpotqa:6",
+        "hotpotqa:9",
+        "tau2:0",
+        "tau2:10",
+        "tau2:11",
+        "tau2:12",
+        "tau2:15",
+        "tau2:18",
+        "tau2:2",
+        "tau2:20",
+        "tau2:22",
+        "tau2:25",
+        "tau2:26",
+        "tau2:28",
+        "tau2:31",
+        "tau2:32",
+        "tau2:33",
+        "tau2:34",
+        "tau2:36",
+        "tau2:38",
+        "tau2:4",
+        "tau2:6"
+      ],
+      "validation": [
+        "bfcl:14",
+        "bfcl:15",
+        "bfcl:17",
+        "bfcl:26",
+        "bfcl:34",
+        "bfcl:4",
+        "bfcl:43",
+        "bfcl:6",
+        "bfcl:7",
+        "gaia_dev:17",
+        "gaia_dev:21",
+        "gaia_dev:23",
+        "gaia_dev:24",
+        "gaia_dev:39",
+        "gaia_dev:46",
+        "gaia_dev:49",
+        "gaia_dev:5",
+        "gaia_dev:9",
+        "hotpotqa:0",
+        "hotpotqa:12",
+        "hotpotqa:13",
+        "hotpotqa:2",
+        "hotpotqa:21",
+        "hotpotqa:25",
+        "hotpotqa:30",
+        "hotpotqa:32",
+        "hotpotqa:4",
+        "hotpotqa:7",
+        "tau2:14",
+        "tau2:16",
+        "tau2:17",
+        "tau2:21",
+        "tau2:24",
+        "tau2:3",
+        "tau2:30",
+        "tau2:35",
+        "tau2:37",
+        "tau2:9"
+      ]
+    },
+    "groups_by_split_subset": {
+      "test": {
+        "bfcl": [
+          "bfcl:11",
+          "bfcl:13",
+          "bfcl:16",
+          "bfcl:30",
+          "bfcl:31",
+          "bfcl:38",
+          "bfcl:46",
+          "bfcl:8",
+          "bfcl:9"
+        ],
+        "gaia_dev": [
+          "gaia_dev:0",
+          "gaia_dev:10",
+          "gaia_dev:13",
+          "gaia_dev:19",
+          "gaia_dev:2",
+          "gaia_dev:25",
+          "gaia_dev:28",
+          "gaia_dev:3",
+          "gaia_dev:31",
+          "gaia_dev:34",
+          "gaia_dev:35",
+          "gaia_dev:36",
+          "gaia_dev:38"
+        ],
+        "hotpotqa": [
+          "hotpotqa:15",
+          "hotpotqa:28",
+          "hotpotqa:33",
+          "hotpotqa:42",
+          "hotpotqa:46",
+          "hotpotqa:48",
+          "hotpotqa:8"
+        ],
+        "tau2": [
+          "tau2:1",
+          "tau2:13",
+          "tau2:19",
+          "tau2:23",
+          "tau2:27",
+          "tau2:29",
+          "tau2:5",
+          "tau2:7",
+          "tau2:8"
+        ]
+      },
+      "train": {
+        "bfcl": [
+          "bfcl:0",
+          "bfcl:1",
+          "bfcl:10",
+          "bfcl:12",
+          "bfcl:18",
+          "bfcl:19",
+          "bfcl:2",
+          "bfcl:20",
+          "bfcl:21",
+          "bfcl:22",
+          "bfcl:23",
+          "bfcl:24",
+          "bfcl:25",
+          "bfcl:27",
+          "bfcl:28",
+          "bfcl:29",
+          "bfcl:3",
+          "bfcl:32",
+          "bfcl:33",
+          "bfcl:35",
+          "bfcl:36",
+          "bfcl:37",
+          "bfcl:39",
+          "bfcl:40",
+          "bfcl:41",
+          "bfcl:42",
+          "bfcl:44",
+          "bfcl:45",
+          "bfcl:47",
+          "bfcl:48",
+          "bfcl:49",
+          "bfcl:5"
+        ],
+        "gaia_dev": [
+          "gaia_dev:1",
+          "gaia_dev:11",
+          "gaia_dev:12",
+          "gaia_dev:14",
+          "gaia_dev:15",
+          "gaia_dev:16",
+          "gaia_dev:18",
+          "gaia_dev:20",
+          "gaia_dev:22",
+          "gaia_dev:26",
+          "gaia_dev:27",
+          "gaia_dev:29",
+          "gaia_dev:30",
+          "gaia_dev:32",
+          "gaia_dev:33",
+          "gaia_dev:37",
+          "gaia_dev:4",
+          "gaia_dev:40",
+          "gaia_dev:41",
+          "gaia_dev:42",
+          "gaia_dev:43",
+          "gaia_dev:44",
+          "gaia_dev:45",
+          "gaia_dev:47",
+          "gaia_dev:48",
+          "gaia_dev:6",
+          "gaia_dev:7",
+          "gaia_dev:8"
+        ],
+        "hotpotqa": [
+          "hotpotqa:1",
+          "hotpotqa:10",
+          "hotpotqa:11",
+          "hotpotqa:14",
+          "hotpotqa:16",
+          "hotpotqa:17",
+          "hotpotqa:18",
+          "hotpotqa:19",
+          "hotpotqa:20",
+          "hotpotqa:22",
+          "hotpotqa:23",
+          "hotpotqa:24",
+          "hotpotqa:26",
+          "hotpotqa:27",
+          "hotpotqa:29",
+          "hotpotqa:3",
+          "hotpotqa:31",
+          "hotpotqa:34",
+          "hotpotqa:35",
+          "hotpotqa:36",
+          "hotpotqa:37",
+          "hotpotqa:38",
+          "hotpotqa:39",
+          "hotpotqa:40",
+          "hotpotqa:41",
+          "hotpotqa:43",
+          "hotpotqa:44",
+          "hotpotqa:45",
+          "hotpotqa:47",
+          "hotpotqa:49",
+          "hotpotqa:5",
+          "hotpotqa:6",
+          "hotpotqa:9"
+        ],
+        "tau2": [
+          "tau2:0",
+          "tau2:10",
+          "tau2:11",
+          "tau2:12",
+          "tau2:15",
+          "tau2:18",
+          "tau2:2",
+          "tau2:20",
+          "tau2:22",
+          "tau2:25",
+          "tau2:26",
+          "tau2:28",
+          "tau2:31",
+          "tau2:32",
+          "tau2:33",
+          "tau2:34",
+          "tau2:36",
+          "tau2:38",
+          "tau2:4",
+          "tau2:6"
+        ]
+      },
+      "validation": {
+        "bfcl": [
+          "bfcl:14",
+          "bfcl:15",
+          "bfcl:17",
+          "bfcl:26",
+          "bfcl:34",
+          "bfcl:4",
+          "bfcl:43",
+          "bfcl:6",
+          "bfcl:7"
+        ],
+        "gaia_dev": [
+          "gaia_dev:17",
+          "gaia_dev:21",
+          "gaia_dev:23",
+          "gaia_dev:24",
+          "gaia_dev:39",
+          "gaia_dev:46",
+          "gaia_dev:49",
+          "gaia_dev:5",
+          "gaia_dev:9"
+        ],
+        "hotpotqa": [
+          "hotpotqa:0",
+          "hotpotqa:12",
+          "hotpotqa:13",
+          "hotpotqa:2",
+          "hotpotqa:21",
+          "hotpotqa:25",
+          "hotpotqa:30",
+          "hotpotqa:32",
+          "hotpotqa:4",
+          "hotpotqa:7"
+        ],
+        "tau2": [
+          "tau2:14",
+          "tau2:16",
+          "tau2:17",
+          "tau2:21",
+          "tau2:24",
+          "tau2:3",
+          "tau2:30",
+          "tau2:35",
+          "tau2:37",
+          "tau2:9"
+        ]
+      }
+    },
+    "routing_runs": {
+      "test": 190,
+      "train": 620,
+      "validation": 190
+    },
+    "source_sha256": {
+      "bfcl.jsonl": "6aee0b71eff7feb872c6b54d962f8831b56f7bebf770cba9cb657f219afb6fe5",
+      "gaia_dev.jsonl": "f7b75c668fc1e6ad943e8f6d93a21a9a8f5f076841e1230e1ed2fc6d05ce8192",
+      "hotpotqa.jsonl": "160eef2ded872d8dc6ddf4cee5752295fda691b6a9e99b5bafc2d484e6309c57",
+      "tau2.jsonl": "6f22818ff88822512767fe735f56e7b78bed4b9aaf26959144feb92f127e1e95"
+    },
+    "split_sha256": "7a7d222f87069b840eccab45abb3d7e35da51fc2b11e62a18d89a9a34eab7524",
+    "validation_groups": [
+      "bfcl:14",
+      "bfcl:15",
+      "bfcl:17",
+      "bfcl:26",
+      "bfcl:34",
+      "bfcl:4",
+      "bfcl:43",
+      "bfcl:6",
+      "bfcl:7",
+      "gaia_dev:17",
+      "gaia_dev:21",
+      "gaia_dev:23",
+      "gaia_dev:24",
+      "gaia_dev:39",
+      "gaia_dev:46",
+      "gaia_dev:49",
+      "gaia_dev:5",
+      "gaia_dev:9",
+      "hotpotqa:0",
+      "hotpotqa:12",
+      "hotpotqa:13",
+      "hotpotqa:2",
+      "hotpotqa:21",
+      "hotpotqa:25",
+      "hotpotqa:30",
+      "hotpotqa:32",
+      "hotpotqa:4",
+      "hotpotqa:7",
+      "tau2:14",
+      "tau2:16",
+      "tau2:17",
+      "tau2:21",
+      "tau2:24",
+      "tau2:3",
+      "tau2:30",
+      "tau2:35",
+      "tau2:37",
+      "tau2:9"
+    ]
+  },
+  "quality_claim": "Development validation only; TEST is spent and excluded.",
+  "resource": {
+    "elapsed_seconds": 638.457451369,
+    "end_to_end_seconds": 638.6112200330003,
+    "exit_code": 0,
+    "rss_poll_seconds": 0.01,
+    "sampled_peak_group_rss_kib": 561424,
+    "stop_reason": null
+  },
+  "score_max_absolute_error": 0.0,
+  "status": "completed",
+  "thresholds": [
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    0.95
+  ],
+  "evidence_archive": {
+    "path": "semantic/results/one-fit-v2-2026-10-06-full.json.gz",
+    "compression": "gzip",
+    "uncompressed_bytes": 8512216,
+    "uncompressed_sha256": "d28a7af9f3c41727ade41587bc93af4087de1265eae6a01ff04ea081e1c58e68",
+    "compressed_bytes": 262201,
+    "compressed_sha256": "6b6c4cf15ed8da58697998023c3424535edf039ffd9e3fcec516332289430165",
+    "train_positional_records": 4824,
+    "validation_positional_records": 1390,
+    "text_safety_check": "Every positional record has text_redacted=true and only numeric audits or allowed structural strings. No source content, names, arguments, answers or call IDs."
+  },
+  "execution": {
+    "approved_commit": "b19b736937ea65bafa1507718ecd6b64a2c9554a",
+    "approval_ci_run": 37536721520,
+    "invocation": {
+      "approved_commit": "b19b736937ea65bafa1507718ecd6b64a2c9554a",
+      "protocol_sha256": "ec179fd1965ff4f3af73dc7bef55e788945e18519fee40add31e7363384b9c84",
+      "ci_run": 37536721520,
+      "started_at_utc": "2026-10-06T21:54:22.520213+00:00",
+      "command": [
+        ".venv/bin/python",
+        "semantic/fit.py",
+        "--data",
+        "research/data",
+        "--model-dir",
+        "/tmp/tracecheck-minilm-pinned",
+        "--output",
+        "semantic/runs/semantic-v2-one-fit",
+        "--execute-reviewed-fit"
+      ],
+      "launches": 1,
+      "observer_reads": "Only numeric staged coverage/report and process accounting. No input records or model artifacts.",
+      "finished_at_utc": "2026-10-06T22:05:01.748696+00:00",
+      "observer_elapsed_seconds": 639.2283600369999,
+      "exit_code": 0,
+      "preserved_partial_stage": [
+        "coverage.json",
+        "report.json"
+      ]
+    },
+    "progress": [
+      {
+        "elapsed_seconds": 0.0,
+        "stage": "verification-or-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 30.0,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 60.0,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 90.0,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 120.1,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 150.1,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 180.2,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 210.2,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 240.3,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 270.4,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 300.5,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 330.5,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 360.6,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 390.6,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 420.7,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 450.7,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 480.7,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 510.7,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 540.7,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 570.7,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 600.8,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      },
+      {
+        "elapsed_seconds": 630.8,
+        "stage": "pipeline-running-after-preparation",
+        "running": true
+      }
+    ],
+    "attempt_receipt": {
+      "artifact_ready": false,
+      "resource": {
+        "elapsed_seconds": 638.457451369,
+        "end_to_end_seconds": 638.6112200330003,
+        "exit_code": 0,
+        "rss_poll_seconds": 0.01,
+        "sampled_peak_group_rss_kib": 561424,
+        "stop_reason": null
+      },
+      "status": "completed"
+    },
+    "source_restore": {
+      "repository": "https://github.com/RUCBM/AgentProcessBench",
+      "commit": "0a42606b178a8c69d40c5765dc05c342f921e578",
+      "only_extracted_files": [
+        "bfcl.jsonl",
+        "gaia_dev.jsonl",
+        "hotpotqa.jsonl",
+        "tau2.jsonl"
+      ],
+      "all_frozen_sha256_verified": true,
+      "download_outside_supervised_runtime": true,
+      "upstream_code_executed": false
+    },
+    "convergence": {
+      "gate_passed": true,
+      "convergence_warning_aborts": true,
+      "iteration_ceiling": 500,
+      "exact_iteration_count": null,
+      "note": "Completed status from the frozen driver implies no ConvergenceWarning and n_iter_ below 500. The reviewed driver did not serialize n_iter_; no claim of an exact iteration count is made."
+    },
+    "learned_head_parity": {
+      "json_round_trip_max_absolute_score_error": 0.0,
+      "all_six_threshold_decisions_equal": true
+    },
+    "artifact_exported": false,
+    "model_coefficients_retained": false,
+    "test_encoded_or_scored": false,
+    "automatic_retry": false,
+    "app_ml_enabled": false
+  },
+  "result_validation": {
+    "python_tests_passed": 43,
+    "javascript_tests_passed": 20,
+    "browser_suites_passed": [
+      "browser_smoke.py",
+      "browser_experimental.py"
+    ],
+    "browser": "Chromium 151.0.7922.173 with explicit /usr/bin/chromium override",
+    "playwright": "1.62.0",
+    "frozen_code_and_package_pins_unchanged": true,
+    "full_evidence_lossless_hash_verified": true,
+    "gate_recomputed_from_saved_scores_without_model_execution": true,
+    "all_38_validation_group_denominators_verified": true,
+    "no_additional_classifier_fit": true,
+    "exact_result_commit_ci": "Pending remote check at commit time; inspect PR head checks."
+  }
+}

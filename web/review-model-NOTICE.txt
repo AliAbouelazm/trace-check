@@ -1,0 +1,22 @@
+Trace Check manual-review TF-IDF reconstruction
+
+This is a newly reconstructed artifact, not the lost original fitted artifact.
+It was fitted once under separately approved build reconstruction authority on
+immutable TRAIN membership from AgentProcessBench. Cutoff 0.70 is fixed for
+optional manual review. All historical automatic-promotion gates remain failed.
+
+Data source: https://github.com/RUCBM/AgentProcessBench
+Snapshot: 0a42606b178a8c69d40c5765dc05c342f921e578
+Dataset card: https://huggingface.co/datasets/LulaCola/AgentProcessBench
+Publisher license declaration: MIT. The source GitHub snapshot has no separate
+LICENSE file. This notice does not assert independent clearance of upstream
+material. No public deployment or public redistribution is authorized here.
+
+The JSON contains learned coefficients, IDF weights and source-derived unigram/
+bigram vocabulary. It contains no full raw trace fields. Vocabulary can retain
+individual source words or identifiers; it is not claimed to be anonymous.
+No user-imported logs contribute to the model. The application never trains.
+
+Feature contract: original-messages-v1 / sklearn-ascii-v1
+Artifact SHA-256: 10bf769e803e38cd50aef8af86599b482e9e585fc8e59c95a711d517774ec164
+Artifact size: 1866714 bytes
