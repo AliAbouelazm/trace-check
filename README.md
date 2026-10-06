@@ -76,3 +76,5 @@ Run `bash scripts/check.sh` for the complete CPU check suite. CI runs one standa
 See the [bounded calibration proposal](docs/calibration-plan.md) for the next development-only experiment and optional local inference gates. No new fits have been run. The archived research hashes identify the original measured code; the current core additionally redacts full error content before extracting evidence snippets. Rule selection behavior and frozen research evidence are unchanged.
 
 Experimental local-inference prerequisites now have a [bounded JSON/grouping contract and synthetic parity proof](docs/experimental-contract.md). They are not connected to the app. Canonical v1 imports still use rules only. The pre-fit scoring contract conservatively abstains on non-ASCII feature text; no multilingual scoring or trained-model quality is claimed.
+
+The [single reviewed calibration run](docs/calibration-results.md) completed within budget, but none of its six fixed thresholds met every combined-policy promotion gate. No trained artifact was exported; the app remains rules-only. Full development-validation results and coverage are retained without raw dataset records.

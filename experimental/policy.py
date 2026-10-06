@@ -11,11 +11,17 @@ def choose_threshold(rows, validation_groups):
         if score is not None and (type(score) not in (int,float) or not math.isfinite(score) or not 0 <= score <= 1):
             raise ValueError('Invalid validation score')
     def metrics(predictions):
+        per_task={}
+        for row,prediction in zip(rows,predictions):
+            counts=per_task.setdefault(row['group'],{'tp':0,'fp':0,'fn':0,'tn':0})
+            negative=row['label']==-1
+            key=('tp' if negative else 'fp') if prediction else ('fn' if negative else 'tn')
+            counts[key]+=1
         tp=sum(p and r['label']==-1 for r,p in zip(rows,predictions))
         fp=sum(p and r['label']!=-1 for r,p in zip(rows,predictions))
         fn=sum(not p and r['label']==-1 for r,p in zip(rows,predictions))
         tn=len(rows)-tp-fp-fn
-        return {'tp':tp,'fp':fp,'fn':fn,'tn':tn,'flags':tp+fp,'recall':tp/(tp+fn) if tp+fn else 0,
+        return {'tp':tp,'fp':fp,'fn':fn,'tn':tn,'per_task_confusion':dict(sorted(per_task.items())),'flags':tp+fp,'recall':tp/(tp+fn) if tp+fn else 0,
                 'precision':tp/(tp+fp) if tp+fp else 0,'f1':2*tp/(2*tp+fp+fn) if 2*tp+fp+fn else 0,
                 'neutral_fp':sum(p and r['label']==0 for r,p in zip(rows,predictions)),
                 'positive_fp':sum(p and r['label']==1 for r,p in zip(rows,predictions)),
@@ -31,5 +37,6 @@ def choose_threshold(rows, validation_groups):
                            'eligible':model['flags']>=20 and within_budget(model) and within_budget(combined)})
     eligible=[c for c in candidates if c['eligible']]
     selected=max(eligible,key=lambda c:(c['model']['recall'],c['threshold'])) if eligible else None
-    return {'rules':baseline,'candidates':candidates,'selected_threshold':selected['threshold'] if selected else None,
+    return {'rules':baseline,'never_flag':metrics([False]*len(rows)),'candidates':candidates,
+            'uncertainty':'Paired independent-task confusion counts retained for all policies. Confidence intervals and statistical significance are unassessed; validation selection remains development-only.','selected_threshold':selected['threshold'] if selected else None,
             'interpretation':'Development validation only; examined test split is not a fresh assessment.'}
