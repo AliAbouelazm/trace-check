@@ -56,3 +56,16 @@ class SemanticPreflightTests(unittest.TestCase):
         tokens=contract.allocate(range(70),range(200),range(300),101,102)['token_counts']
         self.assertEqual(tokens['action']['removed'],46)
         self.assertEqual(tokens['prefix']['removed'],10)
+
+    def test_tool_calls_removed_by_token_limit_are_counted(self):
+        class Encoding:
+            offsets=[(i,i+1) for i in range(300)]
+        class SyntheticTokenizer:
+            def encode(self,text,add_special_tokens=False):return Encoding()
+        result=contract.tool_call_token_audit(SyntheticTokenizer(),'a'*300,[{'index':0,'start':250,'end':270},{'index':1,'start':280,'end':300},{'index':2,'start':310,'end':330}],254)
+        self.assertEqual(result[0]['tokens_before_limit'],20)
+        self.assertEqual(result[0]['tokens_retained'],4)
+        self.assertFalse(result[0]['removed_entirely'])
+        self.assertEqual(result[1]['tokens_retained'],0)
+        self.assertTrue(result[1]['removed_entirely'])
+        self.assertTrue(result[2]['removed_entirely'])

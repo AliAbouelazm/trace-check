@@ -28,7 +28,7 @@ The existing whole-task memberships/source hashes remain immutable. TEST is excl
 
 It is prepared to compare official fast-tokenizer IDs with the local tokenizer JSON, compare FP32 PyTorch/reference mean-pooling against standalone ONNX pooling/normalization on synthetic English punctuation, accents, decomposed Unicode, Arabic, Japanese, emoji and long inputs, and record unknown tokens, shape/norm checks, numerical agreement, load latency, three warmed fixed-batch CPU timings, dependency versions and peak RSS. Required embedding agreement is max absolute error <=1e-4 and cosine >=0.99999. Handcrafted 768-dimensional coefficients also check local/reference softmax agreement to 1e-6 without fitting. Subsequent learned-head score/decision parity would still be required separately.
 
-Seven synthetic standard-library tests have run. The actual encoder harness has **not** run, its third-party dependencies are not installed here, and it is not claimed to be validated. Full small-file provenance/digests and dependency pins must be recorded with the approved local bundle before measuring. Do not enable this optional heavy preflight in ordinary CI.
+Eight synthetic standard-library tests have run. The actual encoder harness has **not** run, its third-party dependencies are not installed here, and it is not claimed to be validated. Full small-file provenance/digests and dependency pins must be recorded with the approved local bundle before measuring. Do not enable this optional heavy preflight in ordinary CI.
 
 Safe now:
 

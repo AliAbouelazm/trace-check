@@ -17,7 +17,7 @@ import tempfile
 from bounded import run_bounded
 from provenance import verify_lock
 from unittest.mock import patch
-from contract import WEIGHTS,REVISION,parts_with_audit,allocate,mean_normalize
+from contract import WEIGHTS,REVISION,parts_with_audit,allocate,mean_normalize,tool_call_token_audit
 
 TEXTS=['Check the configuration.', 'Use “curly quotes” and an English dash — carefully.',
        'café résumé naïve', '日本語の設定を確認する', 'راجع الإعدادات', 'emoji 🙂 with a file path',
@@ -27,7 +27,7 @@ def verify_local(directory):
     sizes=verify_lock(directory,REVISION)
     for name,(size,expected) in WEIGHTS.items():
         path=directory/name
-        if path.is_symlink() or not path.is_file() or path.stat().st_size!=size:raise ValueError('Approved local model files missing or invalid')
+        if any(parent.is_symlink() for parent in [path,*path.parents]) or not path.is_file() or path.stat().st_size!=size:raise ValueError('Approved local model files missing or invalid')
         with path.open('rb') as source:
             actual=hashlib.file_digest(source,'sha256').hexdigest()
         if actual!=expected:raise ValueError('Model hash mismatch')
@@ -122,13 +122,6 @@ def run(directory):
                 'peak_process_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
                 'elapsed_seconds':time.monotonic()-started,'packages':{name:importlib.metadata.version(name) for name in ['numpy','torch','transformers','tokenizers','onnxruntime']},
                 'benchmark_rows_encoded':0,'head_fits':0,'quality_claim':'None; pretrained embeddings are not a trained error detector.'}
-
-def tool_call_token_audit(tokenizer, text, spans, limit):
-    offsets=tokenizer.encode(text,add_special_tokens=False).offsets
-    retained=offsets[:limit]
-    return [{'index':span['index'],'tokens_before_limit':sum(a<span['end'] and b>span['start'] for a,b in offsets),
-             'tokens_retained':sum(a<span['end'] and b>span['start'] for a,b in retained),
-             'removed_entirely':not any(a<span['end'] and b>span['start'] for a,b in retained)} for span in spans]
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)

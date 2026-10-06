@@ -68,3 +68,10 @@ def mean_normalize(tokens,mask):
     norm=math.sqrt(sum(x*x for x in vector))
     if not math.isfinite(norm) or norm==0:raise ValueError('Nonfinite or empty embedding')
     return [x/norm for x in vector]
+
+def tool_call_token_audit(tokenizer, text, spans, limit):
+    offsets=tokenizer.encode(text,add_special_tokens=False).offsets
+    retained=offsets[:limit]
+    return [{'index':span['index'],'tokens_before_limit':sum(a<span['end'] and b>span['start'] for a,b in offsets),
+             'tokens_retained':sum(a<span['end'] and b>span['start'] for a,b in retained),
+             'removed_entirely':not any(a<span['end'] and b>span['start'] for a,b in retained)} for span in spans]
