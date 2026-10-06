@@ -86,24 +86,31 @@ with sync_playwright() as p:
         r"secret='first \'hidden quote\' trailing'",
         r'access_token="first \\ trailing"',
         'password="first\ntrailing"',
-        'secret="first\nunterminated']
+        'secret="first\nunterminated',
+        'password="first' + chr(92),
+        "password='first" + chr(92)]
     for secret_text in quoted_cases:
+        quote_page = browser.new_page()
+        quote_page.on('pageerror', lambda error: errors.append(str(error)))
+        quote_page.on('request', lambda request: requests.append((request.method, request.url)))
+        quote_page.goto(url)
         content = 'failed ' + secret_text
         run['task'] = content
         run['steps'] = [{'id':'1','kind':'tool_result','content':content}]
-        page.locator('#file').set_input_files({'name':'quoted.json','mimeType':'application/json','buffer':json.dumps(run).encode()})
-        expect(page.locator('.flag')).to_have_count(1)
+        quote_page.locator('#file').set_input_files({'name':'quoted.json','mimeType':'application/json','buffer':json.dumps(run).encode()})
+        expect(quote_page.locator('.flag')).to_have_count(1)
         for selector in ['#task', '.content', '.flag']:
-            shown = page.locator(selector).inner_text()
+            shown = quote_page.locator(selector).inner_text()
             assert '[REDACTED]' in shown, shown
             for forbidden in ['correct', 'horse', 'battery', 'staple', 'abc', 'def,ghi', 'first', 'hidden quote', 'trailing', 'unterminated']:
                 assert forbidden not in shown, shown
-        with page.expect_download() as event:
-            page.locator('#export').click()
+        with quote_page.expect_download() as event:
+            quote_page.locator('#export').click()
         serialized = Path(event.value.path()).read_text()
         for forbidden in ['correct', 'horse', 'battery', 'staple', 'abc', 'def,ghi', 'first', 'hidden quote', 'trailing', 'unterminated']:
             assert forbidden not in serialized, serialized
         assert 'Redaction is best effort' in serialized
+        quote_page.close()
     # Exercise the full import/render path near the file bound, including the
     # trailing-@ adversary, rather than timing only a presence shortcut.
     for suffix in ['', '@']:

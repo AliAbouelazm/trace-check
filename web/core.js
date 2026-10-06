@@ -58,7 +58,7 @@ export function redactRun(run) {
     // literal newlines. An unterminated quoted value is redacted to end of text.
     // The unquoted alternative cannot begin with a quote, so it cannot expose
     // the suffix of a quoted secret. This is text matching, never evaluation.
-    .replace(/\b((?:api[_ -]?key|password|secret|access[_ -]?token|authorization)["']?\s*[=:]\s*)("(?:\\[\s\S]|[^"\\])*(?:"|$)|'(?:\\[\s\S]|[^'\\])*(?:'|$)|(?:bearer\s+)?[^\s"',;}]+)/gi, (_, prefix, value) => {
+    .replace(/\b((?:api[_ -]?key|password|secret|access[_ -]?token|authorization)["']?\s*[=:]\s*)("(?:\\(?:[\s\S]|$)|[^"\\])*(?:"|$)|'(?:\\(?:[\s\S]|$)|[^'\\])*(?:'|$)|(?:bearer\s+)?[^\s"',;}]+)/gi, (_, prefix, value) => {
       redactionCount++;
       const quote = value[0] === '"' || value[0] === "'" ? value[0] : '';
       return `${prefix}${quote}[REDACTED]${quote && value.endsWith(quote) ? quote : ''}`;

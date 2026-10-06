@@ -33,6 +33,8 @@ test('quoted named secrets consume spaces, delimiters, escapes and newlines', ()
     [String.raw`secret='first \'hidden quote\' trailing' next=ordinary`, "secret='[REDACTED]' next=ordinary"],
     [String.raw`access_token="first \\ last"`, 'access_token="[REDACTED]"'],
     ['password="first\nsecond" next=ordinary', 'password="[REDACTED]" next=ordinary'],
+    ['password="first' + String.fromCharCode(92), 'password="[REDACTED]'],
+    ["password='first" + String.fromCharCode(92), "password='[REDACTED]"],
     ['secret="unterminated value\ntrailing', 'secret="[REDACTED]'],
     ['Authorization: Bearer opaque-token', 'Authorization: [REDACTED]'],
     ['password=opaque-token next=ordinary', 'password=[REDACTED] next=ordinary'],
