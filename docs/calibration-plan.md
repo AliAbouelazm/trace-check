@@ -18,7 +18,7 @@ The raw data and fitted weights are intentionally absent. Before fitting, retrie
 
 ## Resource and stop budget
 
-CPU only, one fit, maximum 60 seconds wall time and 512 MiB process RSS for fit plus validation scoring; one BLAS thread. Enforce limits using a supervised child process before fitting and record actual elapsed time and RSS. Stop on either limit, unexpected data hashes or split overlap. Zero paid APIs, hosted training, GPU or GitHub-hosted Actions. No automatic retries or larger model if it fails.
+CPU only, one fit, maximum 60 seconds wall time and 512 MiB process RSS for fit plus validation scoring; one BLAS thread. Enforce limits using a supervised child process before fitting and record actual elapsed time and RSS. Stop on either limit, unexpected data hashes or split overlap. Zero paid APIs, hosted training or GPU. Fits must not run in GitHub Actions; the standard hosted CPU workflow runs only application and integrity tests within the owner-approved included allowance. No automatic retries or larger model if it fails.
 
 ## Optional product integration gate
 
