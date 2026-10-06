@@ -1,0 +1,20 @@
+{
+  "status": "blocked-before-model-transfer",
+  "reason": "Environment proxy CONNECT status 403 Forbidden with body Domain forbidden, before TLS. No alternate route, credential or network setting change.",
+  "model_bytes_downloaded": 0,
+  "benchmark_rows_encoded": 0,
+  "head_fits": 0,
+  "encoder_cpu_throughput": null,
+  "encoder_memory": null,
+  "actual_tokenizer_parity": null,
+  "actual_encoder_parity": null,
+  "tests_completed": "Nine semantic standard-library tests, 28 Python tests total. Includes provenance rejection, normal CLI fail-closed behavior, supervisor time/RSS stops and final publication boundaries, contract arithmetic and character/token losses for removed tool calls. No actual tokenizer or encoder tested.",
+  "next_required": "Explicitly authorized model access; verified local pinned model bytes, exact official small-file digests and CPU dependency pins; then actual synthetic encoder measurements and reviewed benchmark budget before any benchmark encoding or head fit.",
+  "supervisor": {
+    "wall_seconds": 120,
+    "sampled_process_group_rss_mib": 2048,
+    "poll_seconds": 0.01,
+    "normal_cli_enforced": true
+  },
+  "runtime_lock_verified": false
+}

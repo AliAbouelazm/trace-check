@@ -1,0 +1,42 @@
+{
+  "classification": "Environment proxy domain-access restriction before upstream TLS",
+  "environment_request": {
+    "method": "GET",
+    "url": "https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2?blobs=true",
+    "attempt_count": 1,
+    "weight_download_requests": 0
+  },
+  "proxy": {
+    "http_proxy": "http://proxy:8080",
+    "https_proxy": "http://proxy:8080",
+    "credentials_present": false,
+    "huggingface_in_no_proxy": false
+  },
+  "observed_error": "urllib.error.URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+  "connect_target": "huggingface.co:443",
+  "response_headers": null,
+  "response_body": null,
+  "response_capture_limit": "The original Python process exited. Its HTTPConnection retained proxy headers only in memory; no headers were printed or persisted, and the failure path closed the connection without reading the body.",
+  "supported_conclusion": "Configured environment proxy returned 403 with body Domain forbidden for CONNECT to huggingface.co:443. No TLS or origin GET was sent by the diagnostic probe.",
+  "not_established": "Exact saved allowlist rule and domains needed for future model-file redirects remain unknown.",
+  "changes_made": [],
+  "alternate_download_routes": 0,
+  "remaining_blocker": "Parent must obtain the environment policy/status or explicit authorization for any necessary access change. No bypass was attempted.",
+  "connect_status_probe": {
+    "probe": "CONNECT status only through existing proxy; no TLS or origin GET sent",
+    "proxy": "http://proxy:8080",
+    "target": "huggingface.co:443",
+    "status": 403,
+    "reason": "Forbidden",
+    "redacted_headers": {
+      "content-length": "16",
+      "content-type": "text/plain",
+      "date": "Tue, 06 Oct 2026 21:00:19 GMT",
+      "server": "envoy",
+      "connection": "close"
+    },
+    "redacted_body_first_4096_bytes": "Domain forbidden"
+  },
+  "origin_get_retries": 0,
+  "connect_status_probes": 1
+}

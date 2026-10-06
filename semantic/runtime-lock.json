@@ -1,0 +1,61 @@
+{
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "verified": false,
+  "status": "Blocked: official small-file digests and approved exact CPU dependency versions have not been verified. Null values deliberately prevent execution.",
+  "files": {
+    "config.json": {
+      "bytes": null,
+      "sha256": null,
+      "source": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json"
+    },
+    "tokenizer.json": {
+      "bytes": null,
+      "sha256": null,
+      "source": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer.json"
+    },
+    "tokenizer_config.json": {
+      "bytes": null,
+      "sha256": null,
+      "source": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json"
+    },
+    "special_tokens_map.json": {
+      "bytes": null,
+      "sha256": null,
+      "source": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/special_tokens_map.json"
+    },
+    "vocab.txt": {
+      "bytes": null,
+      "sha256": null,
+      "source": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/vocab.txt"
+    },
+    "sentence_bert_config.json": {
+      "bytes": null,
+      "sha256": null,
+      "source": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json"
+    },
+    "1_Pooling/config.json": {
+      "bytes": null,
+      "sha256": null,
+      "source": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling/config.json"
+    },
+    "modules.json": {
+      "bytes": null,
+      "sha256": null,
+      "source": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json"
+    },
+    "config_sentence_transformers.json": {
+      "bytes": null,
+      "sha256": null,
+      "source": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json"
+    }
+  },
+  "packages": {
+    "numpy": null,
+    "torch": null,
+    "transformers": null,
+    "tokenizers": null,
+    "onnxruntime": null,
+    "safetensors": null,
+    "huggingface-hub": null
+  }
+}
