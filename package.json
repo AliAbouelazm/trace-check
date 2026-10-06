@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "python3 server.py",
-    "test": "node --test tests/browser_core.mjs",
+    "test": "node --test tests/*.mjs",
     "test:browser": "python3 tests/browser_smoke.py"
   }
 }
