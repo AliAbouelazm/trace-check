@@ -13,27 +13,51 @@ def clean(value):
     text=value if isinstance(value,str) else json.dumps(value,ensure_ascii=False)
     return re.sub(r'<answer>.*?</answer>','[answer omitted]',text,flags=re.S|re.I)
 
-def message_text(message):
-    if message['role'] not in ('user','assistant','tool'):return ''
-    parts=[message['role']+' '+clean(message.get('content') or '')[:4000]]
-    for call in message.get('tool_calls') or []:
-        function=call['function']
-        parts.append(str(function['name'])+' '+clean(function.get('arguments',''))[:4000])
-    return '\n'.join(parts)
+def message_with_audit(message):
+    if message['role'] not in ('user','assistant','tool'):return '',{'excluded_role':True,'fields':[],'tool_spans':[]}
+    content=clean(message.get('content') or '')
+    text=message['role']+' '+content[:4000]
+    fields=[{'field':'content','characters_before':len(content),'characters_retained':min(len(content),4000)}]
+    spans=[]
+    for index,call in enumerate(message.get('tool_calls') or []):
+        function=call['function'];argument=clean(function.get('arguments',''))
+        part=str(function['name'])+' '+argument[:4000]
+        start=len(text)+1;text+='\n'+part
+        spans.append({'index':index,'start':start,'end':len(text)})
+        fields.append({'field':'tool_arguments','index':index,'characters_before':len(argument),'characters_retained':min(len(argument),4000)})
+    return text,{'excluded_role':False,'fields':fields,'tool_spans':spans}
 
-def parts(row,index):
+def message_text(message):
+    return message_with_audit(message)[0]
+
+def parts_with_audit(row,index):
     messages=row['messages']
     last=max(i for i,message in enumerate(messages) if message['role']=='assistant')
     if type(index) is not int or not 0<=index<last or messages[index]['role']!='assistant':raise ValueError('Only nonfinal assistant actions')
-    return {'task':clean(row['question'])[:4000],
-            'prefix':'\n'.join(filter(None,(message_text(m) for m in messages[max(0,index-2):index])))[-12000:],
-            'action':message_text(messages[index])[:12000]}
+    task=clean(row['question'])
+    previous=[message_with_audit(m) for m in messages[max(0,index-2):index]]
+    prefix='\n'.join(text for text,_ in previous if text)
+    action,current=message_with_audit(messages[index])
+    spans=[{**span,'characters_retained':max(0,min(span['end'],12000)-span['start']),
+            'removed_entirely':span['start']>=12000} for span in current['tool_spans']]
+    result={'task':task[:4000],'prefix':prefix[-12000:],'action':action[:12000]}
+    audit={'characters':{key:{'before':len(value),'retained':len(result[key]),'removed':len(value)-len(result[key])} for key,value in [('task',task),('prefix',prefix),('action',action)]},
+           'message_fields':{'previous':[a for _,a in previous],'action':current},
+           'action_tool_spans':spans,
+           'counts_after_answer_tag_removal':True}
+    return result,audit
+
+def parts(row,index):
+    return parts_with_audit(row,index)[0]
 
 def allocate(task_ids,prefix_ids,action_ids,cls_id,sep_id):
     """Two independent <=256-WordPiece streams; allocation fixed before data."""
+    ids={'task':task_ids,'prefix':prefix_ids,'action':action_ids}
+    caps={'task':64,'prefix':190,'action':254}
     return {'context':[cls_id]+list(task_ids[:64])+list(prefix_ids[-190:])+[sep_id],
             'action':[cls_id]+list(action_ids[:254])+[sep_id],
-            'truncated':{'task':len(task_ids)>64,'prefix':len(prefix_ids)>190,'action':len(action_ids)>254}}
+            'truncated':{key:len(value)>caps[key] for key,value in ids.items()},
+            'token_counts':{key:{'before':len(value),'retained':min(len(value),caps[key]),'removed':max(0,len(value)-caps[key])} for key,value in ids.items()}}
 
 def mean_normalize(tokens,mask):
     active=[row for row,keep in zip(tokens,mask) if keep]

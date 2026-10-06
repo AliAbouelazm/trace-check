@@ -28,7 +28,7 @@ The existing whole-task memberships/source hashes remain immutable. TEST is excl
 
 It is prepared to compare official fast-tokenizer IDs with the local tokenizer JSON, compare FP32 PyTorch/reference mean-pooling against standalone ONNX pooling/normalization on synthetic English punctuation, accents, decomposed Unicode, Arabic, Japanese, emoji and long inputs, and record unknown tokens, shape/norm checks, numerical agreement, load latency, three warmed fixed-batch CPU timings, dependency versions and peak RSS. Required embedding agreement is max absolute error <=1e-4 and cosine >=0.99999. Handcrafted 768-dimensional coefficients also check local/reference softmax agreement to 1e-6 without fitting. Subsequent learned-head score/decision parity would still be required separately.
 
-Only three contract tests have run. The actual encoder harness has **not** run, its third-party dependencies are not installed here, and it is not claimed to be validated. Full small-file provenance/digests and dependency pins must be recorded with the approved local bundle before measuring. Do not enable this optional heavy preflight in ordinary CI.
+Seven synthetic standard-library tests have run. The actual encoder harness has **not** run, its third-party dependencies are not installed here, and it is not claimed to be validated. Full small-file provenance/digests and dependency pins must be recorded with the approved local bundle before measuring. Do not enable this optional heavy preflight in ordinary CI.
 
 Safe now:
 
@@ -36,20 +36,20 @@ Safe now:
 python3 -m unittest discover -s tests -p 'test_semantic_contract.py'
 ```
 
-After approved local files, CPU dependencies and a reviewed preflight supervisor are available, the intended synthetic-only invocation is:
+After approved local files and verified CPU dependency pins are available, the intended synthetic-only invocation is:
 
 ```sh
 python3 semantic/preflight.py --model-dir /tmp/tracecheck-minilm-pinned \
   --output /tmp/tracecheck-minilm-synthetic-preflight.json
 ```
 
-This command is a scaffold pending the missing resources and supervision, not authorization to encode benchmark records.
+This command is a scaffold pending the missing resources and verified runtime lock, not authorization to encode benchmark records.
 
 ## Resource and product gate
 
 The old 60-second/512-MiB/2-MiB TF-IDF caps are not asserted to fit this encoder. A deployment bundle will already require roughly 91 MB for ONNX plus tokenizer/configs, excluding the CPU runtime. A tentative artifact ceiling of 128 MiB is metadata-based, not yet an approved or measured final cap. Reference weights and PyTorch are preflight-only and should not be part of a future deployable bundle.
 
-No honest throughput-based time limit or measured memory cap can be finalized while transfer is blocked. Proposed **preflight-only** planning ceiling: 120 seconds and 2 GiB process-group RSS, to be enforced by a reviewed supervisor before execution. After synthetic measurements, derive one conservative TRAIN/validation encoding deadline from worst fixed-batch throughput for 12428 streams plus startup/head fitting, and set memory/artifact limits with measured headroom. Present the concrete values for review before the one fit. Do not treat the provisional preflight ceiling as a fit budget or loosen an approved fit budget after results.
+No honest throughput-based time limit or measured memory cap can be finalized while transfer is blocked. **Preflight-only** ceiling: 120 seconds and 2 GiB process-group RSS, enforced on the normal command by the synthetic-preflight process-group supervisor. After synthetic measurements, derive one conservative TRAIN/validation encoding deadline from worst fixed-batch throughput for 12428 streams plus startup/head fitting, and set memory/artifact limits with measured headroom. Present the concrete values for review before the one fit. Do not treat the provisional preflight ceiling as a fit budget or loosen an approved fit budget after results.
 
 Prefer a local CPU Python/ONNX backend if browser packaging is too costly. This would change the current tab-only privacy boundary: explicit opt-in logs would cross loopback into a local process. Before any UI connection, review strict loopback binding, origin/CSRF protection, request-size limits, cancellation, memory-only processing, disabled request logging, no retention and no outbound network. The current app server has no upload endpoint and CSP blocks fetch; neither has been changed here. Without an approved interface, use an offline CLI preflight only.
 
@@ -59,4 +59,14 @@ Next required input is an approved local copy of the pinned official model files
 
 The only execution-environment Hugging Face request was a GET to `https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2?blobs=true`. No weight-download request was made. Both uppercase/lowercase HTTP(S) proxy variables point to `http://proxy:8080`, without embedded credentials; Hugging Face has no NO_PROXY entry. The retained error is `Tunnel connection failed: 403 Forbidden` from Python's HTTP CONNECT handling for `huggingface.co:443`.
 
-This is a proxy-path refusal before upstream TLS, not a Hugging Face HTTPS API error response. The original process did not preserve headers, and its error path closed the connection without reading the body. Both are marked unavailable in [access-diagnosis.json](../semantic/access-diagnosis.json), not reconstructed. The precise proxy/allowlist rule remains unknown. No retry, network-setting change, credential creation or alternative model-download route was attempted during diagnosis. Parent review of the environment's egress policy is required before any access change.
+The original process did not preserve headers or read the error body. One subsequently authorized read-only CONNECT status probe through the same proxy returned `403 Forbidden`, `server: envoy`, `content-type: text/plain`, `content-length: 16`, `connection: close`, `date: Tue, 06 Oct 2026 21:00:19 GMT`, and body `Domain forbidden`. It sent no TLS handshake or origin GET and was closed after capturing the refusal. Full redacted evidence is in [access-diagnosis.json](../semantic/access-diagnosis.json).
+
+This establishes an environment proxy domain-access restriction, not a Hugging Face application failure. The precise saved allowlist rule remains unknown. No origin GET retry, weight request, network-setting change, credential creation or alternative download route occurred. Parent review and specific authorization are required before changing access.
+
+## Offline gates now implemented
+
+The normal preflight command starts a separate process group under a 120-second wall-time and 2-GiB aggregate RSS supervisor. RSS is sampled every 10 ms, so this is a sampled kill threshold, not a kernel-enforced instantaneous memory ceiling. Success, failure, timeout and interruption clean up the process group. Only a successful worker result can become the requested report. Ordinary tests exercise harmless success, time/memory stops, ceiling-increase rejection and a failed normal CLI invocation; they do not import or execute an encoder.
+
+`semantic/runtime-lock.json` deliberately remains unverified with null small-file digests and dependency versions. `semantic/provenance.py` rejects that state before encoder imports. It requires exact official revision URLs, SHA-256 and sizes for every listed tokenizer/config file, and exact installed dependency versions. Missing pins cannot silently fall back to installed packages or network access. Completing and verifying these pins remains blocked; no versions or hashes have been invented.
+
+The synthetic harness now records per-field character counts after answer-tag removal, aggregate task/prefix/action character loss, per-stream token loss, and every action tool-call span's character retention plus token retention/removal. Appended calls that disappear entirely are explicitly counted. The rules and never-flag detector remain primary quality baselines. Archived TF-IDF used a different input and coverage contract; any later comparison must disclose that difference and cannot isolate a causal benefit from the semantic encoder.
