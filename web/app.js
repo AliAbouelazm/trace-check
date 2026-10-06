@@ -1,5 +1,5 @@
 import {MAX_FILE_BYTES, validateRun, analyzeRun, redactRun, makeReport} from './core.js';
-import {parseEnvelope} from './experimental.js';
+import {parseEnvelope, feature} from './experimental.js';
 import {reviewBundled} from './experimental-client.js';
 import {illustrationEnvelope} from './illustrative-suggestion.js';
 import {demoEnvelope, unicodeEnvelope} from './review-demo.js';
@@ -79,6 +79,7 @@ $('ml-enable').addEventListener('change', async () => {
     reviewNotes = result; $('ml-export').disabled = false;
     const c = result.coverage, suggestions = result.results.filter(r => r.suggestion);
     $('ml-status').textContent = `${suggestions.length} ${suggestions.length === 1 ? "suggestion" : "suggestions"} · ${c.scored_actions}/${c.eligible_actions} eligible actions scored · ${c.unsupported_actions} unsupported · ${c.truncated_actions} truncated · ${c.final_assistant_excluded} final assistant excluded. No suggestion is not a clean bill of health.`;
+    const previewEnvelope = redactRun(parseEnvelope(originalEnvelope)).run;
     const otherActions = node('details'); otherActions.append(node('summary', 'Other scored or unsupported actions'));
     for (const r of result.results) {
       const card = node('article', undefined, r.suggestion ? 'ml-card suggested' : 'ml-card');
@@ -90,6 +91,7 @@ $('ml-enable').addEventListener('change', async () => {
       const context = [current.steps[r.step_index], ...current.steps.slice(r.step_index+1,groupEnd).filter((step,i,all) => step.kind === 'tool_call' && all.slice(0,i).every(prior=>prior.kind==='tool_call'))];
       card.append(node('pre', context.map(step => [step.tool || '',step.content || '(empty assistant text)'].filter(Boolean).join(' ')).join('\n'), 'content'));
       if (r.truncation.field_characters_removed || r.truncation.joined_characters_removed) card.append(node('p', `Input truncated: ${r.truncation.field_characters_removed} field characters and ${r.truncation.joined_characters_removed} joined characters removed. Tool-call text may be lost.`));
+      const inputView=node('details'); inputView.append(node('summary','What the model saw (redacted preview)'),node('p','Only this action and two preceding message slots enter the model. Full-field redaction is applied before preview truncation, so placeholders may shift the displayed boundary.', 'privacy'),node('pre',feature(previewEnvelope,r.message_index),'content')); card.append(inputView);
       const link = node('button','View in timeline');
       link.addEventListener('click', () => { $('search').value=''; $('kind').value=''; $('flagged').checked=false; render(); const target=$(`timeline-step-${r.step_index}`); target.scrollIntoView({block:'center'}); target.focus(); });
       card.append(link); (r.suggestion ? $('ml-results') : otherActions).append(card);
@@ -107,5 +109,5 @@ $('ml-export').addEventListener('click', () => {
 $('ml-demo').addEventListener('click', () => { clear(); load(demoEnvelope); });
 
 function loadIllustration(envelope,evidence){clear();load(envelope);exampleEvidence=evidence;$('example-evidence').textContent=evidence;$('example-evidence').hidden=false;}
-$('ml-development').addEventListener('click',()=>loadIllustration(illustrationEnvelope,'Handwritten illustration selected to show a raised suggestion, NOT an unseen benchmark. Human evidence: the request says styles.css, the action targets index.html, and the tool reports that file is missing. This is observed context, not a causal model explanation. Inspired by a development command pattern; no source trace is included. Selection is disclosed: the generic folder name WebDevProjects scores above 0.70, while demo scores 0.6299. This sensitivity limits reliability.'));
+$('ml-development').addEventListener('click',()=>loadIllustration(illustrationEnvelope,'Handwritten illustration selected to show a raised suggestion, NOT an unseen benchmark. Human evidence: the request says styles.css, the action targets index.html, and the tool reports that file is missing. The model window contains cd, its result, and echo, but NOT the earlier styles.css instruction or the later missing-file result. This curated score does not show that the model recognized the filename conflict; the human sees additional context. Inspired by a development command pattern; no source trace is included. Selection is disclosed: the generic folder name WebDevProjects scores above 0.70, while demo scores 0.6299. This sensitivity limits reliability.'));
 $('ml-unicode').addEventListener('click',()=>loadIllustration(unicodeEnvelope,'Handwritten synthetic benign example, not a benchmark. The tool successfully reads the menu; no error is established. The café text is outside this model’s ASCII support boundary, so it must abstain. Unsupported does not mean mistaken.'));

@@ -159,6 +159,11 @@ try:
         assert page.locator('.ml-card.suggested').count()==1
         assert '0.7299' in page.locator('.ml-card.suggested').inner_text()
         assert 'index.html' in page.locator('.ml-card.suggested').inner_text()
+        page.locator('.ml-card.suggested summary').click()
+        window=page.locator('.ml-card.suggested details pre').inner_text()
+        assert 'cd' in window and 'echo' in window and 'index.html' in window
+        assert 'styles.css' not in window and 'No such file' not in window
+        assert 'does not show that the model recognized' in page.locator('#example-evidence').inner_text()
         assert 'NOT an unseen benchmark' in page.locator('#example-evidence').inner_text()
         page.set_viewport_size({'width':390,'height':844})
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
