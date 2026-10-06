@@ -158,6 +158,9 @@ with sync_playwright() as p:
         expect(page.locator('#error')).to_contain_text(message)
         expect(page.locator('#error')).to_be_focused()
         assert page.locator('#review').is_hidden()
+    # Restore the foreground after the isolated export-test tabs. Native file
+    # pickers require activation in the foreground browsing context.
+    page.bring_to_front()
     # Error recovery and a multi-call run use only keyboard activation of the picker.
     page.keyboard.press('Tab')
     expect(page.locator('#retry')).to_be_focused()
