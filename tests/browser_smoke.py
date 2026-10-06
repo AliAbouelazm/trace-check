@@ -158,10 +158,20 @@ with sync_playwright() as p:
         expect(page.locator('#error')).to_contain_text(message)
         expect(page.locator('#error')).to_be_focused()
         assert page.locator('#review').is_hidden()
-    # Restore the foreground after the isolated export-test tabs. Native file
-    # pickers require activation in the foreground browsing context.
+    # Keep the native keyboard recovery scenario independent of the preceding
+    # bulk forced uploads and export tabs. Reproduce its error state with a
+    # malformed upload in a fresh context, and wait for actual document focus.
+    page.close()
+    page = browser.new_page(viewport={'width': 1280, 'height': 1000})
+    page.on('pageerror', lambda error: errors.append(str(error)))
+    page.on('request', lambda request: requests.append((request.method, request.url)))
+    page.goto(url)
+    page.locator('#file').set_input_files({'name':'bad.json','mimeType':'application/json','buffer':b'{bad'})
+    expect(page.locator('#error')).to_contain_text('not valid JSON')
+    expect(page.locator('#error')).to_be_focused()
     page.bring_to_front()
-    # Error recovery and a multi-call run use only keyboard activation of the picker.
+    page.wait_for_function('document.hasFocus()')
+    # Tab from the error to retry, then open the picker with Enter.
     page.keyboard.press('Tab')
     expect(page.locator('#retry')).to_be_focused()
     with page.expect_file_chooser() as chooser:
