@@ -1,48 +1,23 @@
 {
-  "status": "v2-synthetic-passed-one-fit-driver-awaiting-parent-execution-approval",
+  "status": "single-reviewed-run-completed-quality-gate-failed",
   "feature_version": "semantic-v2-text94-tools4x40-args16head15tail-context64x190",
-  "benchmark_rows_encoded": 0,
-  "head_fits": 0,
-  "model_bytes_downloaded": 181273590,
-  "runtime_lock_verified": true,
-  "measurement_evidence": "semantic/results/synthetic-v2-2026-10-06.json",
-  "archived_v1_evidence": "semantic/results/synthetic-2026-10-06.json",
-  "protocol": "semantic/fit-protocol.json",
-  "encoder_cpu_throughput": [
-    {
-      "name": "representative",
-      "batch_size": 8,
-      "tokens": 31,
-      "seconds": [
-        0.05856500799995956,
-        0.055872649999969326,
-        0.058353818999989926
-      ],
-      "min_sequences_per_second": 136.60033991638016
-    },
-    {
-      "name": "max-length",
-      "batch_size": 8,
-      "tokens": 256,
-      "seconds": [
-        0.5739678270000468,
-        0.5603891849999627,
-        0.5533620100000007
-      ],
-      "min_sequences_per_second": 13.938063465705977
-    }
-  ],
-  "encoder_memory": {
+  "approved_commit": "b19b736937ea65bafa1507718ecd6b64a2c9554a",
+  "protocol_sha256": "ec179fd1965ff4f3af73dc7bef55e788945e18519fee40add31e7363384b9c84",
+  "results": "semantic/results/one-fit-v2-2026-10-06.json",
+  "full_redacted_evidence": "semantic/results/one-fit-v2-2026-10-06-full.json.gz",
+  "head_fits": 1,
+  "benchmark_rows_encoded": 6081,
+  "actual_encoder_streams": 10384,
+  "test_encoded_or_scored": false,
+  "artifact_ready": false,
+  "selected_threshold": null,
+  "resource": {
+    "elapsed_seconds": 638.457451369,
+    "end_to_end_seconds": 638.6112200330003,
     "exit_code": 0,
-    "stop_reason": null,
-    "elapsed_seconds": 8.970485505999932,
-    "sampled_peak_group_rss_kib": 819888,
-    "rss_poll_seconds": 0.01
+    "rss_poll_seconds": 0.01,
+    "sampled_peak_group_rss_kib": 561424,
+    "stop_reason": null
   },
-  "actual_tokenizer_parity": true,
-  "actual_encoder_parity": {
-    "max_absolute_error": 1.601874828338623e-07,
-    "minimum_cosine": 0.9999998807907104
-  },
-  "next_required": "Parent review of exact driver/code hashes, frozen v2 allocation and proposed caps, then explicit approval before any benchmark encoding or head fit. App remains rules-only."
+  "next_required": "Parent review of actual quality/product tradeoffs. No automatic rerun, refit, gate change, export or UI activation; rules app remains functional."
 }
