@@ -1,7 +1,78 @@
 # Trace Check
 
-An agent-run log review application in development.
+Review a completed agent run locally. Import JSON, read the task/tool/result timeline, search and filter, inspect evidence-backed review flags, and export a redacted JSON report. Built-in examples cover clean completion, useful exploration, retries, and missing evidence.
 
-Planned first version: validated JSON import, an interactive timeline, evidence-backed error flags, filtering, sample runs, and report export. Log content is untrusted data and is never executed.
+## Run
 
-Initial work is validating public labeled data and simple detection baselines. Model accuracy and product readiness are not yet established.
+Python 3.10+ is the only runtime requirement. From this directory:
+
+```sh
+python3 server.py
+```
+
+Open http://127.0.0.1:8765. Use an example or download the sample and import your completed run. Node 18+ is required for tests and the dataset adapter. No npm install, paid API, account, model download or runtime network connection is required.
+
+## Review behavior
+
+Structural rules identify missing tool results, unmatched results, three identical calls, and error-like tool responses. Every flag states its evidence and uncertainty. A flag requests human review; it does not establish a mistake or cause. Valid retries, polling and neutral exploration can trigger flags. No flags does not mean the run is correct.
+
+The app does not show trained-model confidence. A frozen CPU TF-IDF logistic experiment is included separately in `research/`. Its scores are uncalibrated and it is not used for uploaded logs. See [research results](docs/research.md) and [frozen protocol](research/PROTOCOL.md).
+
+## Import format
+
+Only Trace Check JSON v1 is accepted. Download sample JSON in the app. Unknown fields are rejected, including benchmark labels and answers. Steps preserve input order. `call_id` connects tool calls and results; IDs are optional for logs that lack them, but missing/result matching rules then cannot operate. See [schema](docs/schema.json).
+
+```json
+{
+  "schema_version": 1,
+  "run_id": "my-run",
+  "task": "Find the project files",
+  "status": "completed",
+  "steps": [
+    {"id": "1", "kind": "tool_call", "tool": "list_files", "call_id": "c1", "content": "{\"path\":\".\"}"},
+    {"id": "2", "kind": "tool_result", "tool": "list_files", "call_id": "c1", "status": "ok", "content": "README.md"}
+  ]
+}
+```
+
+Files are bounded to 2 MiB, 2000 steps, 100000 characters per content field, and 20000 characters for the task. Oversized and malformed files fail visibly. The adapter converts one AgentProcessBench row locally, omits labels/reference fields/system prompts, and rejects rows exceeding the app limits without silently truncating them:
+
+```sh
+python3 research/adapter.py /path/to/AgentProcessBench/data/AgentProcessBench/bfcl.jsonl /tmp/run.json --row 0
+```
+
+## Privacy and trust
+
+File contents stay in browser memory. There is no upload endpoint, localStorage, analytics, execution of logged commands, automatic remediation, or raw upload retention. Clear or refresh to discard the review. Browser extensions and downloads are outside this guarantee. Exports are explicit user actions and contain the redacted timeline and flags.
+
+Automatic redaction covers common token patterns, email addresses and named secrets. It is best effort, not a credential detector guarantee. Remove secrets before import and inspect reports before sharing. Log HTML is displayed as text; URLs and commands are never executed. The static server binds only to loopback and serves only `web/`.
+
+## Checks
+
+```sh
+npm test
+python3 -m unittest discover -s tests -p 'test_*.py'
+python3 tests/browser_smoke.py
+```
+
+Browser checks require Python Playwright and an installed Chromium. Research reproduction requires the pinned dependencies in `research/requirements.txt`; no research dependencies are needed to use the app.
+
+## V1 acceptance
+
+- [x] Download and import sample JSON; validate and explain malformed, oversized, duplicate-ID and unsupported-schema errors.
+- [x] Read ordered task, assistant, tool call and tool result steps; search and combine kind/flag filters.
+- [x] Show evidence, uncertainty and rule source for suspicious steps; keep neutral exploration distinct from proven mistakes.
+- [x] Present truthful confidence labels: rules only in product, uncalibrated model scores only in research.
+- [x] Export a redacted report and clear the current review without retention.
+- [x] Smoke, privacy, injection and browser interaction checks.
+- [x] Bundle a dataset adapter, provenance audit, frozen task-held-out split, rules/CPU model metrics and resource measurements.
+
+Live monitoring, automatic fixes, model deployment, external publication and hosted storage are outside v1. This repository is independent of physics-adaptation.
+
+## CPU CI and budget
+
+Run `bash scripts/check.sh` for the complete CPU check suite. CI runs one standard `ubuntu-latest` job on pull requests and pushes to `main`, with a 10-minute timeout and cancellation of superseded runs. Feature-branch pushes do not create duplicate runs. Official actions are pinned to commit SHAs, permissions are read-only, and checkout verifies the exact PR head (or main commit). The job installs pinned Python Playwright and Chromium, then runs JavaScript, research-integrity, security and desktop/mobile browser checks. No model fits, raw data downloads, matrix, caches, uploaded artifacts or larger runners are used. The owner verified the account's included Actions allowance and $0 stop-usage setting; this workflow does not change billing or permissions. Local checks are not a remote CI success.
+
+See the [bounded calibration proposal](docs/calibration-plan.md) for the next development-only experiment and optional local inference gates. No new fits have been run. The archived research hashes identify the original measured code; the current core additionally redacts full error content before extracting evidence snippets. Rule selection behavior and frozen research evidence are unchanged.
+
+Experimental local-inference prerequisites now have a [bounded JSON/grouping contract and synthetic parity proof](docs/experimental-contract.md). They are not connected to the app. Canonical v1 imports still use rules only. The pre-fit scoring contract conservatively abstains on non-ASCII feature text; no multilingual scoring or trained-model quality is claimed.

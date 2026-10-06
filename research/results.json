@@ -1,0 +1,867 @@
+{
+  "protocol": "v1 frozen custom research split of public test-only release; not official benchmark performance",
+  "source_commit": "0a42606b178a8c69d40c5765dc05c342f921e578",
+  "sha256": {
+    "bfcl.jsonl": "6aee0b71eff7feb872c6b54d962f8831b56f7bebf770cba9cb657f219afb6fe5",
+    "gaia_dev.jsonl": "f7b75c668fc1e6ad943e8f6d93a21a9a8f5f076841e1230e1ed2fc6d05ce8192",
+    "hotpotqa.jsonl": "160eef2ded872d8dc6ddf4cee5752295fda691b6a9e99b5bafc2d484e6309c57",
+    "tau2.jsonl": "6f22818ff88822512767fe735f56e7b78bed4b9aaf26959144feb92f127e1e95"
+  },
+  "dataset": {
+    "trajectories": 1000,
+    "task_groups": 189,
+    "labels": 8509,
+    "evaluated_nonfinal_steps": 7509,
+    "label_counts": {
+      "1": 4817,
+      "-1": 2266,
+      "0": 426
+    }
+  },
+  "split": {
+    "train": {
+      "tasks": 113,
+      "runs": 620,
+      "steps": 4824
+    },
+    "validation": {
+      "tasks": 38,
+      "runs": 190,
+      "steps": 1390
+    },
+    "test": {
+      "tasks": 38,
+      "runs": 190,
+      "steps": 1295
+    }
+  },
+  "metrics": {
+    "validation": {
+      "rules": {
+        "precision": 0.5547445255474452,
+        "recall": 0.19791666666666666,
+        "f1": 0.29174664107485604,
+        "confusion_matrix_tn_fp_fn_tp": [
+          945,
+          61,
+          308,
+          76
+        ],
+        "neutral": {
+          "steps": 66,
+          "flags": 3,
+          "false_positives": 3,
+          "false_positive_rate": 0.045454545454545456
+        },
+        "positive": {
+          "steps": 940,
+          "flags": 58,
+          "false_positives": 58,
+          "false_positive_rate": 0.06170212765957447
+        },
+        "by_subset": {
+          "bfcl": {
+            "steps": 472,
+            "flags": 53,
+            "false_positives": 42,
+            "false_positive_rate": 0.10319410319410319
+          },
+          "gaia_dev": {
+            "steps": 251,
+            "flags": 48,
+            "false_positives": 13,
+            "false_positive_rate": 0.1092436974789916
+          },
+          "hotpotqa": {
+            "steps": 80,
+            "flags": 5,
+            "false_positives": 4,
+            "false_positive_rate": 0.05555555555555555
+          },
+          "tau2": {
+            "steps": 587,
+            "flags": 31,
+            "false_positives": 2,
+            "false_positive_rate": 0.004901960784313725
+          }
+        },
+        "error_examples": [
+          {
+            "run_id": "bfcl-4-0",
+            "message_index": 22,
+            "label": 1,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-4-1",
+            "message_index": 12,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-1",
+            "message_index": 14,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-1",
+            "message_index": 17,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-2",
+            "message_index": 8,
+            "label": 0,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-4-4",
+            "message_index": 16,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-4",
+            "message_index": 18,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 16,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 18,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 20,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 22,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 28,
+            "label": -1,
+            "prediction": "no_flag"
+          }
+        ]
+      },
+      "tfidf_logistic": {
+        "precision": 0.694560669456067,
+        "recall": 0.4322916666666667,
+        "f1": 0.5329052969502408,
+        "confusion_matrix_tn_fp_fn_tp": [
+          933,
+          73,
+          218,
+          166
+        ],
+        "neutral": {
+          "steps": 66,
+          "flags": 18,
+          "false_positives": 18,
+          "false_positive_rate": 0.2727272727272727
+        },
+        "positive": {
+          "steps": 940,
+          "flags": 55,
+          "false_positives": 55,
+          "false_positive_rate": 0.05851063829787234
+        },
+        "by_subset": {
+          "bfcl": {
+            "steps": 472,
+            "flags": 48,
+            "false_positives": 33,
+            "false_positive_rate": 0.08108108108108109
+          },
+          "gaia_dev": {
+            "steps": 251,
+            "flags": 52,
+            "false_positives": 9,
+            "false_positive_rate": 0.07563025210084033
+          },
+          "hotpotqa": {
+            "steps": 80,
+            "flags": 0,
+            "false_positives": 0,
+            "false_positive_rate": 0.0
+          },
+          "tau2": {
+            "steps": 587,
+            "flags": 139,
+            "false_positives": 31,
+            "false_positive_rate": 0.07598039215686274
+          }
+        },
+        "error_examples": [
+          {
+            "run_id": "bfcl-4-0",
+            "message_index": 10,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-0",
+            "message_index": 26,
+            "label": 0,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-4-1",
+            "message_index": 12,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-1",
+            "message_index": 17,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-2",
+            "message_index": 10,
+            "label": 1,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-4-3",
+            "message_index": 10,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-4",
+            "message_index": 10,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-4",
+            "message_index": 16,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-4",
+            "message_index": 18,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 14,
+            "label": 1,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 20,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 22,
+            "label": -1,
+            "prediction": "no_flag"
+          }
+        ]
+      },
+      "never_flag": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "confusion_matrix_tn_fp_fn_tp": [
+          1006,
+          0,
+          384,
+          0
+        ],
+        "neutral": {
+          "steps": 66,
+          "flags": 0,
+          "false_positives": 0,
+          "false_positive_rate": 0.0
+        },
+        "positive": {
+          "steps": 940,
+          "flags": 0,
+          "false_positives": 0,
+          "false_positive_rate": 0.0
+        },
+        "by_subset": {
+          "bfcl": {
+            "steps": 472,
+            "flags": 0,
+            "false_positives": 0,
+            "false_positive_rate": 0.0
+          },
+          "gaia_dev": {
+            "steps": 251,
+            "flags": 0,
+            "false_positives": 0,
+            "false_positive_rate": 0.0
+          },
+          "hotpotqa": {
+            "steps": 80,
+            "flags": 0,
+            "false_positives": 0,
+            "false_positive_rate": 0.0
+          },
+          "tau2": {
+            "steps": 587,
+            "flags": 0,
+            "false_positives": 0,
+            "false_positive_rate": 0.0
+          }
+        },
+        "error_examples": [
+          {
+            "run_id": "bfcl-4-0",
+            "message_index": 10,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-1",
+            "message_index": 12,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-1",
+            "message_index": 14,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-1",
+            "message_index": 17,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-3",
+            "message_index": 10,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-4",
+            "message_index": 10,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-4",
+            "message_index": 16,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-4-4",
+            "message_index": 18,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 12,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 16,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 18,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-6-0",
+            "message_index": 20,
+            "label": -1,
+            "prediction": "no_flag"
+          }
+        ]
+      },
+      "tfidf_multiclass": {
+        "-1": {
+          "precision": 0.6634615384615384,
+          "recall": 0.5390625,
+          "f1-score": 0.5948275862068966,
+          "support": 384.0
+        },
+        "0": {
+          "precision": 0.75,
+          "recall": 0.045454545454545456,
+          "f1-score": 0.08571428571428572,
+          "support": 66.0
+        },
+        "1": {
+          "precision": 0.8035381750465549,
+          "recall": 0.9180851063829787,
+          "f1-score": 0.8570009930486594,
+          "support": 940.0
+        },
+        "accuracy": 0.7719424460431654,
+        "macro avg": {
+          "precision": 0.7389999045026977,
+          "recall": 0.5008673839458414,
+          "f1-score": 0.5125142883232806,
+          "support": 1390.0
+        },
+        "weighted avg": {
+          "precision": 0.7622986441100665,
+          "recall": 0.7719424460431654,
+          "f1-score": 0.7479509851987992,
+          "support": 1390.0
+        }
+      }
+    },
+    "test": {
+      "rules": {
+        "precision": 0.6424242424242425,
+        "recall": 0.3045977011494253,
+        "f1": 0.41325536062378165,
+        "confusion_matrix_tn_fp_fn_tp": [
+          888,
+          59,
+          242,
+          106
+        ],
+        "neutral": {
+          "steps": 52,
+          "flags": 16,
+          "false_positives": 16,
+          "false_positive_rate": 0.3076923076923077
+        },
+        "positive": {
+          "steps": 895,
+          "flags": 43,
+          "false_positives": 43,
+          "false_positive_rate": 0.048044692737430165
+        },
+        "by_subset": {
+          "bfcl": {
+            "steps": 393,
+            "flags": 40,
+            "false_positives": 35,
+            "false_positive_rate": 0.1076923076923077
+          },
+          "gaia_dev": {
+            "steps": 330,
+            "flags": 94,
+            "false_positives": 18,
+            "false_positive_rate": 0.12413793103448276
+          },
+          "hotpotqa": {
+            "steps": 46,
+            "flags": 1,
+            "false_positives": 1,
+            "false_positive_rate": 0.022222222222222223
+          },
+          "tau2": {
+            "steps": 526,
+            "flags": 30,
+            "false_positives": 5,
+            "false_positive_rate": 0.011574074074074073
+          }
+        },
+        "error_examples": [
+          {
+            "run_id": "bfcl-8-1",
+            "message_index": 3,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-8-1",
+            "message_index": 15,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-8-4",
+            "message_index": 16,
+            "label": 0,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-8-4",
+            "message_index": 26,
+            "label": 0,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-9-0",
+            "message_index": 17,
+            "label": 1,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-9-1",
+            "message_index": 9,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-9-2",
+            "message_index": 7,
+            "label": 0,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-9-4",
+            "message_index": 5,
+            "label": 0,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-11-0",
+            "message_index": 3,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-11-0",
+            "message_index": 10,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-11-0",
+            "message_index": 12,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-11-0",
+            "message_index": 14,
+            "label": -1,
+            "prediction": "no_flag"
+          }
+        ]
+      },
+      "tfidf_logistic": {
+        "precision": 0.6428571428571429,
+        "recall": 0.3879310344827586,
+        "f1": 0.4838709677419355,
+        "confusion_matrix_tn_fp_fn_tp": [
+          872,
+          75,
+          213,
+          135
+        ],
+        "neutral": {
+          "steps": 52,
+          "flags": 7,
+          "false_positives": 7,
+          "false_positive_rate": 0.1346153846153846
+        },
+        "positive": {
+          "steps": 895,
+          "flags": 68,
+          "false_positives": 68,
+          "false_positive_rate": 0.07597765363128492
+        },
+        "by_subset": {
+          "bfcl": {
+            "steps": 393,
+            "flags": 45,
+            "false_positives": 26,
+            "false_positive_rate": 0.08
+          },
+          "gaia_dev": {
+            "steps": 330,
+            "flags": 107,
+            "false_positives": 19,
+            "false_positive_rate": 0.1310344827586207
+          },
+          "hotpotqa": {
+            "steps": 46,
+            "flags": 0,
+            "false_positives": 0,
+            "false_positive_rate": 0.0
+          },
+          "tau2": {
+            "steps": 526,
+            "flags": 58,
+            "false_positives": 30,
+            "false_positive_rate": 0.06944444444444445
+          }
+        },
+        "error_examples": [
+          {
+            "run_id": "bfcl-8-0",
+            "message_index": 13,
+            "label": 1,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-8-0",
+            "message_index": 29,
+            "label": 1,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-8-1",
+            "message_index": 3,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-8-1",
+            "message_index": 5,
+            "label": 1,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-8-1",
+            "message_index": 15,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-8-2",
+            "message_index": 9,
+            "label": 1,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-8-2",
+            "message_index": 17,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-8-2",
+            "message_index": 19,
+            "label": 1,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-8-2",
+            "message_index": 23,
+            "label": 1,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-8-3",
+            "message_index": 17,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-8-3",
+            "message_index": 19,
+            "label": 1,
+            "prediction": "flag"
+          },
+          {
+            "run_id": "bfcl-8-4",
+            "message_index": 16,
+            "label": 0,
+            "prediction": "flag"
+          }
+        ]
+      },
+      "never_flag": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "confusion_matrix_tn_fp_fn_tp": [
+          947,
+          0,
+          348,
+          0
+        ],
+        "neutral": {
+          "steps": 52,
+          "flags": 0,
+          "false_positives": 0,
+          "false_positive_rate": 0.0
+        },
+        "positive": {
+          "steps": 895,
+          "flags": 0,
+          "false_positives": 0,
+          "false_positive_rate": 0.0
+        },
+        "by_subset": {
+          "bfcl": {
+            "steps": 393,
+            "flags": 0,
+            "false_positives": 0,
+            "false_positive_rate": 0.0
+          },
+          "gaia_dev": {
+            "steps": 330,
+            "flags": 0,
+            "false_positives": 0,
+            "false_positive_rate": 0.0
+          },
+          "hotpotqa": {
+            "steps": 46,
+            "flags": 0,
+            "false_positives": 0,
+            "false_positive_rate": 0.0
+          },
+          "tau2": {
+            "steps": 526,
+            "flags": 0,
+            "false_positives": 0,
+            "false_positive_rate": 0.0
+          }
+        },
+        "error_examples": [
+          {
+            "run_id": "bfcl-8-1",
+            "message_index": 3,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-8-1",
+            "message_index": 15,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-8-2",
+            "message_index": 17,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-8-3",
+            "message_index": 17,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-8-4",
+            "message_index": 39,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-9-1",
+            "message_index": 9,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-11-0",
+            "message_index": 3,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-11-0",
+            "message_index": 10,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-11-0",
+            "message_index": 12,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-11-0",
+            "message_index": 14,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-11-0",
+            "message_index": 16,
+            "label": -1,
+            "prediction": "no_flag"
+          },
+          {
+            "run_id": "bfcl-11-0",
+            "message_index": 31,
+            "label": -1,
+            "prediction": "no_flag"
+          }
+        ]
+      },
+      "tfidf_multiclass": {
+        "-1": {
+          "precision": 0.6288659793814433,
+          "recall": 0.5258620689655172,
+          "f1-score": 0.5727699530516432,
+          "support": 348.0
+        },
+        "0": {
+          "precision": 1.0,
+          "recall": 0.07692307692307693,
+          "f1-score": 0.14285714285714285,
+          "support": 52.0
+        },
+        "1": {
+          "precision": 0.8,
+          "recall": 0.8938547486033519,
+          "f1-score": 0.8443271767810027,
+          "support": 895.0
+        },
+        "accuracy": 0.7621621621621621,
+        "macro avg": {
+          "precision": 0.8096219931271479,
+          "recall": 0.4988799648306487,
+          "f1-score": 0.5199847575632629,
+          "support": 1295.0
+        },
+        "weighted avg": {
+          "precision": 0.7620427496716157,
+          "recall": 0.7621621621621621,
+          "f1-score": 0.7431855894282167,
+          "support": 1295.0
+        }
+      }
+    }
+  },
+  "cost": {
+    "validation_inference_seconds": 0.23604086899999288,
+    "test_inference_seconds": 0.22830857000002425,
+    "fit_seconds": 1.8543249020000019,
+    "wall_seconds": 3.707024455999999,
+    "peak_rss_mb": 320.55859375,
+    "features": 20000,
+    "sparse_train_matrix_mb": 7.991308,
+    "model_coefficient_mb": 0.48,
+    "paid_api_calls": 0,
+    "gpu_used": false
+  },
+  "limitations": [
+    "Last assistant message of every trajectory excluded conservatively, including some genuine intermediate-looking content. No final answer fields or ground truth supplied to model.",
+    "Model sees current and previous two messages only, max 12000 characters. Structural rules inspect the completed nonfinal run and may use subsequent tool results.",
+    "Exact normalized question duplicates unioned; semantically similar tasks not fully deduplicated.",
+    "Neutral exploration is not a mistake. Negative source labels can encode propagation rather than a fresh mistake.",
+    "Scores are neither calibrated confidence nor causal diagnoses. No model shipped in app pending broader validation."
+  ]
+}
