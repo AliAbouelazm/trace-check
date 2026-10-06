@@ -1,8 +1,12 @@
 # Trace Check
 
+**[Live demo](https://trace-check.aliazm419.chatgpt.site)** | **[Public source](https://github.com/AliAbouelazm/trace-check)**
+
 Review a completed agent run locally. Import JSON, read the task/tool/result timeline, search and filter, inspect evidence-backed review flags, and export a redacted JSON report. Built-in examples cover clean completion, useful exploration, retries, and missing evidence.
 
-## Run
+The public demo runs review logic in your browser. Structural rules are the default; optional ML suggestions require per-run opt-in and manual review. Neither model passed the automatic quality gate. See the [public release status and hosting limits](docs/publication-review.md#public-release-2026-10-06).
+
+## Run locally
 
 Python 3.10+ is the only runtime requirement. From this directory:
 
@@ -43,9 +47,9 @@ python3 research/adapter.py /path/to/AgentProcessBench/data/AgentProcessBench/bf
 
 ## Privacy and trust
 
-File contents stay in browser memory. There is no upload endpoint, localStorage, analytics, execution of logged commands, automatic remediation, or raw upload retention. Clear or refresh to discard the review. Browser extensions and downloads are outside this guarantee. Exports are explicit user actions and contain the full redacted timeline and all flags, including steps hidden by filters. The [report v1 schema](docs/report-schema.json) describes its version, timestamp, review method, limitations and step-linked observations. A report is an export wrapper: save its `run` object as a separate JSON file to review it again. Redaction can expand near-limit strings, so such a run may need manual reduction before reimport. Reimport recomputes structural observations; it never trusts exported flags.
+File contents stay in browser memory. The application has no upload endpoint, localStorage, analytics, execution of logged commands, automatic remediation, or raw upload retention. Clear or refresh to discard the review. The public host receives ordinary request metadata, including IP addresses, and can set a security cookie. This is not a cookie-free or full privacy guarantee. A complete live runtime network trace was unavailable; see the [release verification limits](docs/publication-review.md#public-release-2026-10-06). Browser extensions and downloads are outside the app's control. Exports are explicit user actions and contain the full redacted timeline and all flags, including steps hidden by filters. The [report v1 schema](docs/report-schema.json) describes its version, timestamp, review method, limitations and step-linked observations. A report is an export wrapper: save its `run` object as a separate JSON file to review it again. Redaction can expand near-limit strings, so such a run may need manual reduction before reimport. Reimport recomputes structural observations; it never trusts exported flags.
 
-Automatic redaction covers common token patterns, email addresses and named secrets. It is best effort, not a credential detector guarantee. Remove secrets before import and inspect reports before sharing. Log HTML is displayed as text; URLs and commands are never executed. The static server binds only to loopback and serves only `web/`.
+Automatic redaction covers common token patterns, email addresses and named secrets. It is best effort, not a credential detector guarantee. Remove secrets before import and inspect reports before sharing. Log HTML is displayed as text; URLs and commands are never executed. The local static server binds only to loopback and serves only `web/`.
 
 ## Checks
 
@@ -67,15 +71,15 @@ Browser checks require Python Playwright and an installed Chromium. Research rep
 - [x] Smoke, privacy, injection and browser interaction checks.
 - [x] Bundle a dataset adapter, provenance audit, frozen task-held-out split, rules/CPU model metrics and resource measurements.
 
-Live monitoring, automatic fixes, model deployment, external publication and hosted storage are outside v1. This repository is independent of physics-adaptation.
+The static app and frozen optional manual-review model are publicly available. Live monitoring, automatic fixes, automatic ML quality decisions and hosted log storage remain outside v1. This repository is independent of physics-adaptation.
 
 ## CPU CI and budget
 
 Run `bash scripts/check.sh` for the complete CPU check suite. Browser tests default to the Chromium revision bundled with pinned Playwright; they print the actual browser and package versions. To deliberately use a local system browser, set `CHROMIUM_PATH=/absolute/path/to/chromium`; that run does not establish parity with CI. Native keyboard-picker failures include passive focus, activation, disabled-state, event and console diagnostics. CI runs one standard `ubuntu-latest` job on pull requests and pushes to `main`, with a 10-minute timeout and cancellation of superseded runs. Feature-branch pushes do not create duplicate runs. Official actions are pinned to commit SHAs, permissions are read-only, and checkout verifies the exact PR head (or main commit). The job installs pinned Python Playwright and Chromium, then runs JavaScript, research-integrity, security and desktop/mobile browser checks. No model fits, raw data downloads, matrix, caches, uploaded artifacts or larger runners are used. The owner verified the account's included Actions allowance and $0 stop-usage setting; this workflow does not change billing or permissions. Local checks are not a remote CI success.
 
-See the [bounded calibration protocol](docs/calibration-plan.md) and the completed development-validation run below. No model has passed the optional local inference gates. The archived research hashes identify the original measured code; the current core additionally redacts full error content before extracting evidence snippets. Rule selection behavior and frozen research evidence are unchanged.
+See the [bounded calibration protocol](docs/calibration-plan.md) and the completed development-validation run below. No model has passed the automatic-promotion quality gates. The archived research hashes identify the original measured code; the current core additionally redacts full error content before extracting evidence snippets. Rule selection behavior and frozen research evidence are unchanged.
 
-Experimental local-inference prerequisites now have a [bounded JSON/grouping contract and synthetic parity proof](docs/experimental-contract.md). They are not connected to the app. Canonical v1 imports still use rules only. The pre-fit scoring contract conservatively abstains on non-ASCII feature text; no multilingual scoring or trained-model quality is claimed.
+Optional manual inference follows the [bounded JSON/grouping contract and synthetic parity proof](docs/experimental-contract.md). Canonical v1 imports still use rules only. The pre-fit scoring contract conservatively abstains on non-ASCII feature text; no multilingual scoring or trained-model quality is claimed.
 
 The [single reviewed calibration run](docs/calibration-results.md) completed within budget, but none of its six fixed thresholds met every combined-policy promotion gate. No trained artifact was exported by that run. A separately authorized one-fit reconstruction now supports optional manual review; see [the build and UI evidence](docs/manual-review.md). Full development-validation results and coverage are retained without raw dataset records.
 

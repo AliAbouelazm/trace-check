@@ -1,4 +1,14 @@
-# Static release candidate, not deployment approval
+# Publication review
+
+## Public release (2026-10-06)
+
+The [live demo](https://trace-check.aliazm419.chatgpt.site) and [source repository](https://github.com/AliAbouelazm/trace-check) are public following explicit owner approval. Review runs in browser memory with structural rules by default and optional, per-run ML suggestions for manual review. No automatic quality gate passed; the frozen model, cutoff, failed benchmark results, reconstruction limitations and rights notices are unchanged. The application has no log-upload endpoint. The host still receives ordinary HTTP request metadata, including IP addresses, and can set a security cookie; this is not a cookie-free service or a full privacy guarantee.
+
+Release verification confirmed HTTPS and response headers for CSP (including frame restrictions), X-Frame-Options, X-Content-Type-Options: nosniff, Referrer-Policy: no-referrer, Cache-Control: no-store and HSTS through a minimal Worker adapter. The 15 application assets were byte-identical in the deployment package; this is not a claim that every live subasset hash was independently verified. Model loading, cancellation and redacted export were checked. A full runtime Network trace was blocked by managed DevTools, and verification of the complete set of live subasset hashes remains incomplete. These limits constrain the verification claim.
+
+## Historical candidate review (2026-10-06, before release approval)
+
+The record below describes the candidate audit and authorization boundary at that time. Its statements about pending deployment or visibility approval are historical; the public release status above supersedes them. Candidate packaging itself still does not deploy anything.
 
 The unchanged frozen model is retained for a complete static release candidate after source-context review. The flagged credential/name/payment-ID families are benchmark fixture material, and the remaining long numeric candidates are simulated identifiers or conversion-number fragments. This resolves the specific candidate audit; it does not make the vocabulary anonymous or establish universal upstream rights clearance. No deployment or visibility change is authorized. See the bundled THIRD-PARTY-NOTICES.txt for license texts, provenance and residual limitations.
 
