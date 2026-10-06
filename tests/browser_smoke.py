@@ -79,6 +79,44 @@ with sync_playwright() as p:
     assert report['run']['steps'][0]['call_id'] == report['run']['steps'][1]['call_id']
     assert 'never-export-me' not in json.dumps(report)
     assert '@example.com' not in json.dumps(report)
+    quoted_cases = [
+        '{"password":"correct horse battery staple"}',
+        'api_key="abc;def,ghi"',
+        r'password="first \"hidden quote\" trailing"',
+        r"secret='first \'hidden quote\' trailing'",
+        r'access_token="first \\ trailing"',
+        'password="first\ntrailing"',
+        'secret="first\nunterminated']
+    for secret_text in quoted_cases:
+        content = 'failed ' + secret_text
+        run['task'] = content
+        run['steps'] = [{'id':'1','kind':'tool_result','content':content}]
+        page.locator('#file').set_input_files({'name':'quoted.json','mimeType':'application/json','buffer':json.dumps(run).encode()})
+        expect(page.locator('.flag')).to_have_count(1)
+        for selector in ['#task', '.content', '.flag']:
+            shown = page.locator(selector).inner_text()
+            assert '[REDACTED]' in shown, shown
+            for forbidden in ['correct', 'horse', 'battery', 'staple', 'abc', 'def,ghi', 'first', 'hidden quote', 'trailing', 'unterminated']:
+                assert forbidden not in shown, shown
+        with page.expect_download() as event:
+            page.locator('#export').click()
+        serialized = Path(event.value.path()).read_text()
+        for forbidden in ['correct', 'horse', 'battery', 'staple', 'abc', 'def,ghi', 'first', 'hidden quote', 'trailing', 'unterminated']:
+            assert forbidden not in serialized, serialized
+        assert 'Redaction is best effort' in serialized
+    # Exercise the full import/render path near the file bound, including the
+    # trailing-@ adversary, rather than timing only a presence shortcut.
+    for suffix in ['', '@']:
+        run['task'] = 'Large local review'
+        run['steps'] = [{'id':str(i),'kind':'assistant','content':('a.' * 50000)[:100000 - len(suffix)] + suffix} for i in range(20)]
+        payload = json.dumps(run).encode()
+        assert len(payload) <= 2 * 1024 * 1024
+        started = time.monotonic()
+        page.locator('#file').set_input_files({'name':'large.json','mimeType':'application/json','buffer':payload})
+        expect(page.locator('.step')).to_have_count(20)
+        elapsed = time.monotonic() - started
+        assert elapsed < 5, elapsed
+        print(f'Browser ~2 MB import/render suffix={suffix!r}: {elapsed:.3f}s')
     assert page.evaluate('localStorage.length === 0 && sessionStorage.length === 0')
     page.reload()
     expect(page.locator('#review')).to_be_hidden()

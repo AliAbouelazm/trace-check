@@ -21,6 +21,16 @@ class ResearchTests(unittest.TestCase):
         self.assertNotIn('FINAL_SECRET',json.dumps(adapt(self.row,exclude_final=True)))
     def test_tool_links(self):
         run=adapt(self.row); self.assertEqual(run['steps'][2]['call_id'],run['steps'][3]['call_id'])
+    def test_feature_window_counts_original_messages_not_expanded_calls(self):
+        row=copy.deepcopy(self.row)
+        row['messages'][1]['tool_calls'].append({'id':'c2','function':{'name':'lookup','arguments':'{"q":"two"}'}})
+        row['messages'].insert(3, {'role':'assistant','content':'Review both results'})
+        expected='assistant Checking\nsearch {}\nlookup {"q":"two"}\ntool Found\nassistant Review both results'
+        self.assertEqual(feature(row,3),expected)
+        run=adapt(row)
+        self.assertEqual([s['kind'] for s in run['steps'][1:4]], ['assistant','tool_call','tool_call'])
+        self.assertNotIn('FINAL_SECRET',feature(row,3))
+        with self.assertRaises(ValueError): feature(row,4)
     def test_frozen_split_and_counts(self):
         base=Path(__file__).resolve().parents[1]/'research'
         split=json.loads((base/'split.json').read_text()); result=json.loads((base/'results.json').read_text())

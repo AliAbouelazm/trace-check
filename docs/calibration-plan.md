@@ -27,3 +27,19 @@ Only after review and a qualifying validation result, implement opt-in local bro
 Label outputs "Experimental model suggestion, development validation only" and show score/threshold as an uncalibrated decision score, never confidence or causal evidence. Default off. Preserve independent rules and their evidence; explain abstention as insufficient model support, not a clean bill of health. If the gate fails, retain the useful complete rules app and document the failure.
 
 A fresh assessment requires genuinely unseen whole tasks with independently obtained labels, duplicate checks against all previously examined groups, and a protocol frozen before labels are inspected. Without that, every new result remains development-only. No new fit is authorized until this plan is reviewed.
+
+## Review addendum: mandatory feature parity before fitting
+
+The existing 0.5 threshold already fails validation budgets: total false positives 73 versus rules 61, neutral false positives 18 versus 3, and Tau2 positive/neutral false positives 31 versus 2. Do not promote it. The six predeclared threshold candidates, one TRAIN fit, 60-second/512-MiB stop limits and immutable split/source hashes remain unchanged. Every candidate must pass both standalone-model and combined rules-plus-model gates using the same total, neutral and per-subset budgets. If no candidate passes the combined gates, do not integrate model suggestions alongside the rules.
+
+The research feature window is the current plus previous two ORIGINAL messages. The adapter expands one assistant message into an assistant timeline step plus potentially several tool-call steps. The previous two timeline steps are not equivalent. Never infer grouping from `mN` IDs, tool order or adjacency in arbitrary v1 imports.
+
+Before fitting, implement and review a separate, strictly allowlisted adapter envelope retaining original ordered message groups and their explicit timeline-step mapping. Only this format may opt into experimental ML. Canonical v1 imports continue to work with rules, while ML explicitly abstains for lack of original-message grouping. Preserve original slots for excluded system messages because they still occupy positions in the three-message window; do not include their text in features. Reject invalid mappings, reordered/duplicate groups and unbounded content. Do not relax the v1 schema silently.
+
+Executable pre-fit gates, in order:
+
+1. Run `python3 -m unittest discover -s tests -p 'test_*.py'`. The new original-message-window regression provides a concrete Python oracle for two calls in one assistant message and final-answer exclusion. This oracle test is implemented; browser parity is not yet implemented.
+2. Add synthetic fixture-only Python/browser feature parity tests for zero/one/multiple calls, intervening system slots, tool results, final/future-message rejection, answer-tag stripping, Unicode/code-point truncation, nonstring arguments serialized by the adapter, and the 4000/12000-character bounds. Compare exact feature strings. Arbitrary v1 imports and malformed groups must abstain. No raw dataset or learned weights are needed for these tests.
+3. Add synthetic fixed-vocabulary/IDF/coefficient JSON fixtures comparing Python and browser tokenization, unigram/bigram construction, sublinear TF, IDF, L2 normalization and multiclass softmax. Require absolute score error <= 1e-6, identical threshold decisions and explicit abstention near numeric threshold ambiguity. These are handcrafted fixtures, not a fit.
+4. Enforce size/shape/finite-number/version checks on the JSON-only model artifact and measure browser latency/memory. Reject executable object formats. Keep inference default-off and suggestions separate from observed rule evidence.
+5. Only after the parent reviews those parity tests and resource enforcement may the single TRAIN fit begin. No fit, browser inference module or claim of parity has been added in this security patch.

@@ -53,7 +53,25 @@ export function analyzeRun(run) {
 }
 export function redactRun(run) {
   let redactionCount = 0;
-  const redact = value => value.replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, () => { redactionCount++; return '[REDACTED EMAIL]'; }).replace(/\b(?:sk-[A-Za-z0-9_-]{12,}|gh[pousr]_[A-Za-z0-9]{12,}|AKIA[A-Z0-9]{16})\b/g, () => { redactionCount++; return '[REDACTED TOKEN]'; }).replace(/\b(authorization["']?\s*:\s*["']?bearer\s+|(?:api[_ -]?key|password|secret|access[_ -]?token)["']?\s*[=:]\s*["']?)[^\s"',;}]+/gi, (_, prefix) => { redactionCount++; return `${prefix}[REDACTED]`; });
+  const redact = value => value
+    // Consume complete quoted values first, including escaped characters and
+    // literal newlines. An unterminated quoted value is redacted to end of text.
+    // The unquoted alternative cannot begin with a quote, so it cannot expose
+    // the suffix of a quoted secret. This is text matching, never evaluation.
+    .replace(/\b((?:api[_ -]?key|password|secret|access[_ -]?token|authorization)["']?\s*[=:]\s*)("(?:\\[\s\S]|[^"\\])*(?:"|$)|'(?:\\[\s\S]|[^'\\])*(?:'|$)|(?:bearer\s+)?[^\s"',;}]+)/gi, (_, prefix, value) => {
+      redactionCount++;
+      const quote = value[0] === '"' || value[0] === "'" ? value[0] : '';
+      return `${prefix}${quote}[REDACTED]${quote && value.endsWith(quote) ? quote : ''}`;
+    })
+    // Scan disjoint maximal candidates once. Validate only bounded candidates;
+    // retrying an email pattern at every dot boundary is quadratic on long logs.
+    .replace(/[A-Z0-9._%+@-]+/gi, candidate => {
+      if (candidate.length > 512) return candidate;
+      const address = candidate.replace(/\.+$/, '');
+      if (address.length > 254 || !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(address)) return candidate;
+      redactionCount++; return '[REDACTED EMAIL]' + candidate.slice(address.length);
+    })
+    .replace(/\b(?:sk-[A-Za-z0-9_-]{12,}|gh[pousr]_[A-Za-z0-9]{12,}|AKIA[A-Z0-9]{16})\b/g, () => { redactionCount++; return '[REDACTED TOKEN]'; });
   // Preserve internal identifiers for matching, but redact them for display/export as well.
   const map = value => typeof value === 'string' ? redact(value) : Array.isArray(value) ? value.map(map) : isObject(value) ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, map(item)])) : value;
   const safe = map(run);
