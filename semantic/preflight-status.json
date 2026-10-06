@@ -1,26 +1,52 @@
 {
-  "status": "blocked-unapproved-weight-redirect",
-  "reason": "Official metadata and small-file access now succeeds. Safetensors resolve returned HTTP 302 to us.aws.cdn.hf.co, outside the two approved hosts. Redirect rejected before contacting that host; all transfers stopped.",
-  "model_bytes_downloaded": 0,
+  "status": "synthetic-preflight-passed-awaiting-parent-review",
   "benchmark_rows_encoded": 0,
   "head_fits": 0,
-  "encoder_cpu_throughput": null,
-  "encoder_memory": null,
-  "actual_tokenizer_parity": null,
-  "actual_encoder_parity": null,
-  "tests_completed": "30 Python tests and 20 JavaScript tests passed, including nine semantic standard-library tests. Covers provenance rejection, normal CLI fail-closed behavior, supervisor time/RSS stops, final publication boundaries, contract arithmetic and character/token losses for removed tool calls. No actual tokenizer or encoder tested.",
-  "next_required": "Parent review of exact redirect hostname us.aws.cdn.hf.co. No further transfer without authorization. Then verify both local weights and exact CPU dependencies before synthetic-only preflight; review measured benchmark budget/protocol before any encoding or fit.",
-  "supervisor": {
-    "wall_seconds": 120,
-    "sampled_process_group_rss_mib": 2048,
-    "poll_seconds": 0.01,
-    "normal_cli_enforced": true
-  },
-  "runtime_lock_verified": false,
-  "access_evidence": "semantic/access-policy-recheck.json",
+  "model_bytes_downloaded": 181273590,
+  "runtime_lock_verified": true,
   "small_files_verified": 9,
   "model_card_verified": true,
-  "synthetic_encoder_executed": false,
-  "actual_artifact_bytes": null,
-  "actual_truncation_and_tool_call_loss": null
+  "synthetic_encoder_executed": true,
+  "access_evidence": "semantic/access-approved-download.json",
+  "measurement_evidence": "semantic/results/synthetic-2026-10-06.json",
+  "encoder_cpu_throughput": [
+    {
+      "name": "representative",
+      "batch_size": 8,
+      "tokens": 30,
+      "seconds": [
+        0.06256060400001218,
+        0.061942190000010555,
+        0.06393371600000819
+      ],
+      "min_sequences_per_second": 125.12959515756874
+    },
+    {
+      "name": "max-length",
+      "batch_size": 8,
+      "tokens": 256,
+      "seconds": [
+        0.667033687,
+        0.6714184089999975,
+        0.5734380259999909
+      ],
+      "min_sequences_per_second": 11.91507395800348
+    }
+  ],
+  "encoder_memory": {
+    "exit_code": 0,
+    "stop_reason": null,
+    "elapsed_seconds": 9.95545052700001,
+    "sampled_peak_group_rss_kib": 920636,
+    "rss_poll_seconds": 0.01
+  },
+  "actual_tokenizer_parity": true,
+  "actual_encoder_parity": {
+    "max_absolute_error": 1.4528632164001465e-07,
+    "minimum_cosine": 0.9999998807907104
+  },
+  "actual_artifact_bytes": 91104751,
+  "actual_truncation_and_tool_call_loss": "See all ten case audits in measurement_evidence; long cases lose entire appended calls.",
+  "next_required": "Parent review of measured caps and frozen protocol before implementing/running any benchmark encoder or supervised head fit. TEST always excluded. App ML remains disabled.",
+  "tests_completed": "30 Python and 20 JavaScript tests; both browser suites passed with explicit /usr/bin/chromium override (151.0.7922.173), Playwright 1.62.0. Bundled Playwright Chromium was unavailable."
 }

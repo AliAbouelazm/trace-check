@@ -1,7 +1,7 @@
 {
   "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
-  "verified": false,
-  "status": "Blocked: official small-file sizes and digests verified, but weight transfer redirects to unapproved us.aws.cdn.hf.co. CPU dependency pins remain unverified; execution remains disabled.",
+  "verified": true,
+  "status": "Exact installed CPU dependency versions and all pinned local files verified; synthetic preflight only.",
   "files": {
     "config.json": {
       "bytes": 612,
@@ -50,12 +50,12 @@
     }
   },
   "packages": {
-    "numpy": null,
-    "torch": null,
-    "transformers": null,
-    "tokenizers": null,
-    "onnxruntime": null,
-    "safetensors": null,
-    "huggingface-hub": null
+    "numpy": "2.2.6",
+    "torch": "2.6.0+cpu",
+    "transformers": "4.51.3",
+    "tokenizers": "0.21.1",
+    "onnxruntime": "1.22.0",
+    "safetensors": "0.5.3",
+    "huggingface-hub": "0.30.2"
   }
 }

@@ -5,3 +5,6 @@ research/data/
 *.joblib
 *.log
 test-results/
+# Official model weights remain in an external temporary cache.
+*.safetensors
+*.onnx

@@ -1,0 +1,10 @@
+{
+  "semantic/preflight.py": "33bc68d12eaedec01be6cce15d23790cd359dba0ad4a4df760021c8dfcc35b38",
+  "semantic/contract.py": "07f52bc7e079530d3f8fa10fd3dde3d2eecd77a4d455cdf74f16680ffe540e8d",
+  "semantic/bounded.py": "c075f86972cee38984780cd13a7d7a947196c61ae3a31fb74a97056a882a3487",
+  "semantic/publication.py": "aae9c6c7d206289eda9fcd405a6145b0037e139b57f81a84bfc1d6f3e413c402",
+  "semantic/provenance.py": "aae8161d4b7c15b8577affd029b1d73f18779679641555951c166d329414f86d",
+  "semantic/runtime-lock.json": "3e52091304a1621a610a11e117c4ae2e6d95814b77a7cdd144a070311e5782d6",
+  "semantic/requirements-cpu.txt": "67b1f561bab19f7662884ad26683d3d7448627b25bb8c7278067638d693bc625",
+  "semantic/results/synthetic-2026-10-06.json": "ccc6be33f44d350095bc933fd61cfbba0b64dc6292e39bcc626a3595b66509e2"
+}

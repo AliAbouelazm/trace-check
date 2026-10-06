@@ -1,6 +1,6 @@
 """Offline, synthetic-only encoder preflight. No benchmark input or fitting API.
 
-Blocked until approved local model bytes and CPU dependencies are supplied.
+Requires verified local model bytes and exact CPU dependency pins.
 This module does not download, install, serve, activate or train anything.
 """
 import argparse
@@ -14,6 +14,7 @@ import socket
 import time
 import sys
 import tempfile
+import platform
 from bounded import run_bounded
 from provenance import verify_lock
 from publication import publish_preflight
@@ -59,17 +60,31 @@ def run(directory):
         session=ort.InferenceSession(str(directory/'onnx/model.onnx'),sess_options=options,providers=['CPUExecutionProvider'])
         load_seconds=time.monotonic()-started
         inputs=[];unknown=[];truncation=[]
+        rows=[]
         for text in TEXTS:
             row={'question':'Inspect the local project without changing files.','messages':[
                 {'role':'user','content':'Inspect configuration'},
                 {'role':'tool','content':'File exists; content follows.'},
                 {'role':'assistant','content':text,'tool_calls':[{'function':{'name':'read_file','arguments':'{"path":"settings.json"}'}}]},
                 {'role':'assistant','content':'FINAL EXCLUDED'}]}
+            rows.append(row)
+        # Exercise every character cap and task/prefix token allocation with the
+        # real tokenizer. Appended calls disappear at both distinct cap stages.
+        rows.append({'question':'task '*1000,'messages':[
+            {'role':'user','content':'prefix '*1000,'tool_calls':[
+                {'function':{'name':'context_file','arguments':'context '*1000}}]},
+            {'role':'tool','content':'prior '*1000,'tool_calls':[
+                {'function':{'name':'prior_file','arguments':'result '*1000}}]},
+            {'role':'assistant','content':'action '*1000,'tool_calls':[
+                {'function':{'name':'read_file','arguments':'argument '*1000}} for _ in range(4)]},
+            {'role':'assistant','content':'FINAL EXCLUDED'}]})
+        for case_index,row in enumerate(rows):
             p,audit=parts_with_audit(row,2);ids={}
+            audit['case_index']=case_index
             for key,value in p.items():
                 ids[key]=tokenizer.encode(value,add_special_tokens=False).ids
                 assert ids[key]==hf.encode(value,add_special_tokens=False)
-                unknown.append({'field':key,'tokens':len(ids[key]),'unknown_tokens':ids[key].count(hf.unk_token_id)})
+                unknown.append({'case_index':case_index,'field':key,'tokens':len(ids[key]),'unknown_tokens':ids[key].count(hf.unk_token_id)})
             allocated=allocate(ids['task'],ids['prefix'],ids['action'],hf.cls_token_id,hf.sep_token_id)
             audit['tokens']=allocated['token_counts']
             audit['action_tool_calls_after_token_limit']=tool_call_token_audit(tokenizer,p['action'],audit['action_tool_spans'],254)
@@ -98,7 +113,7 @@ def run(directory):
         assert actual.shape==(len(inputs),384) and error<=1e-4 and cosine>=.99999
         assert np.allclose(np.linalg.norm(actual,axis=1),1,atol=1e-5)
         # Ordered [context,action] 768-D vectors. No learned detector exists here.
-        paired=actual.reshape(-1,768);assert paired.shape==(len(TEXTS),768)
+        paired=actual.reshape(-1,768);assert paired.shape==(len(rows),768)
         # Handcrafted coefficients check deployable arithmetic, never a fit.
         coefficients=np.sin(np.arange(3*768,dtype=np.float64).reshape(3,768))*.01
         def synthetic_head(vectors):
@@ -117,11 +132,14 @@ def run(directory):
                 t=time.monotonic();encode_onnx(batch);times.append(time.monotonic()-t)
             measurements.append({'name':name,'batch_size':8,'tokens':max(map(len,batch)),'seconds':times,'min_sequences_per_second':8/max(times)})
         return {'status':'synthetic-preflight-only','revision':REVISION,'files_bytes':sizes,'bundle_bytes':sum(sizes.values()),
+                'deployment_model_files_bytes':sum(v for k,v in sizes.items() if k!='model.safetensors'),
+                'environment':{'python':platform.python_version(),'platform':platform.platform(),'cpu_count':os.cpu_count(),'threads':1,'providers':session.get_providers()},
+                'synthetic_cases':len(rows),
                 'parameter_count':sum(p.numel() for p in reference.parameters()),'load_seconds':load_seconds,
                 'truncation':truncation,'tokenizer_cases':len(unknown),'tokenizer_exact_match':True,'unicode_token_counts':unknown,
                 'synthetic_head_score_max_absolute_error':head_error,'embedding_max_absolute_error':error,'minimum_cosine_agreement':cosine,'measurements':measurements,
                 'peak_process_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
-                'elapsed_seconds':time.monotonic()-started,'packages':{name:importlib.metadata.version(name) for name in ['numpy','torch','transformers','tokenizers','onnxruntime']},
+                'elapsed_seconds':time.monotonic()-started,'packages':{name:importlib.metadata.version(name) for name in ['numpy','torch','transformers','tokenizers','onnxruntime','safetensors','huggingface-hub']},
                 'benchmark_rows_encoded':0,'head_fits':0,'quality_claim':'None; pretrained embeddings are not a trained error detector.'}
 
 if __name__=='__main__':
