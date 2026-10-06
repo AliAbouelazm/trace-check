@@ -1,6 +1,6 @@
 # Experimental local inference prerequisites
 
-Status: synthetic proof only. The rules app does not import any experimental module. No model has been fitted, downloaded or enabled. Frozen research files are unchanged.
+The inference prerequisites were verified with synthetic fixtures. The subsequent [single reviewed calibration run](calibration-results.md) fitted a research model but passed no promotion gate, so no trained artifact was exported or enabled. The rules app does not import any experimental module. Frozen research files are unchanged.
 
 ## Supported input and feature boundary
 

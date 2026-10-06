@@ -48,3 +48,11 @@ Executable pre-fit gates, in order:
 8. Record source/split/code digests, unsupported coverage, counts, precision/recall/F1, abstention, resource usage and the gate receipt as development-only evidence. Export a bounded JSON artifact only if all gates pass. Do not enable the UI merely because export succeeded; subsequent integration still needs reviewed UI labels, redacted positional links and actual-artifact parity/latency checks.
 
 No new fits have run. The final training orchestration and any opt-in UI integration remain subject to parent review. No examined test split or reshuffle can provide a fresh held-out result.
+
+## Driver implementation ready for review
+
+The separate post-merge driver is now implemented. See [final driver review](calibration-driver-review.md) for source boundaries, support accounting, synthetic failure tests and the exact post-approval command. This supersedes the earlier statement that orchestration had not yet been added. It has not been executed: no source data read, new fit, threshold selection or model export has occurred. The rules-only app remains unchanged.
+
+## Reviewed execution completed
+
+The single supervised run at `c51598b319cdefcad893860f1c1ccd5e82a4bbc9` completed within budget. No threshold passed every gate, so no artifact was exported or enabled. See [measured results and coverage](calibration-results.md). This supersedes the earlier pending-execution status; it does not authorize a retry, changed gate or further fit.

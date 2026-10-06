@@ -73,9 +73,11 @@ Live monitoring, automatic fixes, model deployment, external publication and hos
 
 Run `bash scripts/check.sh` for the complete CPU check suite. CI runs one standard `ubuntu-latest` job on pull requests and pushes to `main`, with a 10-minute timeout and cancellation of superseded runs. Feature-branch pushes do not create duplicate runs. Official actions are pinned to commit SHAs, permissions are read-only, and checkout verifies the exact PR head (or main commit). The job installs pinned Python Playwright and Chromium, then runs JavaScript, research-integrity, security and desktop/mobile browser checks. No model fits, raw data downloads, matrix, caches, uploaded artifacts or larger runners are used. The owner verified the account's included Actions allowance and $0 stop-usage setting; this workflow does not change billing or permissions. Local checks are not a remote CI success.
 
-See the [bounded calibration proposal](docs/calibration-plan.md) for the next development-only experiment and optional local inference gates. No new fits have been run. The archived research hashes identify the original measured code; the current core additionally redacts full error content before extracting evidence snippets. Rule selection behavior and frozen research evidence are unchanged.
+See the [bounded calibration protocol](docs/calibration-plan.md) and the completed development-validation run below. No model has passed the optional local inference gates. The archived research hashes identify the original measured code; the current core additionally redacts full error content before extracting evidence snippets. Rule selection behavior and frozen research evidence are unchanged.
 
 Experimental local-inference prerequisites now have a [bounded JSON/grouping contract and synthetic parity proof](docs/experimental-contract.md). They are not connected to the app. Canonical v1 imports still use rules only. The pre-fit scoring contract conservatively abstains on non-ASCII feature text; no multilingual scoring or trained-model quality is claimed.
+
+The [single reviewed calibration run](docs/calibration-results.md) completed within budget, but none of its six fixed thresholds met every combined-policy promotion gate. No trained artifact was exported; the app remains rules-only. Full development-validation results and coverage are retained without raw dataset records.
 
 ## Keyboard and review flow
 

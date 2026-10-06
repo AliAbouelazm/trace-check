@@ -26,3 +26,20 @@ class PolicyTests(unittest.TestCase):
     def test_abstention_and_minimum_support(self):
         rows=self.rows();rows[0]['score']=None
         self.assertIsNone(choose_threshold(rows,{'g'})['selected_threshold'])
+
+    def test_paired_task_counts_reconcile_and_preserve_abstentions(self):
+        rows=self.rows()+[
+            {'split':'validation','group':'h','subset':'synthetic','label':0,'rule':False,'score':.9},
+            {'split':'validation','group':'h','subset':'synthetic','label':-1,'rule':True,'score':None},
+            {'split':'validation','group':'g','subset':'synthetic','label':1,'rule':False,'score':None}]
+        result=choose_threshold(rows,{'g','h'})
+        policies=[result['rules'],result['never_flag']]+[c[k] for c in result['candidates'] for k in ('model','combined')]
+        for policy in policies:
+            self.assertEqual(set(policy['per_task_confusion']),{'g','h'})
+            for key in ('tp','fp','fn','tn'):
+                self.assertEqual(sum(v[key] for v in policy['per_task_confusion'].values()),policy[key])
+            self.assertEqual(sum(sum(v.values()) for v in policy['per_task_confusion'].values()),len(rows))
+        model=result['candidates'][0]['model']['per_task_confusion']
+        self.assertEqual(model['g'],{'tp':20,'fp':0,'fn':0,'tn':1})
+        self.assertEqual(model['h'],{'tp':0,'fp':1,'fn':1,'tn':0})
+        self.assertIn('unassessed',result['uncertainty'])
