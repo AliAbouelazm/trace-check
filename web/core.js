@@ -1,3 +1,4 @@
+export const REPORT_VERSION = 1;
 export const MAX_FILE_BYTES = 2 * 1024 * 1024;
 export const KINDS = ['task', 'assistant', 'tool_call', 'tool_result'];
 const isObject = value => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -9,6 +10,7 @@ function str(value, name, max, empty = false) {
   if (typeof value !== 'string' || (!empty && !value.trim()) || value.length > max) throw new Error(`${name} must be ${empty ? 'a' : 'a nonempty'} string of at most ${max} characters.`);
 }
 export function validateRun(value) {
+  if (isObject(value) && Object.hasOwn(value, 'report_version')) throw new Error('To review an exported report, save its run object as a separate JSON file and import it. Download sample shows the required run format.');
   keys(value, ['schema_version', 'run_id', 'task', 'status', 'steps'], 'Run');
   if (value.schema_version !== 1) throw new Error('schema_version must be 1.');
   if (value.status !== 'completed') throw new Error('Only completed runs are supported.');
@@ -88,5 +90,5 @@ export function redactRun(run) {
   return {run: safe, redactionCount};
 }
 export function makeReport(run, flags, redactionCount) {
-  return {report_version: 1, generated_at: new Date().toISOString(), review_method: 'Structural rules only. No trained model or model confidence is presented.', limitations: 'Flags are observations for review, not causal diagnoses. Rules can miss semantic mistakes and flag benign exploration. Redaction is best effort.', redaction_count: redactionCount, run, flags};
+  return {report_version: REPORT_VERSION, generated_at: new Date().toISOString(), review_method: 'Structural rules only. No trained model or model confidence is presented.', limitations: 'Flags are observations for review, not causal diagnoses. Rules can miss semantic mistakes and flag benign exploration. Redaction is best effort.', redaction_count: redactionCount, run, flags};
 }
