@@ -2,7 +2,7 @@
 
 Start `python3 server.py`, open the printed loopback address, and choose **Try the synthetic ML walkthrough**. Inspect the two failed tool results, enable **Experimental ML review suggestions**, follow an action to the timeline, then export separate review notes. This handwritten example demonstrates the interface, not accuracy. It can legitimately produce no above-cutoff suggestions. All scored actions remain inspectable.
 
-The original rules and Report v1 stay independent. Every imported or example run starts with ML off. Canonical runs without original message groups cannot use ML. The checkbox starts a disposable worker; cancel, clear, replacement, failure, or a two-second wall-clock timeout terminate it. The app does not fit, execute tools, suppress rules, or certify correctness. Scores are uncalibrated decision scores, never confidence or error probabilities.
+The original rules and Report v1 stay independent. Every imported or example run starts with ML off. Canonical runs without original message groups cannot use ML. The checkbox starts a disposable worker; cancel, clear, replacement, failure, or a bounded timeout terminate it. Model loading/verification has 15 seconds; verified inference has a separate two-second limit. The app does not fit, execute tools, suppress rules, or certify correctness. Scores are uncalibrated decision scores, never confidence or error probabilities.
 
 ## Frozen model and evidence
 
@@ -23,3 +23,5 @@ The feature includes an action and its two preceding original slots. Each conten
 Review notes contain the redacted run, positional results, coverage, truncation, elapsed worker time, model version/hash/source, fixed cutoff, and limitations. They do not contain the original unredacted envelope or coefficients. Excerpts show observed log context only; they are not model explanations. Redaction is incomplete and users should inspect exports before sharing.
 
 The bundled vocabulary is source-derived and not anonymous. The source dataset card declares MIT; the source GitHub snapshot has no standalone LICENSE, and upstream clearance was not independently established. The [retained model notice](../web/review-model-NOTICE.txt) records that limitation. This work is in the existing private repository; no deployment, visibility change, or public redistribution was performed.
+
+New handwritten positive/benign examples and the blocked public-release review are described in [publication review](publication-review.md).

@@ -32,6 +32,8 @@ self.onmessage = async event => {
     }
     const model = parseArtifact(artifactJSON);
     if(bundled && model.threshold!==REVIEW_MODEL.cutoff)throw new Error();
+    self.postMessage({type:'ready'});
+    const inferenceStarted = performance.now();
     const last = envelope.groups.findLastIndex(group => group.role === 'assistant');
     const positions = new Map(envelope.run.steps.map((step,index) => [step.id,index]));
     const indices=envelope.groups.map((g,i)=>g.role==='assistant'&&i<last?i:null).filter(i=>i!==null);
@@ -44,7 +46,7 @@ self.onmessage = async event => {
     const coverage={eligible_actions:results.length,scored_actions:results.length-unsupported.length,unsupported_actions:unsupported.length,final_assistant_excluded:last>=0?1:0,
       truncated_actions:results.filter(r=>r.truncation.field_characters_removed||r.truncation.joined_characters_removed).length,
       unsupported_reasons:Object.fromEntries([...new Set(unsupported.map(r=>r.abstention))].map(reason=>[reason,unsupported.filter(r=>r.abstention===reason).length]))};
-    self.postMessage({results,coverage,elapsed_ms:performance.now()-started,model:bundled?REVIEW_MODEL:null,method:'Experimental uncalibrated review suggestions; not observed evidence.'});
+    self.postMessage({results,coverage,elapsed_ms:performance.now()-started,inference_ms:performance.now()-inferenceStarted,model:bundled?REVIEW_MODEL:null,method:'Experimental uncalibrated review suggestions; not observed evidence.'});
   } catch {
     self.postMessage({error:'Review input or local model failed its bounded integrity checks. Rules remain available.'});
   }

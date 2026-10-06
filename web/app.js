@@ -1,14 +1,16 @@
 import {MAX_FILE_BYTES, validateRun, analyzeRun, redactRun, makeReport} from './core.js';
 import {parseEnvelope} from './experimental.js';
 import {reviewBundled} from './experimental-client.js';
-import {demoEnvelope} from './review-demo.js';
+import {illustrationEnvelope} from './illustrative-suggestion.js';
+import {demoEnvelope, unicodeEnvelope} from './review-demo.js';
 import {examples} from './examples.js';
 const $ = id => document.getElementById(id);
+let exampleEvidence = null;
 let originalEnvelope = null, reviewController = null, reviewNotes = null;
 let current = null, flags = [], redactions = 0, loadVersion = 0;
 function node(tag, text, className) { const result = document.createElement(tag); if (text !== undefined) result.textContent = text; if (className) result.className = className; return result; }
 function showError(message) { $('load-status').textContent = ''; $('error-message').textContent = message; $('error').hidden = false; $('error').focus(); }
-function clear() { resetML(); originalEnvelope = null; loadVersion++; current = null; flags = []; redactions = 0; $('timeline').replaceChildren(); $('run-title').textContent = ''; $('task').textContent = ''; $('review').hidden = true; $('error').hidden = true; $('file').value = ''; $('search').value = ''; $('kind').value = ''; $('flagged').checked = false; $('load-status').textContent = ''; }
+function clear() { exampleEvidence=null; $('example-evidence').hidden=true; resetML(); originalEnvelope = null; loadVersion++; current = null; flags = []; redactions = 0; $('timeline').replaceChildren(); $('run-title').textContent = ''; $('task').textContent = ''; $('review').hidden = true; $('error').hidden = true; $('file').value = ''; $('search').value = ''; $('kind').value = ''; $('flagged').checked = false; $('load-status').textContent = ''; }
 function load(value) {
   resetML();
   originalEnvelope = value?.envelope_version === 1 ? JSON.stringify(value) : null;
@@ -76,19 +78,23 @@ $('ml-enable').addEventListener('change', async () => {
     if (reviewController !== controller) return;
     reviewNotes = result; $('ml-export').disabled = false;
     const c = result.coverage, suggestions = result.results.filter(r => r.suggestion);
-    $('ml-status').textContent = `${suggestions.length} suggestions · ${c.scored_actions}/${c.eligible_actions} eligible actions scored · ${c.unsupported_actions} unsupported · ${c.truncated_actions} truncated · ${c.final_assistant_excluded} final assistant excluded. No suggestion is not a clean bill of health.`;
+    $('ml-status').textContent = `${suggestions.length} ${suggestions.length === 1 ? "suggestion" : "suggestions"} · ${c.scored_actions}/${c.eligible_actions} eligible actions scored · ${c.unsupported_actions} unsupported · ${c.truncated_actions} truncated · ${c.final_assistant_excluded} final assistant excluded. No suggestion is not a clean bill of health.`;
+    const otherActions = node('details'); otherActions.append(node('summary', 'Other scored or unsupported actions'));
     for (const r of result.results) {
       const card = node('article', undefined, r.suggestion ? 'ml-card suggested' : 'ml-card');
       const title = r.suggestion ? 'Review suggestion' : r.abstention === 'threshold-ambiguity' ? 'Boundary abstention' : r.scores ? 'Below review cutoff' : 'Abstained';
       card.append(node('strong', `${title} · original message ${r.message_index + 1}`));
       card.append(node('p', r.scores ? `Uncalibrated decision score ${r.scores[0].toFixed(4)} · fixed cutoff 0.70. This is not confidence or probability of a mistake.` : `Unsupported: ${r.abstention}.`));
       card.append(node('p', 'Observed log context only; the model does not supply a causal explanation.', 'privacy'));
-      card.append(node('pre', current.steps[r.step_index].content || '(empty content)', 'content'));
+      const groupEnd = result.results.find(next => next.step_index > r.step_index)?.step_index ?? current.steps.length;
+      const context = [current.steps[r.step_index], ...current.steps.slice(r.step_index+1,groupEnd).filter((step,i,all) => step.kind === 'tool_call' && all.slice(0,i).every(prior=>prior.kind==='tool_call'))];
+      card.append(node('pre', context.map(step => [step.tool || '',step.content || '(empty assistant text)'].filter(Boolean).join(' ')).join('\n'), 'content'));
       if (r.truncation.field_characters_removed || r.truncation.joined_characters_removed) card.append(node('p', `Input truncated: ${r.truncation.field_characters_removed} field characters and ${r.truncation.joined_characters_removed} joined characters removed. Tool-call text may be lost.`));
       const link = node('button','View in timeline');
       link.addEventListener('click', () => { $('search').value=''; $('kind').value=''; $('flagged').checked=false; render(); const target=$(`timeline-step-${r.step_index}`); target.scrollIntoView({block:'center'}); target.focus(); });
-      card.append(link); $('ml-results').append(card);
+      card.append(link); (r.suggestion ? $('ml-results') : otherActions).append(card);
     }
+    if (otherActions.children.length>1) { otherActions.open = !suggestions.length; $('ml-results').append(otherActions); }
   } catch (error) {
     if (reviewController === controller) { $('ml-status').textContent = error.message; $('ml-enable').checked = false; }
   } finally { if (reviewController === controller) { reviewController = null; $('ml-cancel').hidden = true; } }
@@ -96,6 +102,10 @@ $('ml-enable').addEventListener('change', async () => {
 $('ml-cancel').addEventListener('click', () => { resetML(); $('ml-status').textContent = 'Experimental review cancelled. Rules remain available.'; });
 $('ml-export').addEventListener('click', () => {
   if (!current || !reviewNotes) return;
-  download({review_notes_version:1,run:{...current,steps:current.steps.map(({_flags,...step})=>step)},...reviewNotes},'trace-check-review-notes.json');
+  download({review_notes_version:1,run:{...current,steps:current.steps.map(({_flags,...step})=>step)},...reviewNotes,illustrative_example:exampleEvidence},'trace-check-review-notes.json');
 });
 $('ml-demo').addEventListener('click', () => { clear(); load(demoEnvelope); });
+
+function loadIllustration(envelope,evidence){clear();load(envelope);exampleEvidence=evidence;$('example-evidence').textContent=evidence;$('example-evidence').hidden=false;}
+$('ml-development').addEventListener('click',()=>loadIllustration(illustrationEnvelope,'Handwritten illustration selected to show a raised suggestion, NOT an unseen benchmark. Human evidence: the request says styles.css, the action targets index.html, and the tool reports that file is missing. This is observed context, not a causal model explanation. Inspired by a development command pattern; no source trace is included. Selection is disclosed: the generic folder name WebDevProjects scores above 0.70, while demo scores 0.6299. This sensitivity limits reliability.'));
+$('ml-unicode').addEventListener('click',()=>loadIllustration(unicodeEnvelope,'Handwritten synthetic benign example, not a benchmark. The tool successfully reads the menu; no error is established. The café text is outside this model’s ASCII support boundary, so it must abstain. Unsupported does not mean mistaken.'));
