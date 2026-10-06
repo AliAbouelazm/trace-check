@@ -1,0 +1,2233 @@
+{
+  "status": "synthetic-preflight-only",
+  "feature_version": "semantic-v2-text94-tools4x40-args16head15tail-context64x190",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "files_bytes": {
+    "config.json": 612,
+    "tokenizer.json": 466247,
+    "tokenizer_config.json": 350,
+    "special_tokens_map.json": 112,
+    "vocab.txt": 231508,
+    "sentence_bert_config.json": 53,
+    "1_Pooling/config.json": 190,
+    "modules.json": 349,
+    "config_sentence_transformers.json": 116,
+    "model.safetensors": 90868376,
+    "onnx/model.onnx": 90405214
+  },
+  "bundle_bytes": 181973127,
+  "deployment_model_files_bytes": 91104751,
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "cpu_count": 5,
+    "threads": 1,
+    "providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "synthetic_cases": 10,
+  "unsupported_cases": [
+    {
+      "case": "five-calls",
+      "audit": {
+        "characters": {
+          "task": {
+            "before": 5000,
+            "retained": 4000,
+            "removed": 1000
+          },
+          "prefix": {
+            "before": 16037,
+            "retained": 12000,
+            "removed": 4037
+          },
+          "text": {
+            "before": 7000,
+            "retained": 4000,
+            "removed": 3000
+          }
+        },
+        "previous_fields": [
+          {
+            "excluded_role": false,
+            "fields": [
+              {
+                "field": "content",
+                "characters_before": 7000,
+                "characters_retained": 4000
+              },
+              {
+                "field": "tool_arguments",
+                "index": 0,
+                "characters_before": 8000,
+                "characters_retained": 4000
+              }
+            ],
+            "tool_spans": [
+              {
+                "index": 0,
+                "start": 4006,
+                "end": 8019
+              }
+            ]
+          },
+          {
+            "excluded_role": false,
+            "fields": [
+              {
+                "field": "content",
+                "characters_before": 6000,
+                "characters_retained": 4000
+              },
+              {
+                "field": "tool_arguments",
+                "index": 0,
+                "characters_before": 7000,
+                "characters_retained": 4000
+              }
+            ],
+            "tool_spans": [
+              {
+                "index": 0,
+                "start": 4006,
+                "end": 8017
+              }
+            ]
+          }
+        ],
+        "calls": [
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          },
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          },
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          },
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          },
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          }
+        ],
+        "counts_after_answer_tag_removal": true,
+        "tokens": {
+          "fields": {
+            "task": {
+              "before": 800,
+              "retained": 64,
+              "removed": 736,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "prefix": {
+              "before": 1744,
+              "retained": 190,
+              "removed": 1554,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "text": {
+              "before": 573,
+              "retained": 94,
+              "removed": 479,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          },
+          "calls": [
+            {
+              "name": {
+                "before": 5,
+                "retained": 5,
+                "removed": 0,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 447,
+                "retained": 31,
+                "removed": 416,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              }
+            },
+            {
+              "name": {
+                "before": 5,
+                "retained": 5,
+                "removed": 0,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 447,
+                "retained": 31,
+                "removed": 416,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              }
+            },
+            {
+              "name": {
+                "before": 5,
+                "retained": 5,
+                "removed": 0,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 447,
+                "retained": 31,
+                "removed": 416,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              }
+            },
+            {
+              "name": {
+                "before": 5,
+                "retained": 5,
+                "removed": 0,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 447,
+                "retained": 31,
+                "removed": 416,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              }
+            }
+          ],
+          "unrepresented_calls": 1,
+          "support_reason": "more-than-four-current-calls"
+        }
+      },
+      "encoded": false
+    },
+    {
+      "case": "long-tool-name",
+      "audit": {
+        "characters": {
+          "task": {
+            "before": 5000,
+            "retained": 4000,
+            "removed": 1000
+          },
+          "prefix": {
+            "before": 16037,
+            "retained": 12000,
+            "removed": 4037
+          },
+          "text": {
+            "before": 7000,
+            "retained": 4000,
+            "removed": 3000
+          }
+        },
+        "previous_fields": [
+          {
+            "excluded_role": false,
+            "fields": [
+              {
+                "field": "content",
+                "characters_before": 7000,
+                "characters_retained": 4000
+              },
+              {
+                "field": "tool_arguments",
+                "index": 0,
+                "characters_before": 8000,
+                "characters_retained": 4000
+              }
+            ],
+            "tool_spans": [
+              {
+                "index": 0,
+                "start": 4006,
+                "end": 8019
+              }
+            ]
+          },
+          {
+            "excluded_role": false,
+            "fields": [
+              {
+                "field": "content",
+                "characters_before": 6000,
+                "characters_retained": 4000
+              },
+              {
+                "field": "tool_arguments",
+                "index": 0,
+                "characters_before": 7000,
+                "characters_retained": 4000
+              }
+            ],
+            "tool_spans": [
+              {
+                "index": 0,
+                "start": 4006,
+                "end": 8017
+              }
+            ]
+          }
+        ],
+        "calls": [
+          {
+            "name_characters": {
+              "before": 200,
+              "retained": 128,
+              "removed": 72
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          },
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          },
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          },
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          }
+        ],
+        "counts_after_answer_tag_removal": true,
+        "tokens": {
+          "fields": {
+            "task": {
+              "before": 800,
+              "retained": 64,
+              "removed": 736,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "prefix": {
+              "before": 1744,
+              "retained": 190,
+              "removed": 1554,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "text": {
+              "before": 573,
+              "retained": 94,
+              "removed": 479,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          },
+          "calls": [
+            {
+              "name": {
+                "before": 26,
+                "retained": 8,
+                "removed": 18,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 447,
+                "retained": 31,
+                "removed": 416,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              }
+            },
+            {
+              "name": {
+                "before": 5,
+                "retained": 5,
+                "removed": 0,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 447,
+                "retained": 31,
+                "removed": 416,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              }
+            },
+            {
+              "name": {
+                "before": 5,
+                "retained": 5,
+                "removed": 0,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 447,
+                "retained": 31,
+                "removed": 416,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              }
+            },
+            {
+              "name": {
+                "before": 5,
+                "retained": 5,
+                "removed": 0,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 447,
+                "retained": 31,
+                "removed": 416,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              }
+            }
+          ],
+          "unrepresented_calls": 0,
+          "support_reason": "tool-name-exceeds-128-characters"
+        }
+      },
+      "encoded": false
+    },
+    {
+      "case": "unknown-only-argument",
+      "audit": {
+        "characters": {
+          "task": {
+            "before": 5000,
+            "retained": 4000,
+            "removed": 1000
+          },
+          "prefix": {
+            "before": 16037,
+            "retained": 12000,
+            "removed": 4037
+          },
+          "text": {
+            "before": 7000,
+            "retained": 4000,
+            "removed": 3000
+          }
+        },
+        "previous_fields": [
+          {
+            "excluded_role": false,
+            "fields": [
+              {
+                "field": "content",
+                "characters_before": 7000,
+                "characters_retained": 4000
+              },
+              {
+                "field": "tool_arguments",
+                "index": 0,
+                "characters_before": 8000,
+                "characters_retained": 4000
+              }
+            ],
+            "tool_spans": [
+              {
+                "index": 0,
+                "start": 4006,
+                "end": 8019
+              }
+            ]
+          },
+          {
+            "excluded_role": false,
+            "fields": [
+              {
+                "field": "content",
+                "characters_before": 6000,
+                "characters_retained": 4000
+              },
+              {
+                "field": "tool_arguments",
+                "index": 0,
+                "characters_before": 7000,
+                "characters_retained": 4000
+              }
+            ],
+            "tool_spans": [
+              {
+                "index": 0,
+                "start": 4006,
+                "end": 8017
+              }
+            ]
+          }
+        ],
+        "calls": [
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 3,
+              "retained": 3,
+              "removed": 0
+            }
+          },
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          },
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          },
+          {
+            "name_characters": {
+              "before": 11,
+              "retained": 11,
+              "removed": 0
+            },
+            "argument_characters": {
+              "before": 9019,
+              "retained": 4000,
+              "removed": 5019
+            }
+          }
+        ],
+        "counts_after_answer_tag_removal": true,
+        "tokens": {
+          "fields": {
+            "task": {
+              "before": 800,
+              "retained": 64,
+              "removed": 736,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "prefix": {
+              "before": 1744,
+              "retained": 190,
+              "removed": 1554,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "text": {
+              "before": 573,
+              "retained": 94,
+              "removed": 479,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          },
+          "calls": [
+            {
+              "name": {
+                "before": 5,
+                "retained": 5,
+                "removed": 0,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 1,
+                "retained": 1,
+                "removed": 0,
+                "unknown_before": 1,
+                "unknown_retained": 1
+              }
+            },
+            {
+              "name": {
+                "before": 5,
+                "retained": 5,
+                "removed": 0,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 447,
+                "retained": 31,
+                "removed": 416,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              }
+            },
+            {
+              "name": {
+                "before": 5,
+                "retained": 5,
+                "removed": 0,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 447,
+                "retained": 31,
+                "removed": 416,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              }
+            },
+            {
+              "name": {
+                "before": 5,
+                "retained": 5,
+                "removed": 0,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              },
+              "arguments": {
+                "before": 447,
+                "retained": 31,
+                "removed": 416,
+                "unknown_before": 0,
+                "unknown_retained": 0
+              }
+            }
+          ],
+          "unrepresented_calls": 0,
+          "support_reason": "unknown-only-tool-arguments"
+        }
+      },
+      "encoded": false
+    }
+  ],
+  "parameter_count": 22713216,
+  "load_seconds": 3.303874710999935,
+  "truncation": [
+    {
+      "characters": {
+        "task": {
+          "before": 49,
+          "retained": 49,
+          "removed": 0
+        },
+        "prefix": {
+          "before": 61,
+          "retained": 61,
+          "removed": 0
+        },
+        "text": {
+          "before": 24,
+          "retained": 24,
+          "removed": 0
+        }
+      },
+      "previous_fields": [
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 21,
+              "characters_retained": 21
+            }
+          ],
+          "tool_spans": []
+        },
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 29,
+              "characters_retained": 29
+            }
+          ],
+          "tool_spans": []
+        }
+      ],
+      "calls": [
+        {
+          "name_characters": {
+            "before": 9,
+            "retained": 9,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 24,
+            "retained": 24,
+            "removed": 0
+          }
+        }
+      ],
+      "counts_after_answer_tag_removal": true,
+      "case_index": 0,
+      "tokens": {
+        "fields": {
+          "task": {
+            "before": 8,
+            "retained": 8,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "prefix": {
+            "before": 10,
+            "retained": 10,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "text": {
+            "before": 5,
+            "retained": 5,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          }
+        },
+        "calls": [
+          {
+            "name": {
+              "before": 3,
+              "retained": 3,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 12,
+              "retained": 12,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          }
+        ],
+        "unrepresented_calls": 0,
+        "support_reason": null
+      }
+    },
+    {
+      "characters": {
+        "task": {
+          "before": 49,
+          "retained": 49,
+          "removed": 0
+        },
+        "prefix": {
+          "before": 61,
+          "retained": 61,
+          "removed": 0
+        },
+        "text": {
+          "before": 51,
+          "retained": 51,
+          "removed": 0
+        }
+      },
+      "previous_fields": [
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 21,
+              "characters_retained": 21
+            }
+          ],
+          "tool_spans": []
+        },
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 29,
+              "characters_retained": 29
+            }
+          ],
+          "tool_spans": []
+        }
+      ],
+      "calls": [
+        {
+          "name_characters": {
+            "before": 9,
+            "retained": 9,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 24,
+            "retained": 24,
+            "removed": 0
+          }
+        }
+      ],
+      "counts_after_answer_tag_removal": true,
+      "case_index": 1,
+      "tokens": {
+        "fields": {
+          "task": {
+            "before": 8,
+            "retained": 8,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "prefix": {
+            "before": 10,
+            "retained": 10,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "text": {
+            "before": 13,
+            "retained": 13,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          }
+        },
+        "calls": [
+          {
+            "name": {
+              "before": 3,
+              "retained": 3,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 12,
+              "retained": 12,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          }
+        ],
+        "unrepresented_calls": 0,
+        "support_reason": null
+      }
+    },
+    {
+      "characters": {
+        "task": {
+          "before": 49,
+          "retained": 49,
+          "removed": 0
+        },
+        "prefix": {
+          "before": 61,
+          "retained": 61,
+          "removed": 0
+        },
+        "text": {
+          "before": 17,
+          "retained": 17,
+          "removed": 0
+        }
+      },
+      "previous_fields": [
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 21,
+              "characters_retained": 21
+            }
+          ],
+          "tool_spans": []
+        },
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 29,
+              "characters_retained": 29
+            }
+          ],
+          "tool_spans": []
+        }
+      ],
+      "calls": [
+        {
+          "name_characters": {
+            "before": 9,
+            "retained": 9,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 24,
+            "retained": 24,
+            "removed": 0
+          }
+        }
+      ],
+      "counts_after_answer_tag_removal": true,
+      "case_index": 2,
+      "tokens": {
+        "fields": {
+          "task": {
+            "before": 8,
+            "retained": 8,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "prefix": {
+            "before": 10,
+            "retained": 10,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "text": {
+            "before": 4,
+            "retained": 4,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          }
+        },
+        "calls": [
+          {
+            "name": {
+              "before": 3,
+              "retained": 3,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 12,
+              "retained": 12,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          }
+        ],
+        "unrepresented_calls": 0,
+        "support_reason": null
+      }
+    },
+    {
+      "characters": {
+        "task": {
+          "before": 49,
+          "retained": 49,
+          "removed": 0
+        },
+        "prefix": {
+          "before": 61,
+          "retained": 61,
+          "removed": 0
+        },
+        "text": {
+          "before": 11,
+          "retained": 11,
+          "removed": 0
+        }
+      },
+      "previous_fields": [
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 21,
+              "characters_retained": 21
+            }
+          ],
+          "tool_spans": []
+        },
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 29,
+              "characters_retained": 29
+            }
+          ],
+          "tool_spans": []
+        }
+      ],
+      "calls": [
+        {
+          "name_characters": {
+            "before": 9,
+            "retained": 9,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 24,
+            "retained": 24,
+            "removed": 0
+          }
+        }
+      ],
+      "counts_after_answer_tag_removal": true,
+      "case_index": 3,
+      "tokens": {
+        "fields": {
+          "task": {
+            "before": 8,
+            "retained": 8,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "prefix": {
+            "before": 10,
+            "retained": 10,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "text": {
+            "before": 12,
+            "retained": 12,
+            "removed": 0,
+            "unknown_before": 3,
+            "unknown_retained": 3
+          }
+        },
+        "calls": [
+          {
+            "name": {
+              "before": 3,
+              "retained": 3,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 12,
+              "retained": 12,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          }
+        ],
+        "unrepresented_calls": 0,
+        "support_reason": null
+      }
+    },
+    {
+      "characters": {
+        "task": {
+          "before": 49,
+          "retained": 49,
+          "removed": 0
+        },
+        "prefix": {
+          "before": 61,
+          "retained": 61,
+          "removed": 0
+        },
+        "text": {
+          "before": 14,
+          "retained": 14,
+          "removed": 0
+        }
+      },
+      "previous_fields": [
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 21,
+              "characters_retained": 21
+            }
+          ],
+          "tool_spans": []
+        },
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 29,
+              "characters_retained": 29
+            }
+          ],
+          "tool_spans": []
+        }
+      ],
+      "calls": [
+        {
+          "name_characters": {
+            "before": 9,
+            "retained": 9,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 24,
+            "retained": 24,
+            "removed": 0
+          }
+        }
+      ],
+      "counts_after_answer_tag_removal": true,
+      "case_index": 4,
+      "tokens": {
+        "fields": {
+          "task": {
+            "before": 8,
+            "retained": 8,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "prefix": {
+            "before": 10,
+            "retained": 10,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "text": {
+            "before": 14,
+            "retained": 14,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          }
+        },
+        "calls": [
+          {
+            "name": {
+              "before": 3,
+              "retained": 3,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 12,
+              "retained": 12,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          }
+        ],
+        "unrepresented_calls": 0,
+        "support_reason": null
+      }
+    },
+    {
+      "characters": {
+        "task": {
+          "before": 49,
+          "retained": 49,
+          "removed": 0
+        },
+        "prefix": {
+          "before": 61,
+          "retained": 61,
+          "removed": 0
+        },
+        "text": {
+          "before": 24,
+          "retained": 24,
+          "removed": 0
+        }
+      },
+      "previous_fields": [
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 21,
+              "characters_retained": 21
+            }
+          ],
+          "tool_spans": []
+        },
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 29,
+              "characters_retained": 29
+            }
+          ],
+          "tool_spans": []
+        }
+      ],
+      "calls": [
+        {
+          "name_characters": {
+            "before": 9,
+            "retained": 9,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 24,
+            "retained": 24,
+            "removed": 0
+          }
+        }
+      ],
+      "counts_after_answer_tag_removal": true,
+      "case_index": 5,
+      "tokens": {
+        "fields": {
+          "task": {
+            "before": 8,
+            "retained": 8,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "prefix": {
+            "before": 10,
+            "retained": 10,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "text": {
+            "before": 9,
+            "retained": 9,
+            "removed": 0,
+            "unknown_before": 1,
+            "unknown_retained": 1
+          }
+        },
+        "calls": [
+          {
+            "name": {
+              "before": 3,
+              "retained": 3,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 12,
+              "retained": 12,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          }
+        ],
+        "unrepresented_calls": 0,
+        "support_reason": null
+      }
+    },
+    {
+      "characters": {
+        "task": {
+          "before": 49,
+          "retained": 49,
+          "removed": 0
+        },
+        "prefix": {
+          "before": 61,
+          "retained": 61,
+          "removed": 0
+        },
+        "text": {
+          "before": 8,
+          "retained": 8,
+          "removed": 0
+        }
+      },
+      "previous_fields": [
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 21,
+              "characters_retained": 21
+            }
+          ],
+          "tool_spans": []
+        },
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 29,
+              "characters_retained": 29
+            }
+          ],
+          "tool_spans": []
+        }
+      ],
+      "calls": [
+        {
+          "name_characters": {
+            "before": 9,
+            "retained": 9,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 24,
+            "retained": 24,
+            "removed": 0
+          }
+        }
+      ],
+      "counts_after_answer_tag_removal": true,
+      "case_index": 6,
+      "tokens": {
+        "fields": {
+          "task": {
+            "before": 8,
+            "retained": 8,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "prefix": {
+            "before": 10,
+            "retained": 10,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "text": {
+            "before": 4,
+            "retained": 4,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          }
+        },
+        "calls": [
+          {
+            "name": {
+              "before": 3,
+              "retained": 3,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 12,
+              "retained": 12,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          }
+        ],
+        "unrepresented_calls": 0,
+        "support_reason": null
+      }
+    },
+    {
+      "characters": {
+        "task": {
+          "before": 49,
+          "retained": 49,
+          "removed": 0
+        },
+        "prefix": {
+          "before": 61,
+          "retained": 61,
+          "removed": 0
+        },
+        "text": {
+          "before": 25,
+          "retained": 25,
+          "removed": 0
+        }
+      },
+      "previous_fields": [
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 21,
+              "characters_retained": 21
+            }
+          ],
+          "tool_spans": []
+        },
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 29,
+              "characters_retained": 29
+            }
+          ],
+          "tool_spans": []
+        }
+      ],
+      "calls": [
+        {
+          "name_characters": {
+            "before": 9,
+            "retained": 9,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 24,
+            "retained": 24,
+            "removed": 0
+          }
+        }
+      ],
+      "counts_after_answer_tag_removal": true,
+      "case_index": 7,
+      "tokens": {
+        "fields": {
+          "task": {
+            "before": 8,
+            "retained": 8,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "prefix": {
+            "before": 10,
+            "retained": 10,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "text": {
+            "before": 12,
+            "retained": 12,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          }
+        },
+        "calls": [
+          {
+            "name": {
+              "before": 3,
+              "retained": 3,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 12,
+              "retained": 12,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          }
+        ],
+        "unrepresented_calls": 0,
+        "support_reason": null
+      }
+    },
+    {
+      "characters": {
+        "task": {
+          "before": 49,
+          "retained": 49,
+          "removed": 0
+        },
+        "prefix": {
+          "before": 61,
+          "retained": 61,
+          "removed": 0
+        },
+        "text": {
+          "before": 12600,
+          "retained": 4000,
+          "removed": 8600
+        }
+      },
+      "previous_fields": [
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 21,
+              "characters_retained": 21
+            }
+          ],
+          "tool_spans": []
+        },
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 29,
+              "characters_retained": 29
+            }
+          ],
+          "tool_spans": []
+        }
+      ],
+      "calls": [
+        {
+          "name_characters": {
+            "before": 9,
+            "retained": 9,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 24,
+            "retained": 24,
+            "removed": 0
+          }
+        }
+      ],
+      "counts_after_answer_tag_removal": true,
+      "case_index": 8,
+      "tokens": {
+        "fields": {
+          "task": {
+            "before": 8,
+            "retained": 8,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "prefix": {
+            "before": 10,
+            "retained": 10,
+            "removed": 0,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "text": {
+            "before": 763,
+            "retained": 94,
+            "removed": 669,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          }
+        },
+        "calls": [
+          {
+            "name": {
+              "before": 3,
+              "retained": 3,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 12,
+              "retained": 12,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          }
+        ],
+        "unrepresented_calls": 0,
+        "support_reason": null
+      }
+    },
+    {
+      "characters": {
+        "task": {
+          "before": 5000,
+          "retained": 4000,
+          "removed": 1000
+        },
+        "prefix": {
+          "before": 16037,
+          "retained": 12000,
+          "removed": 4037
+        },
+        "text": {
+          "before": 7000,
+          "retained": 4000,
+          "removed": 3000
+        }
+      },
+      "previous_fields": [
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 7000,
+              "characters_retained": 4000
+            },
+            {
+              "field": "tool_arguments",
+              "index": 0,
+              "characters_before": 8000,
+              "characters_retained": 4000
+            }
+          ],
+          "tool_spans": [
+            {
+              "index": 0,
+              "start": 4006,
+              "end": 8019
+            }
+          ]
+        },
+        {
+          "excluded_role": false,
+          "fields": [
+            {
+              "field": "content",
+              "characters_before": 6000,
+              "characters_retained": 4000
+            },
+            {
+              "field": "tool_arguments",
+              "index": 0,
+              "characters_before": 7000,
+              "characters_retained": 4000
+            }
+          ],
+          "tool_spans": [
+            {
+              "index": 0,
+              "start": 4006,
+              "end": 8017
+            }
+          ]
+        }
+      ],
+      "calls": [
+        {
+          "name_characters": {
+            "before": 11,
+            "retained": 11,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 9019,
+            "retained": 4000,
+            "removed": 5019
+          }
+        },
+        {
+          "name_characters": {
+            "before": 11,
+            "retained": 11,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 9019,
+            "retained": 4000,
+            "removed": 5019
+          }
+        },
+        {
+          "name_characters": {
+            "before": 11,
+            "retained": 11,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 9019,
+            "retained": 4000,
+            "removed": 5019
+          }
+        },
+        {
+          "name_characters": {
+            "before": 11,
+            "retained": 11,
+            "removed": 0
+          },
+          "argument_characters": {
+            "before": 9019,
+            "retained": 4000,
+            "removed": 5019
+          }
+        }
+      ],
+      "counts_after_answer_tag_removal": true,
+      "case_index": 9,
+      "tokens": {
+        "fields": {
+          "task": {
+            "before": 800,
+            "retained": 64,
+            "removed": 736,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "prefix": {
+            "before": 1744,
+            "retained": 190,
+            "removed": 1554,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          },
+          "text": {
+            "before": 573,
+            "retained": 94,
+            "removed": 479,
+            "unknown_before": 0,
+            "unknown_retained": 0
+          }
+        },
+        "calls": [
+          {
+            "name": {
+              "before": 5,
+              "retained": 5,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 447,
+              "retained": 31,
+              "removed": 416,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          },
+          {
+            "name": {
+              "before": 5,
+              "retained": 5,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 447,
+              "retained": 31,
+              "removed": 416,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          },
+          {
+            "name": {
+              "before": 5,
+              "retained": 5,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 447,
+              "retained": 31,
+              "removed": 416,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          },
+          {
+            "name": {
+              "before": 5,
+              "retained": 5,
+              "removed": 0,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            },
+            "arguments": {
+              "before": 447,
+              "retained": 31,
+              "removed": 416,
+              "unknown_before": 0,
+              "unknown_retained": 0
+            }
+          }
+        ],
+        "unrepresented_calls": 0,
+        "support_reason": null
+      }
+    }
+  ],
+  "tokenizer_cases": 56,
+  "tokenizer_exact_match": true,
+  "unicode_token_counts": [
+    {
+      "case_index": 0,
+      "field": "task",
+      "tokens": 8,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 0,
+      "field": "prefix",
+      "tokens": 10,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 0,
+      "field": "text",
+      "tokens": 5,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 0,
+      "field": "call-0-name",
+      "tokens": 3,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 0,
+      "field": "call-0-arguments",
+      "tokens": 12,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 1,
+      "field": "task",
+      "tokens": 8,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 1,
+      "field": "prefix",
+      "tokens": 10,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 1,
+      "field": "text",
+      "tokens": 13,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 1,
+      "field": "call-0-name",
+      "tokens": 3,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 1,
+      "field": "call-0-arguments",
+      "tokens": 12,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 2,
+      "field": "task",
+      "tokens": 8,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 2,
+      "field": "prefix",
+      "tokens": 10,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 2,
+      "field": "text",
+      "tokens": 4,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 2,
+      "field": "call-0-name",
+      "tokens": 3,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 2,
+      "field": "call-0-arguments",
+      "tokens": 12,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 3,
+      "field": "task",
+      "tokens": 8,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 3,
+      "field": "prefix",
+      "tokens": 10,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 3,
+      "field": "text",
+      "tokens": 12,
+      "unknown_tokens": 3
+    },
+    {
+      "case_index": 3,
+      "field": "call-0-name",
+      "tokens": 3,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 3,
+      "field": "call-0-arguments",
+      "tokens": 12,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 4,
+      "field": "task",
+      "tokens": 8,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 4,
+      "field": "prefix",
+      "tokens": 10,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 4,
+      "field": "text",
+      "tokens": 14,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 4,
+      "field": "call-0-name",
+      "tokens": 3,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 4,
+      "field": "call-0-arguments",
+      "tokens": 12,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 5,
+      "field": "task",
+      "tokens": 8,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 5,
+      "field": "prefix",
+      "tokens": 10,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 5,
+      "field": "text",
+      "tokens": 9,
+      "unknown_tokens": 1
+    },
+    {
+      "case_index": 5,
+      "field": "call-0-name",
+      "tokens": 3,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 5,
+      "field": "call-0-arguments",
+      "tokens": 12,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 6,
+      "field": "task",
+      "tokens": 8,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 6,
+      "field": "prefix",
+      "tokens": 10,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 6,
+      "field": "text",
+      "tokens": 4,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 6,
+      "field": "call-0-name",
+      "tokens": 3,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 6,
+      "field": "call-0-arguments",
+      "tokens": 12,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 7,
+      "field": "task",
+      "tokens": 8,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 7,
+      "field": "prefix",
+      "tokens": 10,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 7,
+      "field": "text",
+      "tokens": 12,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 7,
+      "field": "call-0-name",
+      "tokens": 3,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 7,
+      "field": "call-0-arguments",
+      "tokens": 12,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 8,
+      "field": "task",
+      "tokens": 8,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 8,
+      "field": "prefix",
+      "tokens": 10,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 8,
+      "field": "text",
+      "tokens": 763,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 8,
+      "field": "call-0-name",
+      "tokens": 3,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 8,
+      "field": "call-0-arguments",
+      "tokens": 12,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 9,
+      "field": "task",
+      "tokens": 800,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 9,
+      "field": "prefix",
+      "tokens": 1744,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 9,
+      "field": "text",
+      "tokens": 573,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 9,
+      "field": "call-0-name",
+      "tokens": 5,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 9,
+      "field": "call-0-arguments",
+      "tokens": 447,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 9,
+      "field": "call-1-name",
+      "tokens": 5,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 9,
+      "field": "call-1-arguments",
+      "tokens": 447,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 9,
+      "field": "call-2-name",
+      "tokens": 5,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 9,
+      "field": "call-2-arguments",
+      "tokens": 447,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 9,
+      "field": "call-3-name",
+      "tokens": 5,
+      "unknown_tokens": 0
+    },
+    {
+      "case_index": 9,
+      "field": "call-3-arguments",
+      "tokens": 447,
+      "unknown_tokens": 0
+    }
+  ],
+  "synthetic_head_score_max_absolute_error": 4.574260470402436e-09,
+  "embedding_max_absolute_error": 1.601874828338623e-07,
+  "minimum_cosine_agreement": 0.9999998807907104,
+  "measurements": [
+    {
+      "name": "representative",
+      "batch_size": 8,
+      "tokens": 31,
+      "seconds": [
+        0.05856500799995956,
+        0.055872649999969326,
+        0.058353818999989926
+      ],
+      "min_sequences_per_second": 136.60033991638016
+    },
+    {
+      "name": "max-length",
+      "batch_size": 8,
+      "tokens": 256,
+      "seconds": [
+        0.5739678270000468,
+        0.5603891849999627,
+        0.5533620100000007
+      ],
+      "min_sequences_per_second": 13.938063465705977
+    }
+  ],
+  "peak_process_rss_kib": 819704,
+  "elapsed_seconds": 7.826153266000006,
+  "packages": {
+    "numpy": "2.2.6",
+    "torch": "2.6.0+cpu",
+    "transformers": "4.51.3",
+    "tokenizers": "0.21.1",
+    "onnxruntime": "1.22.0",
+    "safetensors": "0.5.3",
+    "huggingface-hub": "0.30.2"
+  },
+  "benchmark_rows_encoded": 0,
+  "head_fits": 0,
+  "quality_claim": "None; pretrained embeddings are not a trained error detector.",
+  "supervision": {
+    "exit_code": 0,
+    "stop_reason": null,
+    "elapsed_seconds": 8.970485505999932,
+    "sampled_peak_group_rss_kib": 819888,
+    "rss_poll_seconds": 0.01
+  },
+  "limits": {
+    "wall_seconds": 120,
+    "sampled_process_group_rss_mib": 2048
+  }
+}

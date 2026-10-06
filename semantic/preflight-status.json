@@ -1,52 +1,48 @@
 {
-  "status": "synthetic-preflight-passed-awaiting-parent-review",
+  "status": "v2-synthetic-passed-one-fit-driver-awaiting-parent-execution-approval",
+  "feature_version": "semantic-v2-text94-tools4x40-args16head15tail-context64x190",
   "benchmark_rows_encoded": 0,
   "head_fits": 0,
   "model_bytes_downloaded": 181273590,
   "runtime_lock_verified": true,
-  "small_files_verified": 9,
-  "model_card_verified": true,
-  "synthetic_encoder_executed": true,
-  "access_evidence": "semantic/access-approved-download.json",
-  "measurement_evidence": "semantic/results/synthetic-2026-10-06.json",
+  "measurement_evidence": "semantic/results/synthetic-v2-2026-10-06.json",
+  "archived_v1_evidence": "semantic/results/synthetic-2026-10-06.json",
+  "protocol": "semantic/fit-protocol.json",
   "encoder_cpu_throughput": [
     {
       "name": "representative",
       "batch_size": 8,
-      "tokens": 30,
+      "tokens": 31,
       "seconds": [
-        0.06256060400001218,
-        0.061942190000010555,
-        0.06393371600000819
+        0.05856500799995956,
+        0.055872649999969326,
+        0.058353818999989926
       ],
-      "min_sequences_per_second": 125.12959515756874
+      "min_sequences_per_second": 136.60033991638016
     },
     {
       "name": "max-length",
       "batch_size": 8,
       "tokens": 256,
       "seconds": [
-        0.667033687,
-        0.6714184089999975,
-        0.5734380259999909
+        0.5739678270000468,
+        0.5603891849999627,
+        0.5533620100000007
       ],
-      "min_sequences_per_second": 11.91507395800348
+      "min_sequences_per_second": 13.938063465705977
     }
   ],
   "encoder_memory": {
     "exit_code": 0,
     "stop_reason": null,
-    "elapsed_seconds": 9.95545052700001,
-    "sampled_peak_group_rss_kib": 920636,
+    "elapsed_seconds": 8.970485505999932,
+    "sampled_peak_group_rss_kib": 819888,
     "rss_poll_seconds": 0.01
   },
   "actual_tokenizer_parity": true,
   "actual_encoder_parity": {
-    "max_absolute_error": 1.4528632164001465e-07,
+    "max_absolute_error": 1.601874828338623e-07,
     "minimum_cosine": 0.9999998807907104
   },
-  "actual_artifact_bytes": 91104751,
-  "actual_truncation_and_tool_call_loss": "See all ten case audits in measurement_evidence; long cases lose entire appended calls.",
-  "next_required": "Parent review of measured caps and frozen protocol before implementing/running any benchmark encoder or supervised head fit. TEST always excluded. App ML remains disabled.",
-  "tests_completed": "30 Python and 20 JavaScript tests; both browser suites passed with explicit /usr/bin/chromium override (151.0.7922.173), Playwright 1.62.0. Bundled Playwright Chromium was unavailable."
+  "next_required": "Parent review of exact driver/code hashes, frozen v2 allocation and proposed caps, then explicit approval before any benchmark encoding or head fit. App remains rules-only."
 }

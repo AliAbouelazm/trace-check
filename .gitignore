@@ -8,3 +8,6 @@ test-results/
 # Official model weights remain in an external temporary cache.
 *.safetensors
 *.onnx
+# Reviewed semantic runs, coefficients and private diagnostics stay local.
+semantic/runs/
+*.attempt.json

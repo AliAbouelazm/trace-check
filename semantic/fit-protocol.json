@@ -1,0 +1,51 @@
+{
+  "status": "review-only-execution-not-authorized",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "feature_version": "semantic-v2-text94-tools4x40-args16head15tail-context64x190",
+  "split_sha256": "7a7d222f87069b840eccab45abb3d7e35da51fc2b11e62a18d89a9a34eab7524",
+  "limits": {
+    "wall_seconds": 2210,
+    "rss_kib": 2097152,
+    "artifact_bytes": 134217728
+  },
+  "head": {
+    "C": 1.0,
+    "solver": "lbfgs",
+    "max_iter": 500,
+    "class_weight": null,
+    "random_state": 42,
+    "tol": 0.0001,
+    "classes": [
+      -1,
+      0,
+      1
+    ]
+  },
+  "fit_packages": {
+    "numpy": "2.2.6",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.6.0"
+  },
+  "code_sha256": {
+    "semantic/fit.py": "cb991410b2793cbc5d914488217b8f8b79b230a514a81379409bc3aee94001c0",
+    "semantic/fit_bounded.py": "a7ede0b8552cdc55c9bfedb71967164268656b77724f7d4911ef39de7164ed05",
+    "semantic/data.py": "6e4ef8845fe90f17e5564e8767ad4a8a5c8b54f9e19cfa81e6af44f3a6df3829",
+    "semantic/features.py": "db72a0db9c907cc743e8c0be1684b4a1df280dadf455ced81fc31eb6707d4456",
+    "semantic/runtime.py": "f0d19f238c555bc05b914777fa52cea1b5b435e69859eb79d4700a486564f406",
+    "semantic/contract.py": "07f52bc7e079530d3f8fa10fd3dde3d2eecd77a4d455cdf74f16680ffe540e8d",
+    "semantic/provenance.py": "aae8161d4b7c15b8577affd029b1d73f18779679641555951c166d329414f86d",
+    "semantic/runtime-lock.json": "3e52091304a1621a610a11e117c4ae2e6d95814b77a7cdd144a070311e5782d6",
+    "semantic/requirements-fit-cpu.txt": "fb968a79eaf03f8bafcc88c783f081088afb0113d3337612770d70ca0e53ab27",
+    "semantic/rules_bridge.mjs": "23ef5e78f4aa577eed71bd5a1982419a9a091fa803cd1dc239b94459290a7e97",
+    "experimental/policy.py": "31f6a9069ccbc6af94a4813752fb5089b77d0f0d539861704b396903e0848d57",
+    "research/adapter.py": "ed0c1200a9e2688e20ad59398ec9fc27d13e85cf1fdc5469791f4ce6107da457",
+    "web/core.js": "c65819b33912ce552c76991b5e504f12bba8a9ca561849dcbb3d8e8ce57e6af2",
+    "semantic/notices/NOTICE.txt": "35deff0f7c5a140f123e69b20c3fc12eb126b1a96e4272e24df3d1377cc41e45",
+    "semantic/notices/LICENSE-2.0.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "semantic/notices/all-MiniLM-L6-v2-model-card.md": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0"
+  },
+  "benchmark_rows_encoded": 0,
+  "head_fits": 0
+}

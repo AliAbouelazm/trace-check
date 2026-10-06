@@ -12,3 +12,6 @@ is authored by TraceCheck, not presented as an upstream NOTICE or license text.
 No model weights are distributed in this repository. Retain this provenance,
 the upstream model card, and the Apache-2.0 license text in any later model
 redistribution. Preflight does not authorize packaging or redistribution.
+
+The adjacent LICENSE-2.0.txt is the standard Apache License 2.0 text copied
+from /usr/share/common-licenses/Apache-2.0, not an upstream model-specific file.
