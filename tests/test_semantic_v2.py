@@ -9,6 +9,8 @@ import sys
 import tempfile
 import time
 import unittest
+import types
+import warnings
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
@@ -99,11 +101,31 @@ class V2Tests(unittest.TestCase):
         def factory(**kwargs):
             self.assertEqual(kwargs,{'C':1.0,'solver':'lbfgs','max_iter':500,'class_weight':None,'random_state':42,'tol':1e-4})
             return Model()
-        fit.fit_head(Matrix(),samples,factory)
+        with patch.dict(sys.modules,{'sklearn.exceptions':types.SimpleNamespace(ConvergenceWarning=UserWarning)}):
+            fit.fit_head(Matrix(),samples,factory)
         self.assertEqual(calls,[([0,1,2],[-1,0,1])])
         with self.assertRaisesRegex(ValueError,'TEST'):fit.fit_head(Matrix(),samples+[{'split':'test'}],factory)
         self.assertEqual(len(calls),1)
         with self.assertRaisesRegex(ValueError,'all classes'):fit.fit_head(Matrix(),samples[1:],factory)
+    def test_convergence_warning_before_iteration_limit_aborts_sole_fit(self):
+        samples=[{'split':'train','support_reason':None,'label':label} for label in (-1,0,1)]
+        calls=[]
+        class StubConvergenceWarning(UserWarning):pass
+        class Matrix:
+            def __getitem__(self,indices):return indices
+        class Model:
+            n_iter_=[2]  # Abnormal stop can precede the 500-iteration ceiling.
+            def fit(self,x,y):
+                calls.append((x,y))
+                warnings.warn('abnormal solver stop',StubConvergenceWarning)
+                calls.append('returned after warning')
+        before=list(warnings.filters)
+        with patch.dict(sys.modules,{'sklearn.exceptions':types.SimpleNamespace(ConvergenceWarning=StubConvergenceWarning)}):
+            with self.assertRaisesRegex(StubConvergenceWarning,'abnormal solver stop'):
+                fit.fit_head(Matrix(),samples,lambda **kwargs:Model())
+        self.assertEqual(calls,[([0,1,2],[-1,0,1])])
+        self.assertEqual(warnings.filters,before)
+
     def test_evidence_never_exports_source_text_tokens_or_input_hash(self):
         prepared,audit=features.prepare_input(row(),1);streams,tokens=features.tokenize(prepared,Tokens());audit['tokens']=tokens
         record={'split':'validation','subset':'fixture','group':'fixture:0','query_index':0,'sample_index':0,'message_index':1,'label':-1,'rule':False,'score':.9,'support_reason':None,'audit':audit,'streams':streams,'input_sha256':'secret hash','text':'SECRET RAW LOG'}

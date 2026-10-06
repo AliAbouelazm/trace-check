@@ -13,6 +13,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import warnings
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -157,7 +158,10 @@ def fit_head(matrix,samples,estimator_factory=None):
         from sklearn.linear_model import LogisticRegression
         estimator_factory=LogisticRegression
     model=estimator_factory(C=1.0,solver='lbfgs',max_iter=500,class_weight=None,random_state=42,tol=1e-4)
-    model.fit(matrix[indices],[samples[i]['label'] for i in indices])  # Exactly one fit, never a retry.
+    from sklearn.exceptions import ConvergenceWarning
+    with warnings.catch_warnings():
+        warnings.simplefilter('error',ConvergenceWarning)
+        model.fit(matrix[indices],[samples[i]['label'] for i in indices])  # Exactly one fit, never a retry.
     return model
 
 

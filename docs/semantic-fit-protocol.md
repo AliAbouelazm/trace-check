@@ -34,7 +34,7 @@ The complete dependency inventory is `semantic/requirements-fit-cpu.txt`; direct
 
 ## Exactly one head and the unchanged gate
 
-Fit one `LogisticRegression(C=1.0, solver='lbfgs', max_iter=500, class_weight=None, random_state=42, tol=1e-4)` on supported TRAIN pairs. No validation rows enter `fit`. All three classes must be present; nonconvergence or iteration limit failure aborts without a candidate. No balancing, feature selection, scaler, hyperparameter search, refit or retry.
+Fit one `LogisticRegression(C=1.0, solver='lbfgs', max_iter=500, class_weight=None, random_state=42, tol=1e-4)` on supported TRAIN pairs. No validation rows enter `fit`. All three classes must be present; any scikit-learn `ConvergenceWarning` is promoted to an exception around the sole fit call, including abnormal termination before 500 iterations. A warning or iteration limit failure aborts without a candidate. No balancing, feature selection, scaler, hyperparameter search, refit or retry.
 
 Validation scores are mistake-class (`-1`) softmax probabilities, not calibrated confidence. Unsupported targets have `score=null` and no model flag. Compare never-flag, the existing rules and the head at exactly `.50, .60, .70, .80, .90, .95`. The existing `experimental/policy.py` is hash-pinned and reused unchanged:
 

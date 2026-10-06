@@ -29,7 +29,7 @@
     "threadpoolctl": "3.6.0"
   },
   "code_sha256": {
-    "semantic/fit.py": "cb991410b2793cbc5d914488217b8f8b79b230a514a81379409bc3aee94001c0",
+    "semantic/fit.py": "afbfc5c00349adf4a7548a263b0c27a86d05c1441f9443ab6eb0ae168dc85d00",
     "semantic/fit_bounded.py": "a7ede0b8552cdc55c9bfedb71967164268656b77724f7d4911ef39de7164ed05",
     "semantic/data.py": "6e4ef8845fe90f17e5564e8767ad4a8a5c8b54f9e19cfa81e6af44f3a6df3829",
     "semantic/features.py": "db72a0db9c907cc743e8c0be1684b4a1df280dadf455ced81fc31eb6707d4456",
