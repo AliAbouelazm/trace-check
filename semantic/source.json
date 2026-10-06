@@ -1,0 +1,21 @@
+{
+  "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "license_declaration": "Apache-2.0 (official model card)",
+  "dimensions": 384,
+  "approximate_parameters": 22700000,
+  "sentence_wordpiece_limit": 256,
+  "weights": {
+    "model.safetensors": {"bytes": 90868376, "sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db"},
+    "onnx/model.onnx": {"bytes": 90405214, "sha256": "6fd5d72fe4589f189f8ebc006442dbb529bb7ce38f8082112682524616046452"}
+  },
+  "local_bytes_verified": false,
+  "sources": [
+    "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/commit/1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/blob/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/model.safetensors",
+    "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/blob/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx/model.onnx",
+    "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/raw/main/model.safetensors",
+    "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/raw/main/onnx/model.onnx",
+    "https://sbert.net/docs/sentence_transformer/usage/efficiency.html"
+  ]
+}

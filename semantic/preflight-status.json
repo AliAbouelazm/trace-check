@@ -1,0 +1,13 @@
+{
+  "status": "blocked-before-model-transfer",
+  "reason": "Execution-environment HTTPS proxy returned 403 Forbidden for Hugging Face metadata access. No alternative model-download route or credentials were attempted.",
+  "model_bytes_downloaded": 0,
+  "benchmark_rows_encoded": 0,
+  "head_fits": 0,
+  "encoder_cpu_throughput": null,
+  "encoder_memory": null,
+  "actual_tokenizer_parity": null,
+  "actual_encoder_parity": null,
+  "tests_completed": "Three standard-library contract tests: allowlisted ordered parts/final exclusion, fixed token allocation, attention-masked mean pooling plus L2 arithmetic. These are not tests of the unavailable pretrained encoder.",
+  "next_required": "Approved local files for the pinned official model plus CPU dependencies, a reviewed preflight supervisor budget, and actual synthetic encoder measurements before any benchmark encoding or head fit."
+}
