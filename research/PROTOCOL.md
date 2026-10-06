@@ -1,0 +1,11 @@
+# Frozen v1 experiment
+
+This is a custom research split of the public test-only AgentProcessBench release. It is not an official benchmark score. Frozen before running evaluation: seed 42, task-grouped 60/20/20 by SHA256 order, all five attempts retained within a group, exact normalized question duplicates unioned across groups. The test split is evaluated once with the preset below. Validation metrics are descriptive, not used to tune.
+
+Inputs use only allowlisted message role, content, tool name and arguments. No labels, ground_truth, answer_text, final_label, tool_metrics, task_description, IDs or future messages enter TF-IDF. The last assistant message is excluded from both inputs and targets, and answer tags are stripped. We cannot remove incidental answer facts from legitimate retrieved evidence without reference leakage. Text features are current plus previous two messages, at most 12000 characters. IDs exist only in provenance and split metadata.
+
+TF-IDF word unigrams/bigrams, 20000 feature cap, min_df 2, sublinear TF. Logistic regression C=1, maximum 500 iterations, default class weights. Three classes (-1 mistake, 0 neutral, +1 positive); flag only if the uncalibrated -1 score is at least 0.5. No threshold sweep. A never-flag baseline and the exact product structural rules are evaluated alongside it. Rules can inspect a completed nonfinal run and resulting tool responses, so evidence availability differs from prefix-only ML. A tool-result flag maps back to the originating assistant tool call. Multiple calls remain one labeled assistant unit.
+
+Report mistake precision/recall/F1, confusion counts, neutral and positive false positives, subset counts, and inspectable error IDs. Do not interpret propagated source labels as newly introduced causal errors. Excluding final messages reduces the target below 8509 labels and can remove useful process steps; totals are reported explicitly.
+
+Measure CPU wall time, fit/inference seconds, peak process RSS, sparse matrix and coefficient sizes. No paid APIs, GPU or embedding download. The model stays in research; promotion requires broader validation and calibration. No sequence model justified for this first milestone.

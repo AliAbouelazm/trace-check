@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Trace Check JSON v1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "run_id", "task", "status", "steps"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string", "minLength": 1, "maxLength": 200, "pattern": "\\S"},
+    "task": {"type": "string", "minLength": 1, "maxLength": 20000, "pattern": "\\S"},
+    "status": {"const": "completed"},
+    "steps": {"type": "array", "minItems": 1, "maxItems": 2000, "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "content"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1, "maxLength": 200, "pattern": "\\S"},
+        "kind": {"enum": ["task", "assistant", "tool_call", "tool_result"]},
+        "content": {"type": "string", "maxLength": 100000},
+        "tool": {"type": "string", "minLength": 1, "maxLength": 200, "pattern": "\\S"},
+        "call_id": {"type": "string", "minLength": 1, "maxLength": 200, "pattern": "\\S"},
+        "status": {"enum": ["ok", "error"]}
+      }
+    }}
+  },
+  "$comment": "Runtime additionally rejects duplicate step IDs and files over 2 MiB. String bounds use JavaScript UTF-16 code units, conservatively stricter than Unicode code-point schema lengths."
+}

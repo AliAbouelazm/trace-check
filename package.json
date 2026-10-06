@@ -1,0 +1,11 @@
+{
+  "name": "trace-check",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 server.py",
+    "test": "node --test tests/browser_core.mjs",
+    "test:browser": "python3 tests/browser_smoke.py"
+  }
+}

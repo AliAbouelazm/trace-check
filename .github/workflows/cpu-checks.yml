@@ -1,0 +1,23 @@
+name: CPU checks (manual, self-hosted only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tracecheck-cpu-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    # No GitHub-hosted runner or automatic paid execution. An existing trusted
+    # runner must explicitly carry this label and have Node, Python, Playwright
+    # and Chromium installed. This workflow does not install or train anything.
+    runs-on: [self-hosted, linux, tracecheck-cpu]
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Check exact checked-out head
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          bash scripts/check.sh
