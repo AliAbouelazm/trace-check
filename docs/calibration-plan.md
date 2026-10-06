@@ -52,3 +52,7 @@ No new fits have run. The final training orchestration and any opt-in UI integra
 ## Driver implementation ready for review
 
 The separate post-merge driver is now implemented. See [final driver review](calibration-driver-review.md) for source boundaries, support accounting, synthetic failure tests and the exact post-approval command. This supersedes the earlier statement that orchestration had not yet been added. It has not been executed: no source data read, new fit, threshold selection or model export has occurred. The rules-only app remains unchanged.
+
+## Reviewed execution completed
+
+The single supervised run at `c51598b319cdefcad893860f1c1ccd5e82a4bbc9` completed within budget. No threshold passed every gate, so no artifact was exported or enabled. See [measured results and coverage](calibration-results.md). This supersedes the earlier pending-execution status; it does not authorize a retry, changed gate or further fit.

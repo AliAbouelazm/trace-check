@@ -1,6 +1,6 @@
 # Final calibration driver review
 
-Status: implemented and tested with synthetic fixtures only. No dataset was loaded and no vectorizer/classifier fit was run during this change. The production rules app and its merged branch are unchanged. Parent approval is required before executing the command below.
+This review document preceded execution and was approved by the parent. The [single authorized run](calibration-results.md) has now completed with no qualifying threshold or exported model. The production rules app remains unchanged. The command below records the reviewed invocation; repeating it requires new authorization.
 
 ## Source for review
 
@@ -56,4 +56,4 @@ python3 experimental/calibrate.py \
   --output /tmp/tracecheck-calibration-reviewed
 ```
 
-This command has NOT been executed. Do not call the internal worker mode directly. Do not download source data or invoke the fit from CI. Ordinary CI runs only synthetic driver tests and the existing application/parity checks. Remote exact-head CI and final driver review remain parent responsibilities.
+This command was executed exactly once after parent-confirmed CI success on `c51598b319cdefcad893860f1c1ccd5e82a4bbc9`. Its existing output cannot be overwritten. Do not rerun it or call the internal worker mode directly. Do not download source data or invoke the fit from CI. Ordinary CI runs only synthetic driver tests and the existing application/parity checks. Remote checks on this results commit and any merge remain parent responsibilities.
