@@ -17,8 +17,24 @@ class Handler(SimpleHTTPRequestHandler):
     def list_directory(self, path):
         self.send_error(404)
 
+def port_number(value):
+    number = int(value)
+    if not 0 <= number <= 65535:
+        raise argparse.ArgumentTypeError('Port must be from 0 to 65535.')
+    return number
+
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(); parser.add_argument('--port', type=int, default=8765)
+    parser = argparse.ArgumentParser(description='Start Trace Check on this computer. No account or package install is required.')
+    parser.add_argument('--port', type=port_number, default=8765, help='local port (default: 8765); 0 selects an available port')
     args = parser.parse_args()
-    print(f'Trace Check: http://127.0.0.1:{args.port}', flush=True)
-    ThreadingHTTPServer(('127.0.0.1', args.port), Handler).serve_forever()
+    try:
+        server = ThreadingHTTPServer(('127.0.0.1', args.port), Handler)
+    except OSError:
+        parser.error(f'Could not open local port {args.port}. Try --port 0 to select an available port.')
+    with server:
+        print(f'Trace Check: http://127.0.0.1:{server.server_port}', flush=True)
+        print('Open this address in your browser. Press Ctrl+C to stop.', flush=True)
+        try:
+            server.serve_forever()
+        except KeyboardInterrupt:
+            pass
