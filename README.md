@@ -16,11 +16,11 @@ Open the loopback address printed by the command (normally http://127.0.0.1:8765
 
 Structural rules identify missing tool results, unmatched results, three identical calls, and error-like tool responses. Every flag states its evidence and uncertainty. A flag requests human review; it does not establish a mistake or cause. Valid retries, polling and neutral exploration can trigger flags. No flags does not mean the run is correct.
 
-The app does not show trained-model confidence. A frozen CPU TF-IDF logistic experiment is included separately in `research/`. Its scores are uncalibrated and it is not used for uploaded logs. See [research results](docs/research.md) and [frozen protocol](research/PROTOCOL.md).
+The default is structural rules. A separately approved, reconstructed TF-IDF model now powers optional **Experimental ML review suggestions** for explicitly grouped runs. Enable it per run; its uncalibrated decision scores never become rule flags or error probabilities. The model failed the automatic-promotion gate. See the [one-minute walkthrough and measured build](docs/manual-review.md), [research results](docs/research.md), and [frozen protocol](research/PROTOCOL.md).
 
 ## Import format
 
-Only Trace Check JSON v1 is accepted. Download sample JSON in the app. Unknown fields are rejected, including benchmark labels and answers. Steps preserve input order. `id` is required and unique for every step. Optional `call_id` connects tool calls and results; matching rules cannot operate without it. For parallel calls, assign each call its own call_id and reuse that ID on its result, even if results arrive out of order. Provider-specific logs and JSONL must be converted into this canonical format first. See [schema](docs/schema.json).
+Trace Check JSON v1 is accepted for rules. Optional ML accepts an explicit original-message envelope around that run; see [grouping and limits](docs/experimental-contract.md). Download sample JSON in the app. Unknown fields are rejected, including benchmark labels and answers. Steps preserve input order. `id` is required and unique for every step. Optional `call_id` connects tool calls and results; matching rules cannot operate without it. For parallel calls, assign each call its own call_id and reuse that ID on its result, even if results arrive out of order. Provider-specific logs and JSONL must be converted into this canonical format first. See [schema](docs/schema.json).
 
 ```json
 {
@@ -62,7 +62,7 @@ Browser checks require Python Playwright and an installed Chromium. Research rep
 - [x] Download and import sample JSON; validate and explain malformed, oversized, duplicate-ID and unsupported-schema errors.
 - [x] Read ordered task, assistant, tool call and tool result steps; search and combine kind/flag filters.
 - [x] Show evidence, uncertainty and rule source for suspicious steps; keep neutral exploration distinct from proven mistakes.
-- [x] Present truthful confidence labels: rules only in product, uncalibrated model scores only in research.
+- [x] Present truthful confidence labels: rules by default; optional uncalibrated manual-review scores are separate.
 - [x] Export a redacted report and clear the current review without retention.
 - [x] Smoke, privacy, injection and browser interaction checks.
 - [x] Bundle a dataset adapter, provenance audit, frozen task-held-out split, rules/CPU model metrics and resource measurements.
@@ -77,7 +77,7 @@ See the [bounded calibration protocol](docs/calibration-plan.md) and the complet
 
 Experimental local-inference prerequisites now have a [bounded JSON/grouping contract and synthetic parity proof](docs/experimental-contract.md). They are not connected to the app. Canonical v1 imports still use rules only. The pre-fit scoring contract conservatively abstains on non-ASCII feature text; no multilingual scoring or trained-model quality is claimed.
 
-The [single reviewed calibration run](docs/calibration-results.md) completed within budget, but none of its six fixed thresholds met every combined-policy promotion gate. No trained artifact was exported; the app remains rules-only. Full development-validation results and coverage are retained without raw dataset records.
+The [single reviewed calibration run](docs/calibration-results.md) completed within budget, but none of its six fixed thresholds met every combined-policy promotion gate. No trained artifact was exported by that run. A separately authorized one-fit reconstruction now supports optional manual review; see [the build and UI evidence](docs/manual-review.md). Full development-validation results and coverage are retained without raw dataset records.
 
 ## Keyboard and review flow
 

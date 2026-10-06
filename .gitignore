@@ -11,3 +11,4 @@ test-results/
 # Reviewed semantic runs, coefficients and private diagnostics stay local.
 semantic/runs/
 *.attempt.json
+experimental/review-build/

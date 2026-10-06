@@ -1,0 +1,13 @@
+{
+  "validation_only": true,
+  "test_encoded_or_scored": false,
+  "fits": 0,
+  "source": "preserved authorized reconstruction predictions",
+  "feature_hash_cases": 1386,
+  "supported_score_cases": 878,
+  "max_absolute_score_error": 6.661338147750939e-16,
+  "all_decisions_match": true,
+  "browser": "151.0.7922.173",
+  "playwright": "1.62.0",
+  "artifact_sha256": "10bf769e803e38cd50aef8af86599b482e9e585fc8e59c95a711d517774ec164"
+}

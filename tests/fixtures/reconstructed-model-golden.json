@@ -1,0 +1,86 @@
+[
+  {
+    "text": "assistant I will inspect the configuration and run the tests.",
+    "expected": {
+      "scores": [
+        0.27009811289704994,
+        0.06258354140369518,
+        0.6673183456992549
+      ],
+      "suggestion": false,
+      "abstention": "below-threshold"
+    }
+  },
+  {
+    "text": "assistant The request failed. I will retry the same command.",
+    "expected": {
+      "scores": [
+        0.1898607669808533,
+        0.04685770027641548,
+        0.7632815327427313
+      ],
+      "suggestion": false,
+      "abstention": "below-threshold"
+    }
+  },
+  {
+    "text": "assistant Search for the correct document before answering.",
+    "expected": {
+      "scores": [
+        0.19142033013743523,
+        0.08339043011013274,
+        0.7251892397524321
+      ],
+      "suggestion": false,
+      "abstention": "below-threshold"
+    }
+  },
+  {
+    "text": "assistant Delete the directory and then check the files.",
+    "expected": {
+      "scores": [
+        0.16836896556690195,
+        0.04208079405217951,
+        0.7895502403809185
+      ],
+      "suggestion": false,
+      "abstention": "below-threshold"
+    }
+  },
+  {
+    "text": "assistant Done. Everything is correct.",
+    "expected": {
+      "scores": [
+        0.2130883442650932,
+        0.04915300458969682,
+        0.73775865114521
+      ],
+      "suggestion": false,
+      "abstention": "below-threshold"
+    }
+  },
+  {
+    "text": "assistant caf\u00e9 \u201cquotes\u201d",
+    "expected": {
+      "abstention": "unsupported-unicode",
+      "scores": null,
+      "suggestion": false
+    }
+  },
+  {
+    "text": "",
+    "expected": {
+      "abstention": "no-known-features",
+      "scores": null,
+      "suggestion": false
+    }
+  },
+  {
+    "text": "zzunknownwordxx",
+    "expected": {
+      "abstention": "no-known-features",
+      "scores": null,
+      "suggestion": false
+    }
+  }
+]

@@ -1,0 +1,4602 @@
+{
+  "status": "reconstructed-for-manual-review-only",
+  "additional_fits": 1,
+  "original_artifact_retrieved": false,
+  "byte_identity_to_original_unverifiable": true,
+  "archived_commit": "c51598b319cdefcad893860f1c1ccd5e82a4bbc9",
+  "archived_receipt_sha256": "aa8a0252474e79dd90932e4db76603f817e7b3d6f8a122bf5c5f99ed03ef9c9f",
+  "source_provenance": {
+    "split_sha256": "7a7d222f87069b840eccab45abb3d7e35da51fc2b11e62a18d89a9a34eab7524",
+    "source_sha256": {
+      "bfcl.jsonl": "6aee0b71eff7feb872c6b54d962f8831b56f7bebf770cba9cb657f219afb6fe5",
+      "gaia_dev.jsonl": "f7b75c668fc1e6ad943e8f6d93a21a9a8f5f076841e1230e1ed2fc6d05ce8192",
+      "hotpotqa.jsonl": "160eef2ded872d8dc6ddf4cee5752295fda691b6a9e99b5bafc2d484e6309c57",
+      "tau2.jsonl": "6f22818ff88822512767fe735f56e7b78bed4b9aaf26959144feb92f127e1e95"
+    },
+    "routing_runs": {
+      "train": 620,
+      "validation": 190,
+      "test": 190
+    },
+    "validation_groups": [
+      "bfcl:14",
+      "bfcl:15",
+      "bfcl:17",
+      "bfcl:26",
+      "bfcl:34",
+      "bfcl:4",
+      "bfcl:43",
+      "bfcl:6",
+      "bfcl:7",
+      "gaia_dev:17",
+      "gaia_dev:21",
+      "gaia_dev:23",
+      "gaia_dev:24",
+      "gaia_dev:39",
+      "gaia_dev:46",
+      "gaia_dev:49",
+      "gaia_dev:5",
+      "gaia_dev:9",
+      "hotpotqa:0",
+      "hotpotqa:12",
+      "hotpotqa:13",
+      "hotpotqa:2",
+      "hotpotqa:21",
+      "hotpotqa:25",
+      "hotpotqa:30",
+      "hotpotqa:32",
+      "hotpotqa:4",
+      "hotpotqa:7",
+      "tau2:14",
+      "tau2:16",
+      "tau2:17",
+      "tau2:21",
+      "tau2:24",
+      "tau2:3",
+      "tau2:30",
+      "tau2:35",
+      "tau2:37",
+      "tau2:9"
+    ]
+  },
+  "packages": {
+    "numpy": "2.3.5",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.6.0"
+  },
+  "fit_seconds": 1.815514326000084,
+  "iterations": [
+    40
+  ],
+  "fixed_review_cutoff": 0.7,
+  "automatic_promotion_eligible": false,
+  "all_archived_aggregate_and_per_task_counts_match": true,
+  "matching_counts_prove_original_per_step_identity": false,
+  "actual_python_js_score_max_error": 6.661338147750939e-16,
+  "actual_python_js_validation_cases": 878,
+  "artifact_bytes": 1866714,
+  "artifact_sha256": "10bf769e803e38cd50aef8af86599b482e9e585fc8e59c95a711d517774ec164",
+  "prediction_bytes": 449301,
+  "prediction_sha256": "3ee69144b0eb49eb36640cdc4e7ba26fddb764b4ebe8e73b90d2caa97d207272",
+  "input_coverage": {
+    "train": {
+      "all": {
+        "steps": 4824,
+        "task_groups": 113,
+        "supported_steps": 3075,
+        "unsupported_steps": 1749,
+        "supported_task_groups": 111,
+        "unsupported_task_groups": 104,
+        "unsupported_reasons": {
+          "unsupported-unicode": 1731,
+          "incompatible-envelope": 18
+        }
+      },
+      "by_label": {
+        "-1": {
+          "steps": 1534,
+          "task_groups": 94,
+          "supported_steps": 892,
+          "unsupported_steps": 642,
+          "supported_task_groups": 76,
+          "unsupported_task_groups": 74,
+          "unsupported_reasons": {
+            "unsupported-unicode": 634,
+            "incompatible-envelope": 8
+          }
+        },
+        "0": {
+          "steps": 308,
+          "task_groups": 71,
+          "supported_steps": 151,
+          "unsupported_steps": 157,
+          "supported_task_groups": 55,
+          "unsupported_task_groups": 42,
+          "unsupported_reasons": {
+            "unsupported-unicode": 153,
+            "incompatible-envelope": 4
+          }
+        },
+        "1": {
+          "steps": 2982,
+          "task_groups": 112,
+          "supported_steps": 2032,
+          "unsupported_steps": 950,
+          "supported_task_groups": 108,
+          "unsupported_task_groups": 98,
+          "unsupported_reasons": {
+            "unsupported-unicode": 944,
+            "incompatible-envelope": 6
+          }
+        }
+      },
+      "by_subset": {
+        "bfcl": {
+          "all": {
+            "steps": 1475,
+            "task_groups": 32,
+            "supported_steps": 1283,
+            "unsupported_steps": 192,
+            "supported_task_groups": 32,
+            "unsupported_task_groups": 30,
+            "unsupported_reasons": {
+              "unsupported-unicode": 192
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 349,
+              "task_groups": 30,
+              "supported_steps": 277,
+              "unsupported_steps": 72,
+              "supported_task_groups": 29,
+              "unsupported_task_groups": 21,
+              "unsupported_reasons": {
+                "unsupported-unicode": 72
+              }
+            },
+            "0": {
+              "steps": 58,
+              "task_groups": 22,
+              "supported_steps": 55,
+              "unsupported_steps": 3,
+              "supported_task_groups": 22,
+              "unsupported_task_groups": 2,
+              "unsupported_reasons": {
+                "unsupported-unicode": 3
+              }
+            },
+            "1": {
+              "steps": 1068,
+              "task_groups": 32,
+              "supported_steps": 951,
+              "unsupported_steps": 117,
+              "supported_task_groups": 32,
+              "unsupported_task_groups": 27,
+              "unsupported_reasons": {
+                "unsupported-unicode": 117
+              }
+            }
+          }
+        },
+        "gaia_dev": {
+          "all": {
+            "steps": 797,
+            "task_groups": 28,
+            "supported_steps": 290,
+            "unsupported_steps": 507,
+            "supported_task_groups": 27,
+            "unsupported_task_groups": 28,
+            "unsupported_reasons": {
+              "unsupported-unicode": 489,
+              "incompatible-envelope": 18
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 365,
+              "task_groups": 26,
+              "supported_steps": 139,
+              "unsupported_steps": 226,
+              "supported_task_groups": 23,
+              "unsupported_task_groups": 22,
+              "unsupported_reasons": {
+                "unsupported-unicode": 218,
+                "incompatible-envelope": 8
+              }
+            },
+            "0": {
+              "steps": 126,
+              "task_groups": 25,
+              "supported_steps": 39,
+              "unsupported_steps": 87,
+              "supported_task_groups": 18,
+              "unsupported_task_groups": 22,
+              "unsupported_reasons": {
+                "unsupported-unicode": 83,
+                "incompatible-envelope": 4
+              }
+            },
+            "1": {
+              "steps": 306,
+              "task_groups": 27,
+              "supported_steps": 112,
+              "unsupported_steps": 194,
+              "supported_task_groups": 24,
+              "unsupported_task_groups": 26,
+              "unsupported_reasons": {
+                "unsupported-unicode": 188,
+                "incompatible-envelope": 6
+              }
+            }
+          }
+        },
+        "hotpotqa": {
+          "all": {
+            "steps": 358,
+            "task_groups": 33,
+            "supported_steps": 183,
+            "unsupported_steps": 175,
+            "supported_task_groups": 32,
+            "unsupported_task_groups": 26,
+            "unsupported_reasons": {
+              "unsupported-unicode": 175
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 80,
+              "task_groups": 21,
+              "supported_steps": 25,
+              "unsupported_steps": 55,
+              "supported_task_groups": 10,
+              "unsupported_task_groups": 15,
+              "unsupported_reasons": {
+                "unsupported-unicode": 55
+              }
+            },
+            "0": {
+              "steps": 45,
+              "task_groups": 15,
+              "supported_steps": 13,
+              "unsupported_steps": 32,
+              "supported_task_groups": 8,
+              "unsupported_task_groups": 12,
+              "unsupported_reasons": {
+                "unsupported-unicode": 32
+              }
+            },
+            "1": {
+              "steps": 233,
+              "task_groups": 33,
+              "supported_steps": 145,
+              "unsupported_steps": 88,
+              "supported_task_groups": 32,
+              "unsupported_task_groups": 25,
+              "unsupported_reasons": {
+                "unsupported-unicode": 88
+              }
+            }
+          }
+        },
+        "tau2": {
+          "all": {
+            "steps": 2194,
+            "task_groups": 20,
+            "supported_steps": 1319,
+            "unsupported_steps": 875,
+            "supported_task_groups": 20,
+            "unsupported_task_groups": 20,
+            "unsupported_reasons": {
+              "unsupported-unicode": 875
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 740,
+              "task_groups": 17,
+              "supported_steps": 451,
+              "unsupported_steps": 289,
+              "supported_task_groups": 14,
+              "unsupported_task_groups": 16,
+              "unsupported_reasons": {
+                "unsupported-unicode": 289
+              }
+            },
+            "0": {
+              "steps": 79,
+              "task_groups": 9,
+              "supported_steps": 44,
+              "unsupported_steps": 35,
+              "supported_task_groups": 7,
+              "unsupported_task_groups": 6,
+              "unsupported_reasons": {
+                "unsupported-unicode": 35
+              }
+            },
+            "1": {
+              "steps": 1375,
+              "task_groups": 20,
+              "supported_steps": 824,
+              "unsupported_steps": 551,
+              "supported_task_groups": 20,
+              "unsupported_task_groups": 20,
+              "unsupported_reasons": {
+                "unsupported-unicode": 551
+              }
+            }
+          }
+        }
+      }
+    },
+    "validation": {
+      "all": {
+        "steps": 1390,
+        "task_groups": 38,
+        "supported_steps": 878,
+        "unsupported_steps": 512,
+        "supported_task_groups": 36,
+        "unsupported_task_groups": 37,
+        "unsupported_reasons": {
+          "unsupported-unicode": 508,
+          "incompatible-envelope": 4
+        }
+      },
+      "by_label": {
+        "-1": {
+          "steps": 384,
+          "task_groups": 30,
+          "supported_steps": 211,
+          "unsupported_steps": 173,
+          "supported_task_groups": 28,
+          "unsupported_task_groups": 23,
+          "unsupported_reasons": {
+            "unsupported-unicode": 173
+          }
+        },
+        "0": {
+          "steps": 66,
+          "task_groups": 23,
+          "supported_steps": 35,
+          "unsupported_steps": 31,
+          "supported_task_groups": 14,
+          "unsupported_task_groups": 13,
+          "unsupported_reasons": {
+            "unsupported-unicode": 31
+          }
+        },
+        "1": {
+          "steps": 940,
+          "task_groups": 38,
+          "supported_steps": 632,
+          "unsupported_steps": 308,
+          "supported_task_groups": 36,
+          "unsupported_task_groups": 34,
+          "unsupported_reasons": {
+            "unsupported-unicode": 304,
+            "incompatible-envelope": 4
+          }
+        }
+      },
+      "by_subset": {
+        "bfcl": {
+          "all": {
+            "steps": 472,
+            "task_groups": 9,
+            "supported_steps": 422,
+            "unsupported_steps": 50,
+            "supported_task_groups": 9,
+            "unsupported_task_groups": 9,
+            "unsupported_reasons": {
+              "unsupported-unicode": 50
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 65,
+              "task_groups": 8,
+              "supported_steps": 51,
+              "unsupported_steps": 14,
+              "supported_task_groups": 8,
+              "unsupported_task_groups": 5,
+              "unsupported_reasons": {
+                "unsupported-unicode": 14
+              }
+            },
+            "0": {
+              "steps": 19,
+              "task_groups": 7,
+              "supported_steps": 19,
+              "unsupported_steps": 0,
+              "supported_task_groups": 7,
+              "unsupported_task_groups": 0,
+              "unsupported_reasons": {}
+            },
+            "1": {
+              "steps": 388,
+              "task_groups": 9,
+              "supported_steps": 352,
+              "unsupported_steps": 36,
+              "supported_task_groups": 9,
+              "unsupported_task_groups": 7,
+              "unsupported_reasons": {
+                "unsupported-unicode": 36
+              }
+            }
+          }
+        },
+        "gaia_dev": {
+          "all": {
+            "steps": 251,
+            "task_groups": 9,
+            "supported_steps": 88,
+            "unsupported_steps": 163,
+            "supported_task_groups": 8,
+            "unsupported_task_groups": 9,
+            "unsupported_reasons": {
+              "unsupported-unicode": 159,
+              "incompatible-envelope": 4
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 132,
+              "task_groups": 8,
+              "supported_steps": 45,
+              "unsupported_steps": 87,
+              "supported_task_groups": 7,
+              "unsupported_task_groups": 7,
+              "unsupported_reasons": {
+                "unsupported-unicode": 87
+              }
+            },
+            "0": {
+              "steps": 18,
+              "task_groups": 7,
+              "supported_steps": 3,
+              "unsupported_steps": 15,
+              "supported_task_groups": 2,
+              "unsupported_task_groups": 6,
+              "unsupported_reasons": {
+                "unsupported-unicode": 15
+              }
+            },
+            "1": {
+              "steps": 101,
+              "task_groups": 9,
+              "supported_steps": 40,
+              "unsupported_steps": 61,
+              "supported_task_groups": 8,
+              "unsupported_task_groups": 9,
+              "unsupported_reasons": {
+                "unsupported-unicode": 57,
+                "incompatible-envelope": 4
+              }
+            }
+          }
+        },
+        "hotpotqa": {
+          "all": {
+            "steps": 80,
+            "task_groups": 10,
+            "supported_steps": 43,
+            "unsupported_steps": 37,
+            "supported_task_groups": 9,
+            "unsupported_task_groups": 9,
+            "unsupported_reasons": {
+              "unsupported-unicode": 37
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 8,
+              "task_groups": 5,
+              "supported_steps": 6,
+              "unsupported_steps": 2,
+              "supported_task_groups": 4,
+              "unsupported_task_groups": 2,
+              "unsupported_reasons": {
+                "unsupported-unicode": 2
+              }
+            },
+            "0": {
+              "steps": 8,
+              "task_groups": 4,
+              "supported_steps": 2,
+              "unsupported_steps": 6,
+              "supported_task_groups": 1,
+              "unsupported_task_groups": 4,
+              "unsupported_reasons": {
+                "unsupported-unicode": 6
+              }
+            },
+            "1": {
+              "steps": 64,
+              "task_groups": 10,
+              "supported_steps": 35,
+              "unsupported_steps": 29,
+              "supported_task_groups": 9,
+              "unsupported_task_groups": 8,
+              "unsupported_reasons": {
+                "unsupported-unicode": 29
+              }
+            }
+          }
+        },
+        "tau2": {
+          "all": {
+            "steps": 587,
+            "task_groups": 10,
+            "supported_steps": 325,
+            "unsupported_steps": 262,
+            "supported_task_groups": 10,
+            "unsupported_task_groups": 10,
+            "unsupported_reasons": {
+              "unsupported-unicode": 262
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 179,
+              "task_groups": 9,
+              "supported_steps": 109,
+              "unsupported_steps": 70,
+              "supported_task_groups": 9,
+              "unsupported_task_groups": 9,
+              "unsupported_reasons": {
+                "unsupported-unicode": 70
+              }
+            },
+            "0": {
+              "steps": 21,
+              "task_groups": 5,
+              "supported_steps": 11,
+              "unsupported_steps": 10,
+              "supported_task_groups": 4,
+              "unsupported_task_groups": 3,
+              "unsupported_reasons": {
+                "unsupported-unicode": 10
+              }
+            },
+            "1": {
+              "steps": 387,
+              "task_groups": 10,
+              "supported_steps": 205,
+              "unsupported_steps": 182,
+              "supported_task_groups": 10,
+              "unsupported_task_groups": 10,
+              "unsupported_reasons": {
+                "unsupported-unicode": 182
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "model_coverage": {
+    "train": {
+      "all": {
+        "steps": 4824,
+        "task_groups": 113,
+        "supported_steps": 3075,
+        "unsupported_steps": 1749,
+        "supported_task_groups": 111,
+        "unsupported_task_groups": 104,
+        "unsupported_reasons": {
+          "unsupported-unicode": 1731,
+          "incompatible-envelope": 18
+        }
+      },
+      "by_label": {
+        "-1": {
+          "steps": 1534,
+          "task_groups": 94,
+          "supported_steps": 892,
+          "unsupported_steps": 642,
+          "supported_task_groups": 76,
+          "unsupported_task_groups": 74,
+          "unsupported_reasons": {
+            "unsupported-unicode": 634,
+            "incompatible-envelope": 8
+          }
+        },
+        "0": {
+          "steps": 308,
+          "task_groups": 71,
+          "supported_steps": 151,
+          "unsupported_steps": 157,
+          "supported_task_groups": 55,
+          "unsupported_task_groups": 42,
+          "unsupported_reasons": {
+            "unsupported-unicode": 153,
+            "incompatible-envelope": 4
+          }
+        },
+        "1": {
+          "steps": 2982,
+          "task_groups": 112,
+          "supported_steps": 2032,
+          "unsupported_steps": 950,
+          "supported_task_groups": 108,
+          "unsupported_task_groups": 98,
+          "unsupported_reasons": {
+            "unsupported-unicode": 944,
+            "incompatible-envelope": 6
+          }
+        }
+      },
+      "by_subset": {
+        "bfcl": {
+          "all": {
+            "steps": 1475,
+            "task_groups": 32,
+            "supported_steps": 1283,
+            "unsupported_steps": 192,
+            "supported_task_groups": 32,
+            "unsupported_task_groups": 30,
+            "unsupported_reasons": {
+              "unsupported-unicode": 192
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 349,
+              "task_groups": 30,
+              "supported_steps": 277,
+              "unsupported_steps": 72,
+              "supported_task_groups": 29,
+              "unsupported_task_groups": 21,
+              "unsupported_reasons": {
+                "unsupported-unicode": 72
+              }
+            },
+            "0": {
+              "steps": 58,
+              "task_groups": 22,
+              "supported_steps": 55,
+              "unsupported_steps": 3,
+              "supported_task_groups": 22,
+              "unsupported_task_groups": 2,
+              "unsupported_reasons": {
+                "unsupported-unicode": 3
+              }
+            },
+            "1": {
+              "steps": 1068,
+              "task_groups": 32,
+              "supported_steps": 951,
+              "unsupported_steps": 117,
+              "supported_task_groups": 32,
+              "unsupported_task_groups": 27,
+              "unsupported_reasons": {
+                "unsupported-unicode": 117
+              }
+            }
+          }
+        },
+        "gaia_dev": {
+          "all": {
+            "steps": 797,
+            "task_groups": 28,
+            "supported_steps": 290,
+            "unsupported_steps": 507,
+            "supported_task_groups": 27,
+            "unsupported_task_groups": 28,
+            "unsupported_reasons": {
+              "unsupported-unicode": 489,
+              "incompatible-envelope": 18
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 365,
+              "task_groups": 26,
+              "supported_steps": 139,
+              "unsupported_steps": 226,
+              "supported_task_groups": 23,
+              "unsupported_task_groups": 22,
+              "unsupported_reasons": {
+                "unsupported-unicode": 218,
+                "incompatible-envelope": 8
+              }
+            },
+            "0": {
+              "steps": 126,
+              "task_groups": 25,
+              "supported_steps": 39,
+              "unsupported_steps": 87,
+              "supported_task_groups": 18,
+              "unsupported_task_groups": 22,
+              "unsupported_reasons": {
+                "unsupported-unicode": 83,
+                "incompatible-envelope": 4
+              }
+            },
+            "1": {
+              "steps": 306,
+              "task_groups": 27,
+              "supported_steps": 112,
+              "unsupported_steps": 194,
+              "supported_task_groups": 24,
+              "unsupported_task_groups": 26,
+              "unsupported_reasons": {
+                "unsupported-unicode": 188,
+                "incompatible-envelope": 6
+              }
+            }
+          }
+        },
+        "hotpotqa": {
+          "all": {
+            "steps": 358,
+            "task_groups": 33,
+            "supported_steps": 183,
+            "unsupported_steps": 175,
+            "supported_task_groups": 32,
+            "unsupported_task_groups": 26,
+            "unsupported_reasons": {
+              "unsupported-unicode": 175
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 80,
+              "task_groups": 21,
+              "supported_steps": 25,
+              "unsupported_steps": 55,
+              "supported_task_groups": 10,
+              "unsupported_task_groups": 15,
+              "unsupported_reasons": {
+                "unsupported-unicode": 55
+              }
+            },
+            "0": {
+              "steps": 45,
+              "task_groups": 15,
+              "supported_steps": 13,
+              "unsupported_steps": 32,
+              "supported_task_groups": 8,
+              "unsupported_task_groups": 12,
+              "unsupported_reasons": {
+                "unsupported-unicode": 32
+              }
+            },
+            "1": {
+              "steps": 233,
+              "task_groups": 33,
+              "supported_steps": 145,
+              "unsupported_steps": 88,
+              "supported_task_groups": 32,
+              "unsupported_task_groups": 25,
+              "unsupported_reasons": {
+                "unsupported-unicode": 88
+              }
+            }
+          }
+        },
+        "tau2": {
+          "all": {
+            "steps": 2194,
+            "task_groups": 20,
+            "supported_steps": 1319,
+            "unsupported_steps": 875,
+            "supported_task_groups": 20,
+            "unsupported_task_groups": 20,
+            "unsupported_reasons": {
+              "unsupported-unicode": 875
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 740,
+              "task_groups": 17,
+              "supported_steps": 451,
+              "unsupported_steps": 289,
+              "supported_task_groups": 14,
+              "unsupported_task_groups": 16,
+              "unsupported_reasons": {
+                "unsupported-unicode": 289
+              }
+            },
+            "0": {
+              "steps": 79,
+              "task_groups": 9,
+              "supported_steps": 44,
+              "unsupported_steps": 35,
+              "supported_task_groups": 7,
+              "unsupported_task_groups": 6,
+              "unsupported_reasons": {
+                "unsupported-unicode": 35
+              }
+            },
+            "1": {
+              "steps": 1375,
+              "task_groups": 20,
+              "supported_steps": 824,
+              "unsupported_steps": 551,
+              "supported_task_groups": 20,
+              "unsupported_task_groups": 20,
+              "unsupported_reasons": {
+                "unsupported-unicode": 551
+              }
+            }
+          }
+        }
+      }
+    },
+    "validation": {
+      "all": {
+        "steps": 1390,
+        "task_groups": 38,
+        "supported_steps": 878,
+        "unsupported_steps": 512,
+        "supported_task_groups": 36,
+        "unsupported_task_groups": 37,
+        "unsupported_reasons": {
+          "unsupported-unicode": 508,
+          "incompatible-envelope": 4
+        }
+      },
+      "by_label": {
+        "-1": {
+          "steps": 384,
+          "task_groups": 30,
+          "supported_steps": 211,
+          "unsupported_steps": 173,
+          "supported_task_groups": 28,
+          "unsupported_task_groups": 23,
+          "unsupported_reasons": {
+            "unsupported-unicode": 173
+          }
+        },
+        "0": {
+          "steps": 66,
+          "task_groups": 23,
+          "supported_steps": 35,
+          "unsupported_steps": 31,
+          "supported_task_groups": 14,
+          "unsupported_task_groups": 13,
+          "unsupported_reasons": {
+            "unsupported-unicode": 31
+          }
+        },
+        "1": {
+          "steps": 940,
+          "task_groups": 38,
+          "supported_steps": 632,
+          "unsupported_steps": 308,
+          "supported_task_groups": 36,
+          "unsupported_task_groups": 34,
+          "unsupported_reasons": {
+            "unsupported-unicode": 304,
+            "incompatible-envelope": 4
+          }
+        }
+      },
+      "by_subset": {
+        "bfcl": {
+          "all": {
+            "steps": 472,
+            "task_groups": 9,
+            "supported_steps": 422,
+            "unsupported_steps": 50,
+            "supported_task_groups": 9,
+            "unsupported_task_groups": 9,
+            "unsupported_reasons": {
+              "unsupported-unicode": 50
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 65,
+              "task_groups": 8,
+              "supported_steps": 51,
+              "unsupported_steps": 14,
+              "supported_task_groups": 8,
+              "unsupported_task_groups": 5,
+              "unsupported_reasons": {
+                "unsupported-unicode": 14
+              }
+            },
+            "0": {
+              "steps": 19,
+              "task_groups": 7,
+              "supported_steps": 19,
+              "unsupported_steps": 0,
+              "supported_task_groups": 7,
+              "unsupported_task_groups": 0,
+              "unsupported_reasons": {}
+            },
+            "1": {
+              "steps": 388,
+              "task_groups": 9,
+              "supported_steps": 352,
+              "unsupported_steps": 36,
+              "supported_task_groups": 9,
+              "unsupported_task_groups": 7,
+              "unsupported_reasons": {
+                "unsupported-unicode": 36
+              }
+            }
+          }
+        },
+        "gaia_dev": {
+          "all": {
+            "steps": 251,
+            "task_groups": 9,
+            "supported_steps": 88,
+            "unsupported_steps": 163,
+            "supported_task_groups": 8,
+            "unsupported_task_groups": 9,
+            "unsupported_reasons": {
+              "unsupported-unicode": 159,
+              "incompatible-envelope": 4
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 132,
+              "task_groups": 8,
+              "supported_steps": 45,
+              "unsupported_steps": 87,
+              "supported_task_groups": 7,
+              "unsupported_task_groups": 7,
+              "unsupported_reasons": {
+                "unsupported-unicode": 87
+              }
+            },
+            "0": {
+              "steps": 18,
+              "task_groups": 7,
+              "supported_steps": 3,
+              "unsupported_steps": 15,
+              "supported_task_groups": 2,
+              "unsupported_task_groups": 6,
+              "unsupported_reasons": {
+                "unsupported-unicode": 15
+              }
+            },
+            "1": {
+              "steps": 101,
+              "task_groups": 9,
+              "supported_steps": 40,
+              "unsupported_steps": 61,
+              "supported_task_groups": 8,
+              "unsupported_task_groups": 9,
+              "unsupported_reasons": {
+                "unsupported-unicode": 57,
+                "incompatible-envelope": 4
+              }
+            }
+          }
+        },
+        "hotpotqa": {
+          "all": {
+            "steps": 80,
+            "task_groups": 10,
+            "supported_steps": 43,
+            "unsupported_steps": 37,
+            "supported_task_groups": 9,
+            "unsupported_task_groups": 9,
+            "unsupported_reasons": {
+              "unsupported-unicode": 37
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 8,
+              "task_groups": 5,
+              "supported_steps": 6,
+              "unsupported_steps": 2,
+              "supported_task_groups": 4,
+              "unsupported_task_groups": 2,
+              "unsupported_reasons": {
+                "unsupported-unicode": 2
+              }
+            },
+            "0": {
+              "steps": 8,
+              "task_groups": 4,
+              "supported_steps": 2,
+              "unsupported_steps": 6,
+              "supported_task_groups": 1,
+              "unsupported_task_groups": 4,
+              "unsupported_reasons": {
+                "unsupported-unicode": 6
+              }
+            },
+            "1": {
+              "steps": 64,
+              "task_groups": 10,
+              "supported_steps": 35,
+              "unsupported_steps": 29,
+              "supported_task_groups": 9,
+              "unsupported_task_groups": 8,
+              "unsupported_reasons": {
+                "unsupported-unicode": 29
+              }
+            }
+          }
+        },
+        "tau2": {
+          "all": {
+            "steps": 587,
+            "task_groups": 10,
+            "supported_steps": 325,
+            "unsupported_steps": 262,
+            "supported_task_groups": 10,
+            "unsupported_task_groups": 10,
+            "unsupported_reasons": {
+              "unsupported-unicode": 262
+            }
+          },
+          "by_label": {
+            "-1": {
+              "steps": 179,
+              "task_groups": 9,
+              "supported_steps": 109,
+              "unsupported_steps": 70,
+              "supported_task_groups": 9,
+              "unsupported_task_groups": 9,
+              "unsupported_reasons": {
+                "unsupported-unicode": 70
+              }
+            },
+            "0": {
+              "steps": 21,
+              "task_groups": 5,
+              "supported_steps": 11,
+              "unsupported_steps": 10,
+              "supported_task_groups": 4,
+              "unsupported_task_groups": 3,
+              "unsupported_reasons": {
+                "unsupported-unicode": 10
+              }
+            },
+            "1": {
+              "steps": 387,
+              "task_groups": 10,
+              "supported_steps": 205,
+              "unsupported_steps": 182,
+              "supported_task_groups": 10,
+              "unsupported_task_groups": 10,
+              "unsupported_reasons": {
+                "unsupported-unicode": 182
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "archived_policy_comparison": {
+    "rules": {
+      "tp": 76,
+      "fp": 61,
+      "fn": 308,
+      "tn": 945,
+      "per_task_confusion": {
+        "bfcl:14": {
+          "tp": 3,
+          "fp": 10,
+          "fn": 16,
+          "tn": 29
+        },
+        "bfcl:15": {
+          "tp": 0,
+          "fp": 6,
+          "fn": 7,
+          "tn": 51
+        },
+        "bfcl:17": {
+          "tp": 0,
+          "fp": 10,
+          "fn": 4,
+          "tn": 57
+        },
+        "bfcl:26": {
+          "tp": 0,
+          "fp": 12,
+          "fn": 3,
+          "tn": 38
+        },
+        "bfcl:34": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17
+        },
+        "bfcl:4": {
+          "tp": 3,
+          "fp": 2,
+          "fn": 5,
+          "tn": 43
+        },
+        "bfcl:43": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 6,
+          "tn": 41
+        },
+        "bfcl:6": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 8,
+          "tn": 60
+        },
+        "bfcl:7": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 5,
+          "tn": 29
+        },
+        "gaia_dev:17": {
+          "tp": 2,
+          "fp": 1,
+          "fn": 21,
+          "tn": 8
+        },
+        "gaia_dev:21": {
+          "tp": 6,
+          "fp": 1,
+          "fn": 20,
+          "tn": 5
+        },
+        "gaia_dev:23": {
+          "tp": 7,
+          "fp": 3,
+          "fn": 25,
+          "tn": 14
+        },
+        "gaia_dev:24": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7
+        },
+        "gaia_dev:39": {
+          "tp": 5,
+          "fp": 2,
+          "fn": 28,
+          "tn": 14
+        },
+        "gaia_dev:46": {
+          "tp": 5,
+          "fp": 3,
+          "fn": 0,
+          "tn": 7
+        },
+        "gaia_dev:49": {
+          "tp": 6,
+          "fp": 1,
+          "fn": 1,
+          "tn": 15
+        },
+        "gaia_dev:5": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 15
+        },
+        "gaia_dev:9": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 2,
+          "tn": 21
+        },
+        "hotpotqa:0": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 1,
+          "tn": 12
+        },
+        "hotpotqa:12": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        },
+        "hotpotqa:13": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7
+        },
+        "hotpotqa:2": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        },
+        "hotpotqa:21": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "tn": 6
+        },
+        "hotpotqa:25": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6
+        },
+        "hotpotqa:30": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7
+        },
+        "hotpotqa:32": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 6
+        },
+        "hotpotqa:4": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 3
+        },
+        "hotpotqa:7": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 13
+        },
+        "tau2:14": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "tn": 43
+        },
+        "tau2:16": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 22,
+          "tn": 39
+        },
+        "tau2:17": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "tn": 44
+        },
+        "tau2:21": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 8,
+          "tn": 42
+        },
+        "tau2:24": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 45
+        },
+        "tau2:3": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "tn": 17
+        },
+        "tau2:30": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6,
+          "tn": 49
+        },
+        "tau2:35": {
+          "tp": 15,
+          "fp": 0,
+          "fn": 71,
+          "tn": 53
+        },
+        "tau2:37": {
+          "tp": 12,
+          "fp": 1,
+          "fn": 11,
+          "tn": 29
+        },
+        "tau2:9": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 17,
+          "tn": 45
+        }
+      },
+      "flags": 137,
+      "recall": 0.19791666666666666,
+      "precision": 0.5547445255474452,
+      "f1": 0.29174664107485604,
+      "neutral_fp": 3,
+      "positive_fp": 58,
+      "subset_fp": {
+        "bfcl": 42,
+        "gaia_dev": 13,
+        "hotpotqa": 4,
+        "tau2": 2
+      }
+    },
+    "never_flag": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 384,
+      "tn": 1006,
+      "per_task_confusion": {
+        "bfcl:14": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 19,
+          "tn": 39
+        },
+        "bfcl:15": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "tn": 57
+        },
+        "bfcl:17": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "tn": 67
+        },
+        "bfcl:26": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "tn": 50
+        },
+        "bfcl:34": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17
+        },
+        "bfcl:4": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 8,
+          "tn": 45
+        },
+        "bfcl:43": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "tn": 42
+        },
+        "bfcl:6": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "tn": 60
+        },
+        "bfcl:7": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "tn": 30
+        },
+        "gaia_dev:17": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 23,
+          "tn": 9
+        },
+        "gaia_dev:21": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 26,
+          "tn": 6
+        },
+        "gaia_dev:23": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 32,
+          "tn": 17
+        },
+        "gaia_dev:24": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "tn": 7
+        },
+        "gaia_dev:39": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 33,
+          "tn": 16
+        },
+        "gaia_dev:46": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "tn": 10
+        },
+        "gaia_dev:49": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "tn": 16
+        },
+        "gaia_dev:5": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 16
+        },
+        "gaia_dev:9": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "tn": 22
+        },
+        "hotpotqa:0": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 15
+        },
+        "hotpotqa:12": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 4
+        },
+        "hotpotqa:13": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7
+        },
+        "hotpotqa:2": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        },
+        "hotpotqa:21": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "tn": 6
+        },
+        "hotpotqa:25": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6
+        },
+        "hotpotqa:30": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7
+        },
+        "hotpotqa:32": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 6
+        },
+        "hotpotqa:4": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        },
+        "hotpotqa:7": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 13
+        },
+        "tau2:14": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "tn": 43
+        },
+        "tau2:16": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 23,
+          "tn": 39
+        },
+        "tau2:17": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "tn": 44
+        },
+        "tau2:21": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 9,
+          "tn": 43
+        },
+        "tau2:24": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 45
+        },
+        "tau2:3": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "tn": 17
+        },
+        "tau2:30": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6,
+          "tn": 49
+        },
+        "tau2:35": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 86,
+          "tn": 53
+        },
+        "tau2:37": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 23,
+          "tn": 30
+        },
+        "tau2:9": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 17,
+          "tn": 45
+        }
+      },
+      "flags": 0,
+      "recall": 0.0,
+      "precision": 0,
+      "f1": 0.0,
+      "neutral_fp": 0,
+      "positive_fp": 0,
+      "subset_fp": {
+        "bfcl": 0,
+        "gaia_dev": 0,
+        "hotpotqa": 0,
+        "tau2": 0
+      }
+    },
+    "candidates": [
+      {
+        "threshold": 0.5,
+        "model": {
+          "tp": 99,
+          "fp": 44,
+          "fn": 285,
+          "tn": 962,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 19,
+              "tn": 39
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 57
+            },
+            "bfcl:17": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3,
+              "tn": 67
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 50
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 1,
+              "fp": 2,
+              "fn": 7,
+              "tn": 43
+            },
+            "bfcl:43": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 6,
+              "tn": 39
+            },
+            "bfcl:6": {
+              "tp": 6,
+              "fp": 17,
+              "fn": 6,
+              "tn": 43
+            },
+            "bfcl:7": {
+              "tp": 1,
+              "fp": 9,
+              "fn": 4,
+              "tn": 21
+            },
+            "gaia_dev:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 23,
+              "tn": 9
+            },
+            "gaia_dev:21": {
+              "tp": 9,
+              "fp": 0,
+              "fn": 17,
+              "tn": 6
+            },
+            "gaia_dev:23": {
+              "tp": 4,
+              "fp": 3,
+              "fn": 28,
+              "tn": 14
+            },
+            "gaia_dev:24": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 1,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 32,
+              "tn": 15
+            },
+            "gaia_dev:46": {
+              "tp": 3,
+              "fp": 1,
+              "fn": 2,
+              "tn": 9
+            },
+            "gaia_dev:49": {
+              "tp": 3,
+              "fp": 1,
+              "fn": 4,
+              "tn": 15
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 16
+            },
+            "gaia_dev:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 22
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 15
+            },
+            "hotpotqa:12": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 22,
+              "tn": 38
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 9,
+              "tn": 43
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 54,
+              "fp": 5,
+              "fn": 32,
+              "tn": 48
+            },
+            "tau2:37": {
+              "tp": 12,
+              "fp": 1,
+              "fn": 11,
+              "tn": 29
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 143,
+          "recall": 0.2578125,
+          "precision": 0.6923076923076923,
+          "f1": 0.3757115749525617,
+          "neutral_fp": 8,
+          "positive_fp": 36,
+          "subset_fp": {
+            "bfcl": 31,
+            "gaia_dev": 6,
+            "hotpotqa": 0,
+            "tau2": 7
+          }
+        },
+        "combined": {
+          "tp": 137,
+          "fp": 104,
+          "fn": 247,
+          "tn": 902,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 3,
+              "fp": 10,
+              "fn": 16,
+              "tn": 29
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 6,
+              "fn": 7,
+              "tn": 51
+            },
+            "bfcl:17": {
+              "tp": 1,
+              "fp": 10,
+              "fn": 3,
+              "tn": 57
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 12,
+              "fn": 3,
+              "tn": 38
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 4,
+              "fp": 4,
+              "fn": 4,
+              "tn": 41
+            },
+            "bfcl:43": {
+              "tp": 2,
+              "fp": 4,
+              "fn": 5,
+              "tn": 38
+            },
+            "bfcl:6": {
+              "tp": 6,
+              "fp": 17,
+              "fn": 6,
+              "tn": 43
+            },
+            "bfcl:7": {
+              "tp": 1,
+              "fp": 10,
+              "fn": 4,
+              "tn": 20
+            },
+            "gaia_dev:17": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 21,
+              "tn": 8
+            },
+            "gaia_dev:21": {
+              "tp": 15,
+              "fp": 1,
+              "fn": 11,
+              "tn": 5
+            },
+            "gaia_dev:23": {
+              "tp": 7,
+              "fp": 6,
+              "fn": 25,
+              "tn": 11
+            },
+            "gaia_dev:24": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 6,
+              "fp": 3,
+              "fn": 27,
+              "tn": 13
+            },
+            "gaia_dev:46": {
+              "tp": 5,
+              "fp": 3,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:49": {
+              "tp": 6,
+              "fp": 2,
+              "fn": 1,
+              "tn": 14
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 15
+            },
+            "gaia_dev:9": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 2,
+              "tn": 21
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 1,
+              "tn": 12
+            },
+            "hotpotqa:12": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 3
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 21,
+              "tn": 38
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 8,
+              "tn": 42
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 55,
+              "fp": 5,
+              "fn": 31,
+              "tn": 48
+            },
+            "tau2:37": {
+              "tp": 16,
+              "fp": 2,
+              "fn": 7,
+              "tn": 28
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 241,
+          "recall": 0.3567708333333333,
+          "precision": 0.5684647302904564,
+          "f1": 0.4384,
+          "neutral_fp": 10,
+          "positive_fp": 94,
+          "subset_fp": {
+            "bfcl": 73,
+            "gaia_dev": 18,
+            "hotpotqa": 4,
+            "tau2": 9
+          }
+        },
+        "eligible": false
+      },
+      {
+        "threshold": 0.6,
+        "model": {
+          "tp": 78,
+          "fp": 21,
+          "fn": 306,
+          "tn": 985,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 19,
+              "tn": 39
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 57
+            },
+            "bfcl:17": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3,
+              "tn": 67
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 50
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 7,
+              "tn": 44
+            },
+            "bfcl:43": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 6,
+              "tn": 41
+            },
+            "bfcl:6": {
+              "tp": 5,
+              "fp": 9,
+              "fn": 7,
+              "tn": 51
+            },
+            "bfcl:7": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 4,
+              "tn": 26
+            },
+            "gaia_dev:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 23,
+              "tn": 9
+            },
+            "gaia_dev:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 26,
+              "tn": 6
+            },
+            "gaia_dev:23": {
+              "tp": 3,
+              "fp": 2,
+              "fn": 29,
+              "tn": 15
+            },
+            "gaia_dev:24": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 1,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 33,
+              "tn": 16
+            },
+            "gaia_dev:46": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 3,
+              "tn": 10
+            },
+            "gaia_dev:49": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 5,
+              "tn": 15
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 16
+            },
+            "gaia_dev:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 22
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 15
+            },
+            "hotpotqa:12": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 22,
+              "tn": 39
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 9,
+              "tn": 43
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 49,
+              "fp": 3,
+              "fn": 37,
+              "tn": 50
+            },
+            "tau2:37": {
+              "tp": 10,
+              "fp": 0,
+              "fn": 13,
+              "tn": 30
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 99,
+          "recall": 0.203125,
+          "precision": 0.7878787878787878,
+          "f1": 0.32298136645962733,
+          "neutral_fp": 2,
+          "positive_fp": 19,
+          "subset_fp": {
+            "bfcl": 15,
+            "gaia_dev": 3,
+            "hotpotqa": 0,
+            "tau2": 3
+          }
+        },
+        "combined": {
+          "tp": 119,
+          "fp": 82,
+          "fn": 265,
+          "tn": 924,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 3,
+              "fp": 10,
+              "fn": 16,
+              "tn": 29
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 6,
+              "fn": 7,
+              "tn": 51
+            },
+            "bfcl:17": {
+              "tp": 1,
+              "fp": 10,
+              "fn": 3,
+              "tn": 57
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 12,
+              "fn": 3,
+              "tn": 38
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 4,
+              "fp": 3,
+              "fn": 4,
+              "tn": 42
+            },
+            "bfcl:43": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 5,
+              "tn": 40
+            },
+            "bfcl:6": {
+              "tp": 5,
+              "fp": 9,
+              "fn": 7,
+              "tn": 51
+            },
+            "bfcl:7": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 4,
+              "tn": 25
+            },
+            "gaia_dev:17": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 21,
+              "tn": 8
+            },
+            "gaia_dev:21": {
+              "tp": 6,
+              "fp": 1,
+              "fn": 20,
+              "tn": 5
+            },
+            "gaia_dev:23": {
+              "tp": 7,
+              "fp": 5,
+              "fn": 25,
+              "tn": 12
+            },
+            "gaia_dev:24": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 5,
+              "fp": 2,
+              "fn": 28,
+              "tn": 14
+            },
+            "gaia_dev:46": {
+              "tp": 5,
+              "fp": 3,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:49": {
+              "tp": 6,
+              "fp": 2,
+              "fn": 1,
+              "tn": 14
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 15
+            },
+            "gaia_dev:9": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 2,
+              "tn": 21
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 1,
+              "tn": 12
+            },
+            "hotpotqa:12": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 3
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 21,
+              "tn": 39
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 8,
+              "tn": 42
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 50,
+              "fp": 3,
+              "fn": 36,
+              "tn": 50
+            },
+            "tau2:37": {
+              "tp": 14,
+              "fp": 1,
+              "fn": 9,
+              "tn": 29
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 201,
+          "recall": 0.3098958333333333,
+          "precision": 0.5920398009950248,
+          "f1": 0.40683760683760684,
+          "neutral_fp": 5,
+          "positive_fp": 77,
+          "subset_fp": {
+            "bfcl": 57,
+            "gaia_dev": 16,
+            "hotpotqa": 4,
+            "tau2": 5
+          }
+        },
+        "eligible": false
+      },
+      {
+        "threshold": 0.7,
+        "model": {
+          "tp": 47,
+          "fp": 3,
+          "fn": 337,
+          "tn": 1003,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 19,
+              "tn": 39
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 57
+            },
+            "bfcl:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 67
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 50
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 8,
+              "tn": 45
+            },
+            "bfcl:43": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 6,
+              "tn": 42
+            },
+            "bfcl:6": {
+              "tp": 3,
+              "fp": 2,
+              "fn": 9,
+              "tn": 58
+            },
+            "bfcl:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 5,
+              "tn": 30
+            },
+            "gaia_dev:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 23,
+              "tn": 9
+            },
+            "gaia_dev:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 26,
+              "tn": 6
+            },
+            "gaia_dev:23": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 31,
+              "tn": 17
+            },
+            "gaia_dev:24": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 33,
+              "tn": 16
+            },
+            "gaia_dev:46": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 4,
+              "tn": 10
+            },
+            "gaia_dev:49": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 16
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 16
+            },
+            "gaia_dev:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 22
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 15
+            },
+            "hotpotqa:12": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 23,
+              "tn": 39
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 9,
+              "tn": 43
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 30,
+              "fp": 1,
+              "fn": 56,
+              "tn": 52
+            },
+            "tau2:37": {
+              "tp": 10,
+              "fp": 0,
+              "fn": 13,
+              "tn": 30
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 50,
+          "recall": 0.12239583333333333,
+          "precision": 0.94,
+          "f1": 0.21658986175115208,
+          "neutral_fp": 1,
+          "positive_fp": 2,
+          "subset_fp": {
+            "bfcl": 2,
+            "gaia_dev": 0,
+            "hotpotqa": 0,
+            "tau2": 1
+          }
+        },
+        "combined": {
+          "tp": 97,
+          "fp": 64,
+          "fn": 287,
+          "tn": 942,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 3,
+              "fp": 10,
+              "fn": 16,
+              "tn": 29
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 6,
+              "fn": 7,
+              "tn": 51
+            },
+            "bfcl:17": {
+              "tp": 0,
+              "fp": 10,
+              "fn": 4,
+              "tn": 57
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 12,
+              "fn": 3,
+              "tn": 38
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 3,
+              "fp": 2,
+              "fn": 5,
+              "tn": 43
+            },
+            "bfcl:43": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 5,
+              "tn": 41
+            },
+            "bfcl:6": {
+              "tp": 4,
+              "fp": 2,
+              "fn": 8,
+              "tn": 58
+            },
+            "bfcl:7": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 5,
+              "tn": 29
+            },
+            "gaia_dev:17": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 21,
+              "tn": 8
+            },
+            "gaia_dev:21": {
+              "tp": 6,
+              "fp": 1,
+              "fn": 20,
+              "tn": 5
+            },
+            "gaia_dev:23": {
+              "tp": 7,
+              "fp": 3,
+              "fn": 25,
+              "tn": 14
+            },
+            "gaia_dev:24": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 5,
+              "fp": 2,
+              "fn": 28,
+              "tn": 14
+            },
+            "gaia_dev:46": {
+              "tp": 5,
+              "fp": 3,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:49": {
+              "tp": 6,
+              "fp": 1,
+              "fn": 1,
+              "tn": 15
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 15
+            },
+            "gaia_dev:9": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 2,
+              "tn": 21
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 1,
+              "tn": 12
+            },
+            "hotpotqa:12": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 3
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 22,
+              "tn": 39
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 8,
+              "tn": 42
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 33,
+              "fp": 1,
+              "fn": 53,
+              "tn": 52
+            },
+            "tau2:37": {
+              "tp": 14,
+              "fp": 1,
+              "fn": 9,
+              "tn": 29
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 161,
+          "recall": 0.2526041666666667,
+          "precision": 0.6024844720496895,
+          "f1": 0.3559633027522936,
+          "neutral_fp": 4,
+          "positive_fp": 60,
+          "subset_fp": {
+            "bfcl": 44,
+            "gaia_dev": 13,
+            "hotpotqa": 4,
+            "tau2": 3
+          }
+        },
+        "eligible": false
+      },
+      {
+        "threshold": 0.8,
+        "model": {
+          "tp": 21,
+          "fp": 1,
+          "fn": 363,
+          "tn": 1005,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 19,
+              "tn": 39
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 57
+            },
+            "bfcl:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 67
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 50
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 8,
+              "tn": 45
+            },
+            "bfcl:43": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 42
+            },
+            "bfcl:6": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 12,
+              "tn": 60
+            },
+            "bfcl:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 5,
+              "tn": 30
+            },
+            "gaia_dev:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 23,
+              "tn": 9
+            },
+            "gaia_dev:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 26,
+              "tn": 6
+            },
+            "gaia_dev:23": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 31,
+              "tn": 17
+            },
+            "gaia_dev:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 33,
+              "tn": 16
+            },
+            "gaia_dev:46": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 5,
+              "tn": 10
+            },
+            "gaia_dev:49": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 16
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 16
+            },
+            "gaia_dev:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 22
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 15
+            },
+            "hotpotqa:12": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 23,
+              "tn": 39
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 9,
+              "tn": 43
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 12,
+              "fp": 1,
+              "fn": 74,
+              "tn": 52
+            },
+            "tau2:37": {
+              "tp": 8,
+              "fp": 0,
+              "fn": 15,
+              "tn": 30
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 22,
+          "recall": 0.0546875,
+          "precision": 0.9545454545454546,
+          "f1": 0.10344827586206896,
+          "neutral_fp": 1,
+          "positive_fp": 0,
+          "subset_fp": {
+            "bfcl": 0,
+            "gaia_dev": 0,
+            "hotpotqa": 0,
+            "tau2": 1
+          }
+        },
+        "combined": {
+          "tp": 79,
+          "fp": 62,
+          "fn": 305,
+          "tn": 944,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 3,
+              "fp": 10,
+              "fn": 16,
+              "tn": 29
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 6,
+              "fn": 7,
+              "tn": 51
+            },
+            "bfcl:17": {
+              "tp": 0,
+              "fp": 10,
+              "fn": 4,
+              "tn": 57
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 12,
+              "fn": 3,
+              "tn": 38
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 3,
+              "fp": 2,
+              "fn": 5,
+              "tn": 43
+            },
+            "bfcl:43": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 6,
+              "tn": 41
+            },
+            "bfcl:6": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 8,
+              "tn": 60
+            },
+            "bfcl:7": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 5,
+              "tn": 29
+            },
+            "gaia_dev:17": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 21,
+              "tn": 8
+            },
+            "gaia_dev:21": {
+              "tp": 6,
+              "fp": 1,
+              "fn": 20,
+              "tn": 5
+            },
+            "gaia_dev:23": {
+              "tp": 7,
+              "fp": 3,
+              "fn": 25,
+              "tn": 14
+            },
+            "gaia_dev:24": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 5,
+              "fp": 2,
+              "fn": 28,
+              "tn": 14
+            },
+            "gaia_dev:46": {
+              "tp": 5,
+              "fp": 3,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:49": {
+              "tp": 6,
+              "fp": 1,
+              "fn": 1,
+              "tn": 15
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 15
+            },
+            "gaia_dev:9": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 2,
+              "tn": 21
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 1,
+              "tn": 12
+            },
+            "hotpotqa:12": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 3
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 22,
+              "tn": 39
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 8,
+              "tn": 42
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 18,
+              "fp": 1,
+              "fn": 68,
+              "tn": 52
+            },
+            "tau2:37": {
+              "tp": 12,
+              "fp": 1,
+              "fn": 11,
+              "tn": 29
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 141,
+          "recall": 0.20572916666666666,
+          "precision": 0.5602836879432624,
+          "f1": 0.30095238095238097,
+          "neutral_fp": 4,
+          "positive_fp": 58,
+          "subset_fp": {
+            "bfcl": 42,
+            "gaia_dev": 13,
+            "hotpotqa": 4,
+            "tau2": 3
+          }
+        },
+        "eligible": false
+      },
+      {
+        "threshold": 0.9,
+        "model": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 368,
+          "tn": 1006,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 19,
+              "tn": 39
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 57
+            },
+            "bfcl:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 67
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 50
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 8,
+              "tn": 45
+            },
+            "bfcl:43": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 42
+            },
+            "bfcl:6": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 12,
+              "tn": 60
+            },
+            "bfcl:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 5,
+              "tn": 30
+            },
+            "gaia_dev:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 23,
+              "tn": 9
+            },
+            "gaia_dev:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 26,
+              "tn": 6
+            },
+            "gaia_dev:23": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 32,
+              "tn": 17
+            },
+            "gaia_dev:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 33,
+              "tn": 16
+            },
+            "gaia_dev:46": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 5,
+              "tn": 10
+            },
+            "gaia_dev:49": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 16
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 16
+            },
+            "gaia_dev:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 22
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 15
+            },
+            "hotpotqa:12": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 23,
+              "tn": 39
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 9,
+              "tn": 43
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 8,
+              "fp": 0,
+              "fn": 78,
+              "tn": 53
+            },
+            "tau2:37": {
+              "tp": 8,
+              "fp": 0,
+              "fn": 15,
+              "tn": 30
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 16,
+          "recall": 0.041666666666666664,
+          "precision": 1.0,
+          "f1": 0.08,
+          "neutral_fp": 0,
+          "positive_fp": 0,
+          "subset_fp": {
+            "bfcl": 0,
+            "gaia_dev": 0,
+            "hotpotqa": 0,
+            "tau2": 0
+          }
+        },
+        "combined": {
+          "tp": 76,
+          "fp": 61,
+          "fn": 308,
+          "tn": 945,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 3,
+              "fp": 10,
+              "fn": 16,
+              "tn": 29
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 6,
+              "fn": 7,
+              "tn": 51
+            },
+            "bfcl:17": {
+              "tp": 0,
+              "fp": 10,
+              "fn": 4,
+              "tn": 57
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 12,
+              "fn": 3,
+              "tn": 38
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 3,
+              "fp": 2,
+              "fn": 5,
+              "tn": 43
+            },
+            "bfcl:43": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 6,
+              "tn": 41
+            },
+            "bfcl:6": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 8,
+              "tn": 60
+            },
+            "bfcl:7": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 5,
+              "tn": 29
+            },
+            "gaia_dev:17": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 21,
+              "tn": 8
+            },
+            "gaia_dev:21": {
+              "tp": 6,
+              "fp": 1,
+              "fn": 20,
+              "tn": 5
+            },
+            "gaia_dev:23": {
+              "tp": 7,
+              "fp": 3,
+              "fn": 25,
+              "tn": 14
+            },
+            "gaia_dev:24": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 5,
+              "fp": 2,
+              "fn": 28,
+              "tn": 14
+            },
+            "gaia_dev:46": {
+              "tp": 5,
+              "fp": 3,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:49": {
+              "tp": 6,
+              "fp": 1,
+              "fn": 1,
+              "tn": 15
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 15
+            },
+            "gaia_dev:9": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 2,
+              "tn": 21
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 1,
+              "tn": 12
+            },
+            "hotpotqa:12": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 3
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 22,
+              "tn": 39
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 8,
+              "tn": 42
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 15,
+              "fp": 0,
+              "fn": 71,
+              "tn": 53
+            },
+            "tau2:37": {
+              "tp": 12,
+              "fp": 1,
+              "fn": 11,
+              "tn": 29
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 137,
+          "recall": 0.19791666666666666,
+          "precision": 0.5547445255474452,
+          "f1": 0.29174664107485604,
+          "neutral_fp": 3,
+          "positive_fp": 58,
+          "subset_fp": {
+            "bfcl": 42,
+            "gaia_dev": 13,
+            "hotpotqa": 4,
+            "tau2": 2
+          }
+        },
+        "eligible": false
+      },
+      {
+        "threshold": 0.95,
+        "model": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 375,
+          "tn": 1006,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 19,
+              "tn": 39
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 57
+            },
+            "bfcl:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 67
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 50
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 8,
+              "tn": 45
+            },
+            "bfcl:43": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 42
+            },
+            "bfcl:6": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 12,
+              "tn": 60
+            },
+            "bfcl:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 5,
+              "tn": 30
+            },
+            "gaia_dev:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 23,
+              "tn": 9
+            },
+            "gaia_dev:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 26,
+              "tn": 6
+            },
+            "gaia_dev:23": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 32,
+              "tn": 17
+            },
+            "gaia_dev:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 33,
+              "tn": 16
+            },
+            "gaia_dev:46": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 5,
+              "tn": 10
+            },
+            "gaia_dev:49": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 16
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 16
+            },
+            "gaia_dev:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 22
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 15
+            },
+            "hotpotqa:12": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 23,
+              "tn": 39
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 9,
+              "tn": 43
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 82,
+              "tn": 53
+            },
+            "tau2:37": {
+              "tp": 5,
+              "fp": 0,
+              "fn": 18,
+              "tn": 30
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 9,
+          "recall": 0.0234375,
+          "precision": 1.0,
+          "f1": 0.04580152671755725,
+          "neutral_fp": 0,
+          "positive_fp": 0,
+          "subset_fp": {
+            "bfcl": 0,
+            "gaia_dev": 0,
+            "hotpotqa": 0,
+            "tau2": 0
+          }
+        },
+        "combined": {
+          "tp": 76,
+          "fp": 61,
+          "fn": 308,
+          "tn": 945,
+          "per_task_confusion": {
+            "bfcl:14": {
+              "tp": 3,
+              "fp": 10,
+              "fn": 16,
+              "tn": 29
+            },
+            "bfcl:15": {
+              "tp": 0,
+              "fp": 6,
+              "fn": 7,
+              "tn": 51
+            },
+            "bfcl:17": {
+              "tp": 0,
+              "fp": 10,
+              "fn": 4,
+              "tn": 57
+            },
+            "bfcl:26": {
+              "tp": 0,
+              "fp": 12,
+              "fn": 3,
+              "tn": 38
+            },
+            "bfcl:34": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 17
+            },
+            "bfcl:4": {
+              "tp": 3,
+              "fp": 2,
+              "fn": 5,
+              "tn": 43
+            },
+            "bfcl:43": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 6,
+              "tn": 41
+            },
+            "bfcl:6": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 8,
+              "tn": 60
+            },
+            "bfcl:7": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 5,
+              "tn": 29
+            },
+            "gaia_dev:17": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 21,
+              "tn": 8
+            },
+            "gaia_dev:21": {
+              "tp": 6,
+              "fp": 1,
+              "fn": 20,
+              "tn": 5
+            },
+            "gaia_dev:23": {
+              "tp": 7,
+              "fp": 3,
+              "fn": 25,
+              "tn": 14
+            },
+            "gaia_dev:24": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:39": {
+              "tp": 5,
+              "fp": 2,
+              "fn": 28,
+              "tn": 14
+            },
+            "gaia_dev:46": {
+              "tp": 5,
+              "fp": 3,
+              "fn": 0,
+              "tn": 7
+            },
+            "gaia_dev:49": {
+              "tp": 6,
+              "fp": 1,
+              "fn": 1,
+              "tn": 15
+            },
+            "gaia_dev:5": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 15
+            },
+            "gaia_dev:9": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 2,
+              "tn": 21
+            },
+            "hotpotqa:0": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 1,
+              "tn": 12
+            },
+            "hotpotqa:12": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:13": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:2": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4
+            },
+            "hotpotqa:21": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 6
+            },
+            "hotpotqa:25": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6
+            },
+            "hotpotqa:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 7
+            },
+            "hotpotqa:32": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 6
+            },
+            "hotpotqa:4": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 0,
+              "tn": 3
+            },
+            "hotpotqa:7": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "tn": 13
+            },
+            "tau2:14": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 43
+            },
+            "tau2:16": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 22,
+              "tn": 39
+            },
+            "tau2:17": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "tn": 44
+            },
+            "tau2:21": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 8,
+              "tn": 42
+            },
+            "tau2:24": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 45
+            },
+            "tau2:3": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 7,
+              "tn": 17
+            },
+            "tau2:30": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 49
+            },
+            "tau2:35": {
+              "tp": 15,
+              "fp": 0,
+              "fn": 71,
+              "tn": 53
+            },
+            "tau2:37": {
+              "tp": 12,
+              "fp": 1,
+              "fn": 11,
+              "tn": 29
+            },
+            "tau2:9": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 17,
+              "tn": 45
+            }
+          },
+          "flags": 137,
+          "recall": 0.19791666666666666,
+          "precision": 0.5547445255474452,
+          "f1": 0.29174664107485604,
+          "neutral_fp": 3,
+          "positive_fp": 58,
+          "subset_fp": {
+            "bfcl": 42,
+            "gaia_dev": 13,
+            "hotpotqa": 4,
+            "tau2": 2
+          }
+        },
+        "eligible": false
+      }
+    ],
+    "uncertainty": "Paired independent-task confusion counts retained for all policies. Confidence intervals and statistical significance are unassessed; validation selection remains development-only.",
+    "selected_threshold": null,
+    "interpretation": "Development validation only; examined test split is not a fresh assessment."
+  },
+  "test_encoded_or_scored": false,
+  "no_hyperparameter_or_threshold_search": true,
+  "source_code_sha256": {
+    "experimental/reconstruct_review.py": "52ccc5b4d2d203642accfb01b5c6c1f11c5e422b3f273e2e9c97b50b33db8dc7"
+  },
+  "resource": {
+    "exit_code": 0,
+    "stop_reason": null,
+    "elapsed_seconds": 5.555884705000153,
+    "sampled_peak_group_rss_kib": 270724,
+    "rss_poll_seconds": 0.01
+  },
+  "end_to_end_seconds": 5.558831953000208,
+  "privacy_license_review": {
+    "artifact_format": "Bounded non-executable JSON primitives; no pickle",
+    "raw_trace_fields_in_artifact": false,
+    "learned_vocabulary_contains_source_derived_terms": true,
+    "credential_prefix_matches": 0,
+    "literal_email_matches": 0,
+    "long_identifier_terms": 13,
+    "upstream_license_declaration": "MIT as declared by the AgentProcessBench Hugging Face card; original GitHub snapshot lacks a separate license file",
+    "upstream_material_independently_cleared": false,
+    "public_distribution_not_authorized": true
+  }
+}
